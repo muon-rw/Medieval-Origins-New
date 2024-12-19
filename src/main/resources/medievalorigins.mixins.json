@@ -1,0 +1,20 @@
+{
+	"required": true,
+	"package": "dev.muon.medievalorigins.mixin",
+	"plugin": "dev.muon.medievalorigins.MedievalOriginsMixinPlugin",
+	"refmap": "medievalorigins.refmap.json",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"IcarusHelperMixin",
+		"SpellHelperMixin",
+		"SpellCooldownMixin"
+	],
+	"client": [
+		"client.IcarusClientMixin",
+		"client.AbstractClientPlayerMixin",
+		"client.ElytraModelMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
