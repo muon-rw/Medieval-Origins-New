@@ -15,12 +15,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class MedievalOrigins implements ModInitializer {
-	public static final Logger LOGGER = LogManager.getLogger("medievalorigins");
+	public static String MOD_ID = "medievalorigins";
+	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
+	public static ResourceLocation loc(String id) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
+	}
 
 	@Override
 	public void onInitialize() {
-		Constants.LOG.info("Loading Medieval Origins");
-
+		LOGGER.info("Loading Medieval Origins");
 
 		ModEnchantments.register();
 		ModEntities.register();
@@ -31,10 +34,6 @@ public class MedievalOrigins implements ModInitializer {
 		ModBientityConditions.register();
 		ModSounds.register();
 		ModPowers.register();
-		ModTags.registerTags();
 	}
-	static String MOD_ID = "medievalorigins";
-	public static ResourceLocation loc(String id) {
-		return new ResourceLocation(MOD_ID, id);
-	}
+
 }
