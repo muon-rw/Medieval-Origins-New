@@ -17,7 +17,6 @@
 
 	"license": "MIT License",
 	"icon": "assets/medievalorigins/icon.png",
-
 	"environment": "*",
 	"entrypoints": {
 		"main": [

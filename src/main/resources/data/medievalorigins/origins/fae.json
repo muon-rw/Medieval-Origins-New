@@ -10,8 +10,7 @@
                 "medievalorigins:fae/iron_aversion"
         ],
         "icon": {
-                "item": "minecraft:ink_sac",
-                "tag": "{CustomModelData:367}"
+                "id": "medievalorigins:fae"
         },
         "impact": 2,
         "order": 1
