@@ -49,9 +49,6 @@
   "origin.medievalorigins.siren.name": "Siren",
   "origin.medievalorigins.siren.description": "-§l Notable Changes§r: \n§o§2+ Water-Based, Utility §r\n§o§6• Weaker on Land§r\n§o§c- Vulnerable to Fire§r\n§lSirens§r are said to be a type of Merfolk. They have an ensnaring aura and their irresistible beauty is said to be the downfall of many a foolish sailor.",
 
-  "origin.medievalorigins.troll.name": "Troll",
-  "origin.medievalorigins.troll.description": "-§l Notable Changes§r: \n§o§cNOT CURRENTLY IMPLEMENTED§r\nLarge, lumbering giants who hail from the mountains, trolls are aggressive and self sufficient - they prefer to live and fight alone.",
-
   "origin.medievalorigins.yeti.name": "Yeti",
   "origin.medievalorigins.yeti.description": "-§l Notable Changes§r: \n§o§2+ Frost-Based, Tanky§r\n§o§6• Large: 203cm.6'8\"§r\n§o§c- Heat Sensitive§r\nThick-furred beasts from frosty woods, a Yeti's dominion over ice allows them to freeze foes, but they are especially vulnerable to fiery attacks.",
 
@@ -395,33 +392,6 @@
 
   "power.medievalorigins.siren.seduce.name": "Captivating",
   "power.medievalorigins.siren.seduce.description": "Press the secondary active key to gain favor with a villager and receive better trades from them.",
-
-  "power.medievalorigins.troll.apex_predator.name": "Apex Predator",
-  "power.medievalorigins.troll.apex_predator.description": "Trolls cannot eat regular food - they can only satiate their hunger by slaughtering other creatures.",
-
-  "power.medievalorigins.troll.ham_fisted.name": "Ham Fisted",
-  "power.medievalorigins.troll.ham_fisted.description": "While the huge fists of the troll pack a mighty punch, they are far too cumbersome to hold a shield.",
-
-  "power.medievalorigins.troll.ironhide.name": "Ironhide",
-  "power.medievalorigins.troll.ironhide.description": "Trolls have incredibly thick skin, giving them a natural armor and massively increased health.",
-
-  "power.medievalorigins.troll.lumbering.name": "Lumbering",
-  "power.medievalorigins.troll.lumbering.description": "When you're as large as a troll, you have a lot of weight to heft around. Movement is noticably slower than one would expect for their size.",
-
-  "power.medievalorigins.troll.mountainous.name": "Mountainous",
-  "power.medievalorigins.troll.mountainous.description": "Trolls take after the mountains from which they come from. They are massively tall, twice the size of the average person.",
-
-  "power.medievalorigins.troll.old_blood.name": "Old Blood",
-  "power.medievalorigins.troll.old_blood.description": "The old blood which runs through the veins of the trolls is bound to the mountains. They cannot heal themselves outside of their hilly homelands.",
-
-  "power.medievalorigins.troll.out_of_stock.name": "Out of Stock",
-  "power.medievalorigins.troll.out_of_stock.description": "There is no armor made to fit trolls - They are doomed to walk with the coverings nature gave them, and nothing more.",
-
-  "power.medievalorigins.troll.rock_throw.name": "Rock Throw",
-  "power.medievalorigins.troll.rock_throw.description": "A troll can, at will, hurl a large rock into the air, plowing through whatever may cross its path. However, this does come at the cost of 64 precious cobblestone blocks.",
-
-  "power.medievalorigins.troll.thunderous_stride.name": "Thunderous Stride",
-  "power.medievalorigins.troll.thunderous_stride.description": "Trolls walk with purpose. Should they persist long enough, they can walk straight through any obstacle which may cross their path.",
 
   "power.medievalorigins.yeti.flammable.name": "Flammable",
   "power.medievalorigins.yeti.flammable.description": "Yetis are susceptible to fire damage due to their wintry nature.",
