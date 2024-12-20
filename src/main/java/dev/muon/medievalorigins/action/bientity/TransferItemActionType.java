@@ -1,29 +1,22 @@
-package dev.muon.medievalorigins.action;
+package dev.muon.medievalorigins.action.bientity;
 
-import dev.muon.medievalorigins.Constants;
-import dev.muon.medievalorigins.MedievalOrigins;
+import dev.muon.medievalorigins.action.ModBientityActionTypes;
 import dev.muon.medievalorigins.entity.ISummon;
-import dev.muon.medievalorigins.entity.SummonedSkeleton;
-import dev.muon.medievalorigins.entity.SummonedWitherSkeleton;
-import io.github.apace100.apoli.power.factory.action.ActionFactory;
+import io.github.apace100.apoli.action.ActionConfiguration;
+import io.github.apace100.apoli.action.type.BiEntityActionType;
+import io.github.apace100.apoli.data.TypedDataObjectFactory;
 import io.github.apace100.calio.data.SerializableData;
-import net.minecraft.util.Tuple;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
+public class TransferItemActionType extends BiEntityActionType {
+    public static final TypedDataObjectFactory<TransferItemActionType> DATA_FACTORY;
 
-
-
-public class TransferItemAction {
-    public static ActionFactory<Tuple<Entity, Entity>> getFactory() {
-        return new ActionFactory<>(MedievalOrigins.loc("transfer_item"), new SerializableData(), TransferItemAction::executeAction);
-    }
-    public static void executeAction(SerializableData.Instance data, Tuple<Entity, Entity> entities) {
-        Entity actor = entities.getA();
-        Entity target = entities.getB();
-
+    @Override
+    protected void execute(Entity actor, Entity target) {
         if (actor instanceof LivingEntity livingActor && target instanceof LivingEntity livingTarget) {
             ItemStack actorItem = livingActor.getMainHandItem().copy();
             ItemStack targetItem = livingTarget.getMainHandItem().copy();
@@ -33,7 +26,6 @@ public class TransferItemAction {
 
                 if (target instanceof ISummon summon) {
                     shouldTransfer = livingActor.getUUID().equals(summon.getOwnerUUID());
-                    Constants.LOG.info("Should Transfer:" + shouldTransfer);
                     if (shouldTransfer) summon.setWeapon(actorItem);
                 } else {
                     livingTarget.setItemInHand(InteractionHand.MAIN_HAND, actorItem);
@@ -45,5 +37,18 @@ public class TransferItemAction {
                 }
             }
         }
+    }
+
+    @Override
+    public @NotNull ActionConfiguration<?> getConfig() {
+        return ModBientityActionTypes.TRANSFER_ITEM;
+    }
+
+    static {
+        DATA_FACTORY = TypedDataObjectFactory.simple(
+                new SerializableData(),
+                data -> new TransferItemActionType(),
+                (type, data) -> data.instance()
+        );
     }
 }

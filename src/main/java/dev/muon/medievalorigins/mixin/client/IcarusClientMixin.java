@@ -6,12 +6,11 @@ import dev.cammiescorner.icarus.util.IcarusHelper;
 import dev.muon.medievalorigins.enchantment.ModEnchantments;
 import dev.muon.medievalorigins.power.IcarusWingsPower;
 import dev.muon.medievalorigins.power.PixieWingsPower;
-import io.github.apace100.apoli.component.PowerHolderComponent;
+import dev.muon.medievalorigins.util.ItemDataUtil;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import net.minecraft.world.item.ArmorItem;
@@ -33,7 +32,7 @@ public abstract class IcarusClientMixin {
         int armorValueSum = 0;
         Iterable<ItemStack> armorItems = player.getArmorSlots();
         for (ItemStack armorItem : armorItems) {
-            if (armorItem.isEmpty() || EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.FEATHERWEIGHT, armorItem) > 0) {
+            if (armorItem.isEmpty() || ItemDataUtil.getEnchantmentLevel(armorItem, ModEnchantments.FEATHERWEIGHT, player.level()) > 0) {
                 continue;
             }
             if (armorItem.getItem() instanceof ArmorItem armor) {

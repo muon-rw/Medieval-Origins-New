@@ -1,5 +1,6 @@
-package dev.muon.medievalorigins.action;
+package dev.muon.medievalorigins.action.entity;
 
+import dev.muon.medievalorigins.action.ModEntityActionTypes;
 import dev.muon.medievalorigins.util.SpellCastingUtil;
 import io.github.apace100.apoli.action.ActionConfiguration;
 import io.github.apace100.apoli.action.type.EntityActionType;
@@ -72,7 +73,7 @@ public class CastSpellActionType extends EntityActionType {
 
     @Override
     public @NotNull ActionConfiguration<?> getConfig() {
-        return ModEntityActions.CAST_SPELL;
+        return ModEntityActionTypes.CAST_SPELL;
     }
 
     static {

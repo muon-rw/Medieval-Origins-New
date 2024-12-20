@@ -1,5 +1,6 @@
-package dev.muon.medievalorigins.action;
+package dev.muon.medievalorigins.action.entity;
 
+import dev.muon.medievalorigins.action.ModEntityActionTypes;
 import io.github.apace100.apoli.action.ActionConfiguration;
 import io.github.apace100.apoli.action.type.EntityActionType;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
@@ -27,7 +28,7 @@ public class ClearNegativeEffectsActionType extends EntityActionType {
 
     @Override
     public @NotNull ActionConfiguration<?> getConfig() {
-        return ModEntityActions.CLEAR_NEGATIVE_EFFECTS;
+        return ModEntityActionTypes.CLEAR_NEGATIVE_EFFECTS;
     }
 
     static {
