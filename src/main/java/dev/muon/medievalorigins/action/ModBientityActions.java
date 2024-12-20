@@ -9,7 +9,6 @@ import net.minecraft.util.Tuple;
 public class ModBientityActions {
     public static void register() {
         register(TransferItemAction.getFactory());
-        register(AttributedDamageAction.getFactory());
         register(SpellDamageAction.getFactory());
         register(CastSpellBientityAction.getFactory());
     }
