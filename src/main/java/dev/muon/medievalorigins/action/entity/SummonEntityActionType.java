@@ -1,7 +1,7 @@
 package dev.muon.medievalorigins.action.entity;
 
 import dev.muon.medievalorigins.action.ModEntityActionTypes;
-import dev.muon.medievalorigins.entity.ISummon;
+import dev.muon.medievalorigins.entity.SummonedMob;
 import io.github.apace100.apoli.action.ActionConfiguration;
 import io.github.apace100.apoli.action.BiEntityAction;
 import io.github.apace100.apoli.action.EntityAction;
@@ -63,7 +63,6 @@ public class SummonEntityActionType extends EntityActionType {
         this.biEntityAction = biEntityAction;
     }
 
-
     @Override
     protected void execute(Entity entity) {
         if (!(entity.level() instanceof ServerLevel serverWorld) || !(entity instanceof LivingEntity livingCaster)) {
@@ -91,7 +90,7 @@ public class SummonEntityActionType extends EntityActionType {
             mob.setPersistenceRequired();
         }
 
-        if (actualEntityToSpawn instanceof ISummon summon) {
+        if (actualEntityToSpawn instanceof SummonedMob summon) {
             duration.ifPresentOrElse(
                     ticks -> {
                         summon.setLifeTicks(ticks);
@@ -118,4 +117,5 @@ public class SummonEntityActionType extends EntityActionType {
     public @NotNull ActionConfiguration<?> getConfig() {
         return ModEntityActionTypes.SUMMON_ENTITY;
     }
+
 }

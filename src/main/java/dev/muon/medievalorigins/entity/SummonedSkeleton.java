@@ -1,52 +1,37 @@
 package dev.muon.medievalorigins.entity;
 
 import dev.muon.medievalorigins.entity.goal.FollowSummonerGoal;
-import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Team;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 import java.util.UUID;
 
-public class SummonedSkeleton extends Skeleton implements IFollowingSummon, ISummon {
-    /*
-     * Originally based off of Ars Nouveau, which is under the LGPL-v3.0 license
-     */
-    private static final EntityDataAccessor<Optional<UUID>> OWNER_UUID;
+public class SummonedSkeleton extends Skeleton implements SummonedMob {
+    private static final EntityDataAccessor<Optional<UUID>> OWNER_UUID =
+            SynchedEntityData.defineId(SummonedSkeleton.class, EntityDataSerializers.OPTIONAL_UUID);
 
-    static {
-        OWNER_UUID = IFollowingSummon.getOwnerUUIDAccessor(SummonedSkeleton.class);
-    }
-
-    public SummonedSkeleton(EntityType<? extends Skeleton> entityType, Level level) {
-        super(entityType, level);
-    }
-
-    private final RangedBowAttackGoal<SummonedSkeleton> bowGoal = new RangedBowAttackGoal<>(this, 1.0D, 20, 15.0F);
-
+    private final RangedBowAttackGoal<AbstractSkeleton> bowGoal = new RangedBowAttackGoal<>(this, 1.0D, 20, 15.0F);
     private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1.2D, true) {
         public void stop() {
             super.stop();
@@ -59,15 +44,17 @@ public class SummonedSkeleton extends Skeleton implements IFollowingSummon, ISum
         }
     };
 
-    private LivingEntity owner;
-    @Nullable
-    private BlockPos boundOrigin;
     private boolean isLimitedLifespan;
     private int limitedLifeTicks;
 
+    public SummonedSkeleton(EntityType<? extends Skeleton> entityType, Level level) {
+        super(entityType, level);
+    }
+
     @Override
-    public void die(DamageSource pDamageSource) {
-        super.die(pDamageSource);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(OWNER_UUID, Optional.empty());
     }
 
     @Override
@@ -75,76 +62,24 @@ public class SummonedSkeleton extends Skeleton implements IFollowingSummon, ISum
         return ModEntities.SUMMON_SKELETON;
     }
 
-    @Nullable
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor worldIn, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData spawnDataIn, @Nullable CompoundTag dataTag) {
-        this.populateDefaultEquipmentSlots(getRandom(), difficultyIn);
-        this.populateDefaultEquipmentEnchantments(getRandom(), difficultyIn);
-        return null;
-    }
-
-    @Override
-    protected void populateDefaultEquipmentSlots(RandomSource randomSource, DifficultyInstance pDifficulty) {
-        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
-    }
-
-    @Override
-    protected boolean shouldDropLoot() {
-        return true;
-    }
-
     @Override
     protected void registerGoals() {
-        this.targetSelector.addGoal(1, new CopyOwnerTargetGoal<>(this));
-        this.targetSelector.addGoal(2, new HurtByTargetGoal(this, SummonedSkeleton.class) {
-            @Override
-            protected boolean canAttack(@Nullable LivingEntity pPotentialTarget, TargetingConditions pTargetPredicate) {
-                return pPotentialTarget != null && super.canAttack(pPotentialTarget, pTargetPredicate) && !pPotentialTarget.getUUID().equals(getOwnerUUID());
-            }
-        });
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Mob.class, 10, false, true,
-                (LivingEntity entity) ->
-                        (entity instanceof Mob mob && mob.getTarget() != null && mob.getTarget().equals(this.owner))
-                                || (entity != null && entity.getKillCredit() != null && entity.getKillCredit().equals(this.owner))
-        ));
-
-        // No combat goal selector type here at p0; it gets assigned by reassessWeaponGoal
         this.goalSelector.addGoal(1, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(2, new FollowSummonerGoal(this, this.owner, 1.0, 9.0f, 3.0f));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 3.0F, 1.0F));
+        this.goalSelector.addGoal(2, new FollowSummonerGoal(this, 1.0, 9.0f, 3.0f));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 3.0F));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Mob.class, 8.0F));
 
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Mob.class, 10, false, true,
+                (entity) -> {
+                    if (entity == null || entity.getKillCredit() == null) return false;
+                    LivingEntity owner = getOwner();
+                    return owner != null && entity.getKillCredit().equals(owner);
+                }
+        ));
+
+        reassessWeaponGoal();
     }
-
-    public void setOwner(LivingEntity owner) {
-        this.owner = owner;
-    }
-
-    public void setWeapon(ItemStack item) {
-        this.setItemSlot(EquipmentSlot.MAINHAND, item);
-        this.reassessWeaponGoal();
-    }
-
-
-    @Override
-    public void reassessWeaponGoal() {
-        if (getWorld() instanceof ServerLevel && this.getItemInHand(InteractionHand.MAIN_HAND) != ItemStack.EMPTY) {
-            this.goalSelector.removeGoal(this.meleeGoal);
-            this.goalSelector.removeGoal(this.bowGoal);
-            ItemStack itemstack = this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, Items.BOW));
-            if (itemstack.is(Items.BOW)) {
-                this.bowGoal.setMinAttackInterval(20);
-                this.goalSelector.addGoal(0, this.bowGoal);
-            } else {
-                this.goalSelector.addGoal(0, this.meleeGoal);
-            }
-        }
-    }
-
-    @Override
-    public boolean hurt(DamageSource pSource, float pAmount) {
-        return super.hurt(pSource, pAmount);
-    }
-
 
     @Override
     public void tick() {
@@ -155,63 +90,29 @@ public class SummonedSkeleton extends Skeleton implements IFollowingSummon, ISum
         }
     }
 
-    public Team getTeam() {
-        if (this.getSummoner() != null) return getSummoner().getTeam();
-        return super.getTeam();
+    @Override
+    public PlayerTeam getTeam() {
+        LivingEntity owner = this.getOwner();
+        return owner != null ? owner.getTeam() : super.getTeam();
     }
 
     @Override
-    public boolean isAlliedTo(Entity pEntity) {
-        LivingEntity summoner = this.getSummoner();
-
-        if (summoner != null) {
-            if (pEntity instanceof ISummon summon && summon.getOwnerUUID() != null && summon.getOwnerUUID().equals(this.getOwnerUUID()))
+    public boolean isAlliedTo(Entity entity) {
+        LivingEntity owner = this.getOwner();
+        if (owner != null) {
+            if (entity instanceof SummonedMob summon &&
+                    summon.getOwnerUUID() != null &&
+                    summon.getOwnerUUID().equals(this.getOwnerUUID())) {
                 return true;
-            return pEntity == summoner || summoner.isAlliedTo(pEntity);
+            }
+            return entity == owner || owner.isAlliedTo(entity);
         }
-        return super.isAlliedTo(pEntity);
+        return super.isAlliedTo(entity);
     }
 
     @Override
-    public boolean wantsToAttack(LivingEntity target, LivingEntity owner) {
-        return true;
-    }
-
-    @Override
-    public Level getWorld() {
-        return this.level();
-    }
-
-    @Override
-    public PathNavigation getPathNav() {
-        return this.navigation;
-    }
-
-    @Override
-    public Mob getSelfEntity() {
-        return this;
-    }
-
-    public LivingEntity getSummoner() {
-        return this.getOwnerFromID();
-    }
-
-    public LivingEntity getActualOwner() {
-        return owner;
-    }
-
-    @Override
-    public int getExperienceReward() {
-        return 0;
-    }
-
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
-        if (this.boundOrigin != null) {
-            compound.putInt("BoundX", this.boundOrigin.getX());
-            compound.putInt("BoundY", this.boundOrigin.getY());
-            compound.putInt("BoundZ", this.boundOrigin.getZ());
-        }
         compound.putBoolean("isLimited", this.isLimitedLifespan);
         if (this.isLimitedLifespan) {
             compound.putInt("LifeTicks", this.limitedLifeTicks);
@@ -222,17 +123,14 @@ public class SummonedSkeleton extends Skeleton implements IFollowingSummon, ISum
         }
     }
 
+    @Override
     public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
-        if (compound.contains("BoundX")) {
-            this.boundOrigin = new BlockPos(compound.getInt("BoundX"), compound.getInt("BoundY"), compound.getInt("BoundZ"));
-        }
         if (compound.contains("isLimited")) {
             this.isLimitedLifespan = compound.getBoolean("isLimited");
         }
         if (compound.contains("LifeTicks")) {
             this.setLifeTicks(compound.getInt("LifeTicks"));
-            this.setIsLimitedLife(true);
         }
         if (compound.hasUUID("OwnerUUID")) {
             this.setOwnerID(compound.getUUID("OwnerUUID"));
@@ -254,25 +152,33 @@ public class SummonedSkeleton extends Skeleton implements IFollowingSummon, ISum
         this.isLimitedLifespan = bool;
     }
 
-    public LivingEntity getOwnerFromID() {
-        try {
-            UUID uuid = this.getOwnerUUID();
+    @Override
+    public void setWeapon(ItemStack item) {
+        this.setItemSlot(EquipmentSlot.MAINHAND, item);
+        this.reassessWeaponGoal();
+    }
 
-            return uuid == null ? null : this.getWorld().getPlayerByUUID(uuid);
-        } catch (IllegalArgumentException var2) {
-            return null;
+    @Override
+    public void reassessWeaponGoal() {
+        if (!this.level().isClientSide()) {
+            this.goalSelector.removeGoal(meleeGoal);
+            this.goalSelector.removeGoal(bowGoal);
+            if (this.getMainHandItem().getItem() instanceof ProjectileWeaponItem) {
+                this.goalSelector.addGoal(0, bowGoal);
+            } else {
+                this.goalSelector.addGoal(0, meleeGoal);
+            }
         }
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.getEntityData().define(OWNER_UUID, Optional.empty());
+    public Level getWorld() {
+        return this.level();
     }
 
     @Override
-    protected boolean isSunBurnTick() {
-        return false;
+    public Mob getSelfAsMob() {
+        return this;
     }
 
     @Nullable
@@ -286,4 +192,25 @@ public class SummonedSkeleton extends Skeleton implements IFollowingSummon, ISum
         this.entityData.set(OWNER_UUID, Optional.ofNullable(uuid));
     }
 
+    @Override
+    protected boolean shouldDropLoot() {
+        return false;
+    }
+
+    @Override
+    protected void populateDefaultEquipmentSlots(@NotNull RandomSource randomSource, @NotNull DifficultyInstance difficulty) {
+        this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));
+    }
+
+    @Override
+    protected boolean isSunBurnTick() {
+        return false;
+    }
+
+    @Nullable
+    @Override
+    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor level, @NotNull DifficultyInstance difficulty,
+                                        @NotNull MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        return spawnGroupData;
+    }
 }

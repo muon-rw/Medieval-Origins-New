@@ -1,7 +1,7 @@
 package dev.muon.medievalorigins.action.bientity;
 
 import dev.muon.medievalorigins.action.ModBientityActionTypes;
-import dev.muon.medievalorigins.entity.ISummon;
+import dev.muon.medievalorigins.entity.SummonedMob;
 import io.github.apace100.apoli.action.ActionConfiguration;
 import io.github.apace100.apoli.action.type.BiEntityActionType;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
@@ -13,7 +13,11 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class TransferItemActionType extends BiEntityActionType {
-    public static final TypedDataObjectFactory<TransferItemActionType> DATA_FACTORY;
+    public static final TypedDataObjectFactory<TransferItemActionType> DATA_FACTORY = TypedDataObjectFactory.simple(
+            new SerializableData(),
+            data -> new TransferItemActionType(),
+            (type, data) -> data.instance()
+    );
 
     @Override
     protected void execute(Entity actor, Entity target) {
@@ -24,7 +28,7 @@ public class TransferItemActionType extends BiEntityActionType {
             if (!actorItem.isEmpty() || !targetItem.isEmpty()) {
                 boolean shouldTransfer;
 
-                if (target instanceof ISummon summon) {
+                if (target instanceof SummonedMob summon) {
                     shouldTransfer = livingActor.getUUID().equals(summon.getOwnerUUID());
                     if (shouldTransfer) summon.setWeapon(actorItem);
                 } else {
@@ -42,13 +46,5 @@ public class TransferItemActionType extends BiEntityActionType {
     @Override
     public @NotNull ActionConfiguration<?> getConfig() {
         return ModBientityActionTypes.TRANSFER_ITEM;
-    }
-
-    static {
-        DATA_FACTORY = TypedDataObjectFactory.simple(
-                new SerializableData(),
-                data -> new TransferItemActionType(),
-                (type, data) -> data.instance()
-        );
     }
 }
