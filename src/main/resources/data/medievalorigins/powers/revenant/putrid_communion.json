@@ -90,7 +90,7 @@
 		"item_condition": {
 			"type": "apoli:ingredient",
 			"ingredient": {
-				"item": "minecraft:skeleton_skull"
+				"id": "minecraft:skeleton_skull"
 			}
 		},
 		"food_component": {
@@ -124,7 +124,7 @@
 		"item_condition": {
 			"type": "apoli:ingredient",
 			"ingredient": {
-				"item": "minecraft:wither_skeleton_skull"
+				"id": "minecraft:wither_skeleton_skull"
 			}
 		},
 		"food_component": {
@@ -175,7 +175,7 @@
 		"item_condition": {
 			"type": "apoli:ingredient",
 			"ingredient": {
-				"item": "minecraft:zombie_head"
+				"id": "minecraft:zombie_head"
 			}
 		},
 		"food_component": {

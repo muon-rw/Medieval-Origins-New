@@ -34,7 +34,7 @@
                                             "element": {
                                                 "type": "origins:give",
                                                 "stack": {
-                                                    "item": "minecraft:emerald",
+                                                    "id": "minecraft:emerald",
                                                     "amount": 1
                                                 }
                                             },
@@ -44,7 +44,7 @@
                                             "element": {
                                                 "type": "origins:give",
                                                 "stack": {
-                                                    "item": "minecraft:emerald",
+                                                    "id": "minecraft:emerald",
                                                     "amount": 2
                                                 }
                                             },
@@ -54,7 +54,7 @@
                                             "element": {
                                                 "type": "origins:give",
                                                 "stack": {
-                                                    "item": "minecraft:emerald",
+                                                    "id": "minecraft:emerald",
                                                     "amount": 3
                                                 }
                                             },

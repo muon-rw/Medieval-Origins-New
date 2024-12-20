@@ -1,9 +1,0 @@
-{
-    "hidden": true,
-    "type": "origins:attribute",
-    "modifier": {
-        "attribute": "spell_power:frost",
-        "operation": "addition",
-        "value": 1.0
-    }
-}

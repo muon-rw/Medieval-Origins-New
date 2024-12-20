@@ -10,7 +10,7 @@
     "flapper": {
         "type": "medievalorigins:pixie_wings",
         "wings_type": {
-            "item": "icarus:white_feathered_wings"
+            "id": "icarus:white_feathered_wings"
         }
     }
 }

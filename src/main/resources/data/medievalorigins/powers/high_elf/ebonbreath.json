@@ -93,7 +93,7 @@
                             "item_condition": {
                                 "type": "origins:ingredient",
                                 "ingredient": {
-                                    "item": "minecraft:dragon_breath"
+                                    "id": "minecraft:dragon_breath"
                                 }
                             }
                         },
@@ -103,7 +103,7 @@
                             "item_condition": {
                                 "type": "origins:ingredient",
                                 "ingredient": {
-                                    "item": "minecraft:dragon_breath"
+                                    "id": "minecraft:dragon_breath"
                                 }
                             }
                         }
@@ -240,7 +240,7 @@
                         "item_condition": {
                             "type": "origins:ingredient",
                             "ingredient": {
-                                "item": "minecraft:dragon_breath"
+                                "id": "minecraft:dragon_breath"
                             }
                         }
                     }
@@ -268,7 +268,7 @@
                             "item_condition": {
                                 "type": "origins:ingredient",
                                 "ingredient": {
-                                    "item": "minecraft:dragon_breath"
+                                    "id": "minecraft:dragon_breath"
                                 }
                             }
                         },
@@ -278,7 +278,7 @@
                             "item_condition": {
                                 "type": "origins:ingredient",
                                 "ingredient": {
-                                    "item": "minecraft:dragon_breath"
+                                    "id": "minecraft:dragon_breath"
                                 }
                             }
                         }

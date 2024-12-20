@@ -7,7 +7,7 @@
             {
                 "type": "origins:give",
                 "stack": {
-                    "item": "minecraft:bow",
+                    "id": "minecraft:bow",
                     "amount": 1
                 },
                 "preferred_slot": "mainhand",
@@ -20,7 +20,7 @@
             {
                 "type": "origins:give",
                 "stack": {
-                    "item": "minecraft:arrow",
+                    "id": "minecraft:arrow",
                     "amount": 16
                 }
             }
