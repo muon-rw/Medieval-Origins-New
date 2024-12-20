@@ -27,7 +27,6 @@ public class MedievalOrigins implements ModInitializer {
 	public void onInitialize() {
 		LOGGER.info("Loading Medieval Origins");
 
-		ModEnchantments.register();
 		ModEntities.register();
 		ModSounds.register();
 

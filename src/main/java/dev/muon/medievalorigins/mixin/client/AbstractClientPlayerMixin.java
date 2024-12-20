@@ -1,7 +1,9 @@
 package dev.muon.medievalorigins.mixin.client;
 
 import com.mojang.authlib.GameProfile;
-import dev.muon.medievalorigins.power.PixieWingsPower;
+import dev.muon.medievalorigins.MedievalOrigins;
+import io.github.apace100.apoli.component.PowerHolderComponent;
+import io.github.apace100.apoli.power.PowerReference;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffects;
@@ -18,10 +20,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AbstractClientPlayer.class)
 public abstract class AbstractClientPlayerMixin extends Player {
-    @Unique
-    private static final int TICK_INTERVAL = 2;
-    @Unique
-    private static final double GROUND_DISTANCE_THRESHOLD = 0.1;
+    @Unique private static final int TICK_INTERVAL = 2;
+    @Unique private static final double GROUND_DISTANCE_THRESHOLD = 0.1;
+    @Unique private static final PowerReference PIXIE_WINGS = PowerReference.of(MedievalOrigins.loc("pixie_wings"));
 
     public AbstractClientPlayerMixin(Level pLevel, BlockPos pPos, float pYRot, GameProfile pGameProfile) {
         super(pLevel, pPos, pYRot, pGameProfile);
@@ -30,7 +31,8 @@ public abstract class AbstractClientPlayerMixin extends Player {
     @Inject(method = "tick()V", at = @At("TAIL"))
     private void onTick(CallbackInfo ci) {
         AbstractClientPlayer player = (AbstractClientPlayer) (Player) this;
-        if (player.tickCount % TICK_INTERVAL == 0 && PixieWingsPower.hasPower(player)) {
+        var powerHolder = PowerHolderComponent.getOptional(player);
+        if (player.tickCount % TICK_INTERVAL == 0 && powerHolder.isPresent() && powerHolder.get().hasPower(PIXIE_WINGS)) {
             if (player.getAbilities().flying) {
                 player.elytraRotX = 1.4981317F;
                 player.elytraRotY = 0.58726646F;

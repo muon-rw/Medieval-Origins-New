@@ -3,10 +3,13 @@ package dev.muon.medievalorigins.mixin.client;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.cammiescorner.icarus.client.IcarusClient;
 import dev.cammiescorner.icarus.util.IcarusHelper;
+import dev.muon.medievalorigins.MedievalOrigins;
 import dev.muon.medievalorigins.enchantment.ModEnchantments;
-import dev.muon.medievalorigins.power.IcarusWingsPower;
-import dev.muon.medievalorigins.power.PixieWingsPower;
+import dev.muon.medievalorigins.power.IcarusWingsPowerType;
+import dev.muon.medievalorigins.power.PixieWingsPowerType;
 import dev.muon.medievalorigins.util.ItemDataUtil;
+import io.github.apace100.apoli.component.PowerHolderComponent;
+import io.github.apace100.apoli.power.PowerReference;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -42,14 +45,17 @@ public abstract class IcarusClientMixin {
         return cfg.armorSlows() ? Math.max(1.0F, armorValueSum / 20.0F * cfg.maxSlowedMultiplier()) : 1.0F;
     }
 
+    private static final PowerReference ICARUS_WINGS = PowerReference.of(MedievalOrigins.loc("icarus_wings"));
+    private static final PowerReference PIXIE_WINGS = PowerReference.of(MedievalOrigins.loc("pixie_wings"));
+
     @ModifyReturnValue(method = "getWingsForRendering", at = @At(value = "RETURN"))
     private static ItemStack renderOriginWings(ItemStack original, LivingEntity entity) {
+        var powerHolder = PowerHolderComponent.getOptional(entity);
         if (original.isEmpty()) {
-            ItemStack wingsType = IcarusWingsPower.getWingsType(entity);
-            if (!wingsType.isEmpty()) {
-                return wingsType;
+            if (powerHolder.isPresent() && powerHolder.get().hasPower(ICARUS_WINGS)) {
+                return ((IcarusWingsPowerType)powerHolder.get().getPowerType(ICARUS_WINGS.getPower())).getWingsType();
             }
-        } else if (PixieWingsPower.hasPower(entity)) {
+        } else if (powerHolder.isPresent() && powerHolder.get().hasPower(PIXIE_WINGS)) {
             return new ItemStack(Items.AIR);
         }
         return original;
