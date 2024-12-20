@@ -1,45 +1,57 @@
 {
 	"type": "origins:multiple",
 	"hidden": true,
-	"attributes": {
-		"type": "origins:attribute",
-		"modifiers": [
-			{
-				"attribute": "minecraft:generic.movement_speed",
-				"operation": "multiply_total",
-				"value": 0.2
-			},
-			{
-				"attribute": "minecraft:generic.max_health",
-				"operation": "addition",
-				"value": -10.0
-			}
-		]
-	},
 	"air_speed": {
 		"type": "origins:attribute_modify_transfer",
 		"class": "modify_air_speed",
 		"attribute": "minecraft:generic.movement_speed",
 		"multiplier": -0.4
 	},
-	"size_callon": {
-		"type": "origins:action_on_callback",
-		"entity_action_chosen": {
-			"type": "origins:execute_command",
-			"command": "function medievalorigins:mdvlorigins/pixie_callon"
-		},
-		"entity_action_lost": {
-			"type": "origins:execute_command",
-			"command": "function medievalorigins:mdvlorigins/pixie_callback"
-		},
-		"execute_chosen_when_orb": true
-	},
-	"size_constant": {
-		"type": "origins:action_over_time",
-		"entity_action": {
-			"type": "origins:execute_command",
-			"command": "execute unless entity @s[pehkui.scale_nbt={\"pehkui:scale_data_types\":{\"pehkui:height\":{scale:0.166f}}}] run function medievalorigins:mdvlorigins/pixie_callon"
-		},
-		"interval": 50
+	"attributes": {
+		"type": "origins:attribute",
+		"modifiers": [
+			{
+				"id": "*:*",
+				"attribute": "minecraft:generic.max_health",
+				"operation": "add_value",
+				"amount": -10.0
+			},
+			{
+				"id": "*:*",
+				"attribute": "minecraft:generic.movement_speed",
+				"operation": "add_multiplied_base",
+				"amount": 0.2
+			},
+			{
+				"id": "*:*",
+				"attribute": "additionalentityattributes:generic.height",
+				"amount": -0.833,
+				"operation": "add_multiplied_base"
+			},
+			{
+				"id": "*:*",
+				"attribute": "additionalentityattributes:generic.width",
+				"amount": -0.833,
+				"operation": "add_multiplied_base"
+			},
+			{
+				"id": "*:*",
+				"attribute": "additionalentityattributes:generic.hitbox_height",
+				"amount": 0.5,
+				"operation": "add_multiplied_base"
+			},
+			{
+				"id": "*:*",
+				"attribute": "additionalentityattributes:generic.hitbox_width",
+				"amount": 1.0,
+				"operation": "add_multiplied_base"
+			},
+			{
+				"id": "*:*",
+				"attribute": "minecraft:player.block_break_speed",
+				"amount": -0.25,
+				"operation": "add_multiplied_base"
+			}
+		]
 	}
 }
