@@ -6,7 +6,7 @@
 		"to": "lava",
 		"condition": {
 			"type": "origins:status_effect",
-			"id": "minecraft:haste",
+			"effect": "minecraft:haste",
 			"min_amplifier": 10
 		}
 	},
@@ -16,7 +16,7 @@
 		"v": 15,
 		"condition": {
 			"type": "origins:status_effect",
-			"id": "minecraft:haste",
+			"effect": "minecraft:haste",
 			"min_amplifier": 10
 		}
 	}

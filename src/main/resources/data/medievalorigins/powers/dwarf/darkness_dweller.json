@@ -63,24 +63,24 @@
 				"type": "origins:if_else",
 				"condition": {
 					"type": "origins:status_effect",
-					"id": "minecraft:blindness",
+					"effect": "minecraft:blindness",
 					"max_duration": 250
 				},
 				"if_action": {
 					"type": "origins:clear_effect",
-					"id": "minecraft:blindness"
+					"effect": "minecraft:blindness"
 				}
 			},
 			{
 				"type": "origins:if_else",
 				"condition": {
 					"type": "origins:status_effect",
-					"id": "minecraft:nausea",
+					"effect": "minecraft:nausea",
 					"max_duration": 250
 				},
 				"if_action": {
 					"type": "origins:clear_effect",
-					"id": "minecraft:nausea"
+					"effect": "minecraft:nausea"
 				}
 			}
 		]
