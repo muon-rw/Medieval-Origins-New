@@ -1,20 +1,19 @@
 {
-        "loading_priority": 11,
-	"powers": [
-                "medievalorigins:arachnae/climber",
-		"medievalorigins:arachnae/many_eyes",
-                "medievalorigins:arachnae/venomous_bite",
-                "medievalorigins:arachnae/web_slinger",
-                "medievalorigins:arachnae/bottomless_stomach",
-                "medievalorigins:arachnae/brittle",
-                "medievalorigins:arachnae/fragile_exoskeleton",
-		"origins:carnivore",
-                "origins:master_of_webs",
-                "origins:arthropod"
-	],
-        "icon": {
-                "id": "medievalorigins:arachnae"
-        },
-	"impact": 2,
-        "order": 1
+  "powers": [
+    "medievalorigins:arachnae/climber",
+    "medievalorigins:arachnae/many_eyes",
+    "medievalorigins:arachnae/venomous_bite",
+    "medievalorigins:arachnae/web_slinger",
+    "medievalorigins:arachnae/bottomless_stomach",
+    "medievalorigins:arachnae/brittle",
+    "medievalorigins:arachnae/fragile_exoskeleton",
+    "origins:carnivore",
+    "origins:master_of_webs",
+    "origins:arthropod"
+  ],
+  "icon": {
+    "id": "medievalorigins:arachnae"
+  },
+  "impact": 2,
+  "order": 1
 }

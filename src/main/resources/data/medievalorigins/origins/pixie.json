@@ -1,19 +1,18 @@
 {
-	"loading_priority": 11,
-	"powers": [
-		"medievalorigins:pixie/flight",
-		"medievalorigins:pixie/pixie_properties",
-		"medievalorigins:pixie/feather_footed",
-		"medievalorigins:pixie/wings",
-		"medievalorigins:pixie/mount",
-		"medievalorigins:pixie/good_fortunes",
-		"medievalorigins:pixie/mischief_maketh_man",
-		"medievalorigins:pixie/curse_of_flight",
-		"medievalorigins:pixie/troublemaker"
-	],
-	"icon": {
-		"id": "medievalorigins:ogre"
-	},
-	"impact": 2,
-	"order": 1
+  "powers": [
+    "medievalorigins:pixie/flight",
+    "medievalorigins:pixie/pixie_properties",
+    "medievalorigins:pixie/feather_footed",
+    "medievalorigins:pixie/wings",
+    "medievalorigins:pixie/mount",
+    "medievalorigins:pixie/good_fortunes",
+    "medievalorigins:pixie/mischief_maketh_man",
+    "medievalorigins:pixie/curse_of_flight",
+    "medievalorigins:pixie/troublemaker"
+  ],
+  "icon": {
+    "id": "medievalorigins:ogre"
+  },
+  "impact": 2,
+  "order": 1
 }
