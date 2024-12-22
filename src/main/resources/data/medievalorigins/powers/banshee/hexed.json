@@ -7,7 +7,7 @@
 				"element": {
 					"type": "origins:apply_effect",
 					"effect": {
-						"effect": "minecraft:wither",
+						"id": "minecraft:wither",
 						"is_ambient": true,
 						"show_particles": false,
 						"show_icon": false,

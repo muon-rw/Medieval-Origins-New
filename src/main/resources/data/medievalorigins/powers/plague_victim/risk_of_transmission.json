@@ -9,7 +9,7 @@
 					"element": {
 						"type": "origins:apply_effect",
 						"effect": {
-							"effect": "minecraft:wither",
+							"id": "minecraft:wither",
 							"is_ambient": true,
 							"show_particles": false,
 							"amplifier": 1,
@@ -41,7 +41,7 @@
 					"element": {
 						"type": "origins:apply_effect",
 						"effect": {
-							"effect": "minecraft:wither",
+							"id": "minecraft:wither",
 							"is_ambient": true,
 							"show_particles": false,
 							"amplifier": 1,

@@ -19,7 +19,7 @@
 		"entity_action": {
 			"type": "origins:apply_effect",
 			"effect": {
-				"effect": "minecraft:saturation",
+				"id": "minecraft:saturation",
 				"duration": 10,
 				"amplifier": 1
 			}

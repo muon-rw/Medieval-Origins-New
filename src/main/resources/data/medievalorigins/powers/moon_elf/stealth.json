@@ -47,7 +47,7 @@
 			"actions": [
 				{
 					"type": "origins:clear_effect",
-					"effect": "minecraft:invisibility"
+					"id": "minecraft:invisibility"
 				},
 				{
 					"type": "origins:change_resource",
@@ -103,7 +103,7 @@
 			"actions": [
 				{
 					"type": "origins:clear_effect",
-					"effect": "minecraft:invisibility"
+					"id": "minecraft:invisibility"
 				},
 				{
 					"type": "origins:change_resource",
@@ -224,7 +224,7 @@
 		"entity_action": {
 			"type": "origins:apply_effect",
 			"effect": {
-				"effect": "minecraft:invisibility",
+				"id": "minecraft:invisibility",
 				"duration": 200,
 				"amplifier": 255,
 				"is_ambient": true,
@@ -267,7 +267,7 @@
 			"actions": [
 				{
 					"type": "origins:clear_effect",
-					"effect": "minecraft:invisibility"
+					"id": "minecraft:invisibility"
 				},
 				{
 					"type": "origins:execute_command",

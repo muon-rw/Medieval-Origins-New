@@ -9,7 +9,7 @@
 					"type": "origins:apply_effect",
 					"effects": [
 						{
-							"effect": "minecraft:speed",
+							"id": "minecraft:speed",
 							"duration": 100,
 							"amplifier": 2,
 							"is_ambient": true,
@@ -17,7 +17,7 @@
 							"show_icon": true
 						},
 						{
-							"effect": "minecraft:haste",
+							"id": "minecraft:haste",
 							"duration": 100,
 							"amplifier": 10,
 							"is_ambient": true,
@@ -25,7 +25,7 @@
 							"show_icon": true
 						},
 						{
-							"effect": "minecraft:instant_damage",
+							"id": "minecraft:instant_damage",
 							"duration": 9,
 							"amplifier": 1,
 							"is_ambient": false,

@@ -33,7 +33,7 @@
 							"item_condition": {
 								"type": "origins:ingredient",
 								"ingredient": {
-									"id": "minecraft:blaze_powder"
+									"item": "minecraft:blaze_powder"
 								}
 							}
 						},
@@ -43,7 +43,7 @@
 							"item_condition": {
 								"type": "origins:ingredient",
 								"ingredient": {
-									"id": "minecraft:blaze_powder"
+									"item": "minecraft:blaze_powder"
 								}
 							}
 						}
@@ -169,7 +169,7 @@
 						"item_condition": {
 							"type": "origins:ingredient",
 							"ingredient": {
-								"id": "minecraft:blaze_powder"
+								"item": "minecraft:blaze_powder"
 							}
 						}
 					}
@@ -197,7 +197,7 @@
 							"item_condition": {
 								"type": "origins:ingredient",
 								"ingredient": {
-									"id": "minecraft:blaze_powder"
+									"item": "minecraft:blaze_powder"
 								}
 							}
 						},
@@ -207,7 +207,7 @@
 							"item_condition": {
 								"type": "origins:ingredient",
 								"ingredient": {
-									"id": "minecraft:blaze_powder"
+									"item": "minecraft:blaze_powder"
 								}
 							}
 						}

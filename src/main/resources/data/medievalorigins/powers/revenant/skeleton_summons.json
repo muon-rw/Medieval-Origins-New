@@ -12,7 +12,7 @@
 						{
 							"type": "origins:ingredient",
 							"ingredient": {
-								"id": "minecraft:bone"
+								"item": "minecraft:bone"
 							}
 						},
 						{
@@ -42,7 +42,7 @@
 									{
 										"type": "origins:ingredient",
 										"ingredient": {
-											"id": "minecraft:bone"
+											"item": "minecraft:bone"
 										}
 									},
 									{
@@ -59,7 +59,7 @@
 							"item_condition": {
 								"type": "origins:ingredient",
 								"ingredient": {
-									"id": "minecraft:saddle"
+									"item": "minecraft:saddle"
 								}
 							}
 						}
@@ -115,7 +115,7 @@
 										{
 											"type": "origins:ingredient",
 											"ingredient": {
-												"id": "minecraft:bone"
+												"item": "minecraft:bone"
 											}
 										},
 										{
@@ -132,7 +132,7 @@
 								"item_condition": {
 									"type": "origins:ingredient",
 									"ingredient": {
-										"id": "minecraft:wither_skeleton_skull"
+										"item": "minecraft:wither_skeleton_skull"
 									}
 								}
 							}

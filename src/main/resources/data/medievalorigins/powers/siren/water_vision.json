@@ -8,7 +8,7 @@
 	"entity_action": {
 		"type": "origins:apply_effect",
 		"effect": {
-			"effect": "minecraft:night_vision",
+			"id": "minecraft:night_vision",
 			"is_ambient": true,
 			"show_particles": false,
 			"show_icon": false,
@@ -20,12 +20,12 @@
 		"type": "origins:if_else",
 		"condition": {
 			"type": "origins:status_effect",
-			"effect": "minecraft:night_vision",
+			"id": "minecraft:night_vision",
 			"max_duration": 250
 		},
 		"if_action": {
 			"type": "origins:clear_effect",
-			"effect": "minecraft:night_vision"
+			"id": "minecraft:night_vision"
 		}
 	},
 	"interval": 20

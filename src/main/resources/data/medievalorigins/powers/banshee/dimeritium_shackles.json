@@ -65,14 +65,14 @@
 		"entity_action": {
 			"type": "origins:apply_effect",
 			"effect": {
-				"effect": "minecraft:wither",
+				"id": "minecraft:wither",
 				"duration": 80,
 				"amplifier": 0
 			}
 		},
 		"falling_action": {
 			"type": "origins:clear_effect",
-			"effect": "minecraft:wither"
+			"id": "minecraft:wither"
 		},
 		"condition": {
 			"type": "origins:equipped_item",

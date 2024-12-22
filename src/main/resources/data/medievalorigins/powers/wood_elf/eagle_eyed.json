@@ -3,7 +3,7 @@
 	"entity_action": {
 		"type": "origins:apply_effect",
 		"effect": {
-			"effect": "minecraft:glowing",
+			"id": "minecraft:glowing",
 			"show_particles": false,
 			"amplifier": 1,
 			"duration": 200

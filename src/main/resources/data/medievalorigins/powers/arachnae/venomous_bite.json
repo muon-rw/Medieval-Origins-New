@@ -7,7 +7,7 @@
 				"element": {
 					"type": "origins:apply_effect",
 					"effect": {
-						"effect": "minecraft:poison",
+						"id": "minecraft:poison",
 						"is_ambient": true,
 						"show_particles": false,
 						"amplifier": 1,

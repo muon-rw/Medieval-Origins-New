@@ -4,7 +4,7 @@
 		"type": "origins:apply_effect",
 		"effects": [
 			{
-				"effect": "minecraft:strength",
+				"id": "minecraft:strength",
 				"is_ambient": true,
 				"show_particles": false,
 				"show_icon": false,
@@ -12,7 +12,7 @@
 				"duration": 400
 			},
 			{
-				"effect": "minecraft:instant_damage",
+				"id": "minecraft:instant_damage",
 				"is_ambient": true,
 				"show_particles": false,
 				"show_icon": false,

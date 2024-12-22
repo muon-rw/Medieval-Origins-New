@@ -14,7 +14,7 @@
 							"action": {
 								"type": "origins:apply_effect",
 								"effect": {
-									"effect": "minecraft:poison",
+									"id": "minecraft:poison",
 									"duration": 100,
 									"amplifier": 1
 								}

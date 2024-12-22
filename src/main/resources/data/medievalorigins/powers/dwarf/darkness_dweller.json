@@ -39,7 +39,7 @@
 		"type": "origins:apply_effect",
 		"effects": [
 			{
-				"effect": "minecraft:blindness",
+				"id": "minecraft:blindness",
 				"is_ambient": true,
 				"show_particles": false,
 				"show_icon": false,
@@ -47,7 +47,7 @@
 				"duration": 250
 			},
 			{
-				"effect": "minecraft:nausea",
+				"id": "minecraft:nausea",
 				"is_ambient": true,
 				"show_particles": false,
 				"show_icon": false,
@@ -63,24 +63,24 @@
 				"type": "origins:if_else",
 				"condition": {
 					"type": "origins:status_effect",
-					"effect": "minecraft:blindness",
+					"id": "minecraft:blindness",
 					"max_duration": 250
 				},
 				"if_action": {
 					"type": "origins:clear_effect",
-					"effect": "minecraft:blindness"
+					"id": "minecraft:blindness"
 				}
 			},
 			{
 				"type": "origins:if_else",
 				"condition": {
 					"type": "origins:status_effect",
-					"effect": "minecraft:nausea",
+					"id": "minecraft:nausea",
 					"max_duration": 250
 				},
 				"if_action": {
 					"type": "origins:clear_effect",
-					"effect": "minecraft:nausea"
+					"id": "minecraft:nausea"
 				}
 			}
 		]

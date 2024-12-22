@@ -21,7 +21,7 @@
 		"type": "origins:apply_effect",
 		"effects": [
 			{
-				"effect": "minecraft:slowness",
+				"id": "minecraft:slowness",
 				"duration": 400,
 				"amplifier": 9,
 				"is_ambient": false,
@@ -29,7 +29,7 @@
 				"show_icon": true
 			},
 			{
-				"effect": "minecraft:mining_fatigue",
+				"id": "minecraft:mining_fatigue",
 				"duration": 400,
 				"amplifier": 0,
 				"is_ambient": false,
@@ -37,7 +37,7 @@
 				"show_icon": true
 			},
 			{
-				"effect": "minecraft:weakness",
+				"id": "minecraft:weakness",
 				"duration": 400,
 				"amplifier": 9,
 				"is_ambient": false,
@@ -50,13 +50,13 @@
 		"type": "origins:clear_effect",
 		"effects": [
 			{
-				"effect": "minecraft:slowness"
+				"id": "minecraft:slowness"
 			},
 			{
-				"effect": "minecraft:mining_fatigue"
+				"id": "minecraft:mining_fatigue"
 			},
 			{
-				"effect": "minecraft:weakness"
+				"id": "minecraft:weakness"
 			}
 		]
 	},

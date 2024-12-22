@@ -170,7 +170,7 @@
 		"type": "origins:conditioned_attribute",
 		"modifiers": [
 			{
-				"attribute": "reach-entity-attributes:reach",
+				"attribute": "minecraft:player.block_interaction_range",
 				"operation": "add_value",
 				"amount": 1.0,
 				"id": "*:*"

@@ -5,7 +5,7 @@
 		"entity_action": {
 			"type": "origins:apply_effect",
 			"effect": {
-				"effect": "minecraft:regeneration",
+				"id": "minecraft:regeneration",
 				"is_ambient": true,
 				"show_particles": false,
 				"show_icon": false,

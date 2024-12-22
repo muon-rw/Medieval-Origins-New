@@ -46,7 +46,7 @@
 				{
 					"type": "origins:apply_effect",
 					"effect": {
-						"effect": "minecraft:night_vision",
+						"id": "minecraft:night_vision",
 						"is_ambient": true,
 						"show_particles": false,
 						"show_icon": false,
@@ -67,7 +67,7 @@
 		"entity_action": {
 			"type": "origins:apply_effect",
 			"effect": {
-				"effect": "minecraft:night_vision",
+				"id": "minecraft:night_vision",
 				"is_ambient": true,
 				"show_particles": false,
 				"show_icon": false,
@@ -80,7 +80,7 @@
 			"actions": [
 				{
 					"type": "origins:clear_effect",
-					"effect": "minecraft:night_vision"
+					"id": "minecraft:night_vision"
 				},
 				{
 					"type": "origins:execute_command",
