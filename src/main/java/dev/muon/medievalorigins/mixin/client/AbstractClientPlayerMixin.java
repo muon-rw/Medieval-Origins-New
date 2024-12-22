@@ -1,12 +1,10 @@
 package dev.muon.medievalorigins.mixin.client;
 
 import com.mojang.authlib.GameProfile;
-import dev.muon.medievalorigins.MedievalOrigins;
+import dev.muon.medievalorigins.power.PixieWingsPowerType;
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.apace100.apoli.power.PowerReference;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -22,7 +20,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class AbstractClientPlayerMixin extends Player {
     @Unique private static final int TICK_INTERVAL = 2;
     @Unique private static final double GROUND_DISTANCE_THRESHOLD = 0.1;
-    @Unique private static final PowerReference PIXIE_WINGS = PowerReference.of(MedievalOrigins.loc("pixie_wings"));
 
     public AbstractClientPlayerMixin(Level pLevel, BlockPos pPos, float pYRot, GameProfile pGameProfile) {
         super(pLevel, pPos, pYRot, pGameProfile);
@@ -31,8 +28,7 @@ public abstract class AbstractClientPlayerMixin extends Player {
     @Inject(method = "tick()V", at = @At("TAIL"))
     private void onTick(CallbackInfo ci) {
         AbstractClientPlayer player = (AbstractClientPlayer) (Player) this;
-        var powerHolder = PowerHolderComponent.getOptional(player);
-        if (player.tickCount % TICK_INTERVAL == 0 && powerHolder.isPresent() && powerHolder.get().hasPower(PIXIE_WINGS)) {
+        if (player.tickCount % TICK_INTERVAL == 0 && PowerHolderComponent.hasPowerType(player, PixieWingsPowerType.class)) {
             if (player.getAbilities().flying) {
                 player.elytraRotX = 1.4981317F;
                 player.elytraRotY = 0.58726646F;
@@ -43,7 +39,8 @@ public abstract class AbstractClientPlayerMixin extends Player {
                 double speedMagnitude = Math.sqrt(playerMovement.x * playerMovement.x + playerMovement.z * playerMovement.z + Math.max(playerMovement.y, 0) * Math.max(playerMovement.y, 0)) * 4;
                 float flapStrength = (float) Math.min(speedMagnitude, 1.0);
 
-                Vec3 startPos = player.position(); Vec3 endPos = startPos.add(0, -1, 0);
+                Vec3 startPos = player.position();
+                Vec3 endPos = startPos.add(0, -1, 0);
                 HitResult hitResult = player.level().clip(new ClipContext(startPos, endPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
 
                 boolean isCloseToGround = hitResult.getType() != HitResult.Type.MISS && hitResult.getLocation().distanceTo(startPos) <= GROUND_DISTANCE_THRESHOLD;
@@ -53,7 +50,6 @@ public abstract class AbstractClientPlayerMixin extends Player {
                     player.elytraRotY = 0.58726646F * flapStrength;
                     player.elytraRotZ = (-0.5F - (float) Math.PI / 4F) * flapStrength;
                 }
-
             }
         }
     }

@@ -3,20 +3,19 @@ package dev.muon.medievalorigins.mixin.client;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.cammiescorner.icarus.client.IcarusClient;
 import dev.cammiescorner.icarus.util.IcarusHelper;
-import dev.muon.medievalorigins.MedievalOrigins;
 import dev.muon.medievalorigins.enchantment.ModEnchantments;
 import dev.muon.medievalorigins.power.IcarusWingsPowerType;
 import dev.muon.medievalorigins.power.PixieWingsPowerType;
 import dev.muon.medievalorigins.util.ItemDataUtil;
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.apace100.apoli.power.PowerReference;
+import io.github.apace100.apoli.power.type.PowerType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
-import net.minecraft.world.item.ArmorItem;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
@@ -45,18 +44,25 @@ public abstract class IcarusClientMixin {
         return cfg.armorSlows() ? Math.max(1.0F, armorValueSum / 20.0F * cfg.maxSlowedMultiplier()) : 1.0F;
     }
 
-    private static final PowerReference ICARUS_WINGS = PowerReference.of(MedievalOrigins.loc("icarus_wings"));
-    private static final PowerReference PIXIE_WINGS = PowerReference.of(MedievalOrigins.loc("pixie_wings"));
-
     @ModifyReturnValue(method = "getWingsForRendering", at = @At(value = "RETURN"))
     private static ItemStack renderOriginWings(ItemStack original, LivingEntity entity) {
         var powerHolder = PowerHolderComponent.getOptional(entity);
+        if (powerHolder.isEmpty()) return original;
+
         if (original.isEmpty()) {
-            if (powerHolder.isPresent() && powerHolder.get().hasPower(ICARUS_WINGS)) {
-                return ((IcarusWingsPowerType)powerHolder.get().getPowerType(ICARUS_WINGS.getPower())).getWingsType();
+            var icarusWings = powerHolder.get().getPowerTypes(IcarusWingsPowerType.class).stream()
+                    .filter(PowerType::isActive)
+                    .findFirst();
+            if (icarusWings.isPresent()) {
+                return icarusWings.get().getWingsType();
             }
-        } else if (powerHolder.isPresent() && powerHolder.get().hasPower(PIXIE_WINGS)) {
-            return new ItemStack(Items.AIR);
+        } else {
+            var pixieWings = powerHolder.get().getPowerTypes(PixieWingsPowerType.class).stream()
+                    .filter(PowerType::isActive)
+                    .findFirst();
+            if (pixieWings.isPresent()) {
+                return new ItemStack(Items.AIR);
+            }
         }
         return original;
     }

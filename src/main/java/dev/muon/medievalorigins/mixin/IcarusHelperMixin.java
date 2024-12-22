@@ -6,14 +6,12 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.cammiescorner.icarus.api.IcarusPlayerValues;
 import dev.cammiescorner.icarus.util.IcarusHelper;
-import dev.muon.medievalorigins.MedievalOrigins;
 import dev.muon.medievalorigins.power.IcarusWingsPowerType;
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.apace100.apoli.power.PowerReference;
+import io.github.apace100.apoli.power.type.PowerType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.function.Function;
@@ -22,75 +20,76 @@ import java.util.function.Predicate;
 
 @Mixin(value = IcarusHelper.class)
 public abstract class IcarusHelperMixin {
-    @Unique
-    private static final PowerReference ICARUS_WINGS = PowerReference.of(MedievalOrigins.loc("icarus_wings"));
 
     @ModifyReturnValue(method = "getConfigValues", at = @At("RETURN"))
     private static IcarusPlayerValues modifyConfigValues(IcarusPlayerValues original, LivingEntity entity) {
         var powerHolder = PowerHolderComponent.getOptional(entity);
-        if (powerHolder.isPresent() && powerHolder.get().hasPower(ICARUS_WINGS)) {
-            return new IcarusPlayerValues() {
-                //TODO: add these as fields to power json
-                @Override
-                public float wingsSpeed() {
-                    return original.wingsSpeed();
-                }
+        if (powerHolder.isEmpty()) return original;
 
-                @Override
-                public float maxSlowedMultiplier() {
-                    return original.maxSlowedMultiplier();
-                }
+        var icarusWings = powerHolder.get().getPowerTypes(IcarusWingsPowerType.class).stream()
+                .filter(PowerType::isActive)
+                .findFirst();
 
-                @Override
-                public boolean armorSlows() {
-                    return original.armorSlows();
-                }
+        if (icarusWings.isEmpty()) return original;
 
-                @Override
-                public boolean canLoopDeLoop() {
-                    return original.canLoopDeLoop();
-                }
+        //TODO: Add as fields to power json
+        return new IcarusPlayerValues() {
+            @Override
+            public float wingsSpeed() {
+                return original.wingsSpeed();
+            }
 
-                @Override
-                public boolean canSlowFall() {
-                    return original.canSlowFall();
-                }
+            @Override
+            public float maxSlowedMultiplier() {
+                return original.maxSlowedMultiplier();
+            }
 
-                @Override
-                public float exhaustionAmount() {
-                    return original.exhaustionAmount();
-                }
+            @Override
+            public boolean armorSlows() {
+                return original.armorSlows();
+            }
 
-                @Override
-                public int maxHeightAboveWorld() {
-                    return original.maxHeightAboveWorld();
-                }
+            @Override
+            public boolean canLoopDeLoop() {
+                return original.canLoopDeLoop();
+            }
 
-                @Override
-                public boolean maxHeightEnabled() {
-                    return original.maxHeightEnabled();
-                }
+            @Override
+            public boolean canSlowFall() {
+                return original.canSlowFall();
+            }
 
-                @Override
-                public float requiredFoodAmount() {
-                    return 0;
-                }
-            };
-        }
-        return original;
+            @Override
+            public float exhaustionAmount() {
+                return original.exhaustionAmount();
+            }
+
+            @Override
+            public int maxHeightAboveWorld() {
+                return original.maxHeightAboveWorld();
+            }
+
+            @Override
+            public boolean maxHeightEnabled() {
+                return original.maxHeightEnabled();
+            }
+
+            @Override
+            public float requiredFoodAmount() {
+                return 0;
+            }
+        };
     }
-
 
     @WrapOperation(method = "hasWings", at = @At(value = "INVOKE", target = "Ljava/util/function/Predicate;test(Ljava/lang/Object;)Z"))
     private static boolean hasWingsFromOrigin(Predicate<LivingEntity> instance, Object entity, Operation<Boolean> original) {
-        var powerHolder = PowerHolderComponent.getOptional((LivingEntity) entity);
-        return powerHolder.isPresent() && powerHolder.get().hasPower(ICARUS_WINGS) || original.call(instance, entity);
+        return PowerHolderComponent.hasPowerType((LivingEntity) entity, IcarusWingsPowerType.class)
+                || original.call(instance, entity);
     }
 
     @WrapOperation(method = "getEquippedWings", at = @At(value = "INVOKE", target = "Ljava/util/function/Function;apply(Ljava/lang/Object;)Ljava/lang/Object;"))
     private static Object getOriginWings(Function<LivingEntity, ItemStack> instance, Object entity, Operation<ItemStack> original) {
-        var powerHolder = PowerHolderComponent.getOptional((LivingEntity) entity);
-        if (powerHolder.isPresent() && powerHolder.get().hasPower(ICARUS_WINGS)) {
+        if (PowerHolderComponent.hasPowerType((LivingEntity) entity, IcarusWingsPowerType.class)) {
             return null;
         }
         return original.call(instance, entity);
