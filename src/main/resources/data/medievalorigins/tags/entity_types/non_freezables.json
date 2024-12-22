@@ -1,10 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		{
-			"id": "#medievalorigins:bosses",
-			"required": false
-		},
-		"minecraft:blaze"
+                {"id": "#medievalorigins:bosses","required":false},
+                "minecraft:blaze"
 	]
 }
