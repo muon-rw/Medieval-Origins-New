@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    {"id":"#mythicmetals:armor/mythril","required":false},
+    {"id":"#mythicmetals:tools/mythril","required":false}
+  ]
+}
