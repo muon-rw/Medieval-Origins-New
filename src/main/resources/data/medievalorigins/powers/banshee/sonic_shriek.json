@@ -119,11 +119,7 @@
 							{
 								"type": "origins:damage",
 								"amount": 2,
-								"source": {
-									"name": "sonic_boom.player",
-									"bypasses_armor": true,
-									"magic": true
-								}
+								"damage_type": "sonic_boom.player"
 							}
 						]
 					}
