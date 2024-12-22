@@ -13,8 +13,8 @@
 	"add": {
 		"type": "origins:self_action_on_kill",
 		"target_condition": {
-			"type": "origins:entity_group",
-			"group": "undead"
+			"type": "origins:in_tag",
+			"tag": "undead"
 		},
 		"entity_action": {
 			"type": "origins:modify_resource",

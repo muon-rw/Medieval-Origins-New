@@ -2,15 +2,12 @@
 	"type": "origins:modify_damage_taken",
 	"damage_condition": {
 		"type": "origins:attacker",
-		"condition": {
-			"type": "entity_group",
-			"entity_group": {
-				"tag": "medievalorigins:melee_mobs"
-			}
+		"entity_condition": {
+			"type": "origins:in_tag",
+			"tag": "medievalorigins:melee_mobs"
 		}
 	},
 	"modifier": {
-		"name": "weak to magic",
 		"operation": "add_base_early",
 		"amount": 1.0
 	}

@@ -1,5 +1,5 @@
 {
 	"hidden": true,
-	"type": "origins:entity_group",
-	"group": "undead"
+	"type": "origins:modify_type_tag",
+	"tag": "undead"
 }
