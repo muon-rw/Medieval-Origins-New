@@ -119,7 +119,7 @@
 							{
 								"type": "origins:damage",
 								"amount": 2,
-								"damage_type": "sonic_boom.player"
+								"damage_type": "sonic_boom"
 							}
 						]
 					}
