@@ -2,6 +2,7 @@ package dev.muon.medievalorigins.condition;
 
 import dev.muon.medievalorigins.MedievalOrigins;
 import dev.muon.medievalorigins.condition.entity.CreativeModeConditionType;
+import dev.muon.medievalorigins.condition.entity.EntityInRadiusConditionType;
 import dev.muon.medievalorigins.condition.entity.IsArrowConditionType;
 import io.github.apace100.apoli.condition.ConditionConfiguration;
 import io.github.apace100.apoli.condition.type.EntityConditionType;
@@ -17,7 +18,7 @@ public class ModEntityConditionTypes {
                     (configurations, id) -> "Entity condition type \"" + id + "\" is undefined!");
 
     public static final ConditionConfiguration<IsArrowConditionType> IS_ARROW = register(ConditionConfiguration.of(MedievalOrigins.loc("is_arrow"), IsArrowConditionType.DATA_FACTORY));
-
+    public static final ConditionConfiguration<EntityInRadiusConditionType> ENTITY_IN_RADIUS = register(ConditionConfiguration.of(MedievalOrigins.loc("entity_in_radius"), EntityInRadiusConditionType.DATA_FACTORY));
     public static final ConditionConfiguration<CreativeModeConditionType> CREATIVE_MODE = register(ConditionConfiguration.of(MedievalOrigins.loc("creative_mode"), CreativeModeConditionType.DATA_FACTORY));
 
     public static void register() {
