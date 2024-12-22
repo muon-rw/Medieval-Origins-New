@@ -4,7 +4,7 @@
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
 			"operation": "multiply_total_multiplicative",
-			"value": 0.75
+			"amount": 0.75
 		},
 		"condition": {
 			"type": "origins:or",
@@ -24,8 +24,9 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.max_health",
-			"operation": "addition",
-			"value": 20
+			"operation": "add_value",
+			"amount": 20,
+			"id": "*:*"
 		},
 		"tick_rate": 20,
 		"condition": {
@@ -46,8 +47,9 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.max_health",
-			"operation": "addition",
-			"value": -6
+			"operation": "add_value",
+			"amount": -6,
+			"id": "*:*"
 		},
 		"tick_rate": 20,
 		"condition": {

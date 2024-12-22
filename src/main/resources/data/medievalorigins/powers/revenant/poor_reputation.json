@@ -73,7 +73,7 @@
 				"resource": "*:*_cooldown",
 				"modifier": {
 					"operation": "set_total",
-					"value": 150
+					"amount": 150
 				}
 			}
 		},
@@ -101,8 +101,8 @@
 			"type": "origins:modify_resource",
 			"resource": "*:*_cooldown",
 			"modifier": {
-				"operation": "addition",
-				"value": -1
+				"operation": "add_base_early",
+				"amount": -1
 			}
 		}
 	},
@@ -113,7 +113,7 @@
 			"resource": "*:*_cooldown",
 			"modifier": {
 				"operation": "set_total",
-				"value": 0
+				"amount": 0
 			}
 		},
 		"entity_action_respawned": {
@@ -121,7 +121,7 @@
 			"resource": "*:*_cooldown",
 			"modifier": {
 				"operation": "set_total",
-				"value": 0
+				"amount": 0
 			}
 		}
 	}

@@ -1,10 +1,10 @@
 {
 	"type": "origins:modify_damage_taken",
 	"modifier": {
-        "name": "Flammable",
-        "operation": "addition",
-        "value": 6.0
-    },
+		"name": "Flammable",
+		"operation": "add_base_early",
+		"amount": 6.0
+	},
 	"damage_condition": {
 		"type": "origins:in_tag",
 		"tag": "minecraft:is_fire"

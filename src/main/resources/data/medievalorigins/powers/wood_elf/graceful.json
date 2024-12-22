@@ -3,9 +3,8 @@
 	"weak_melee": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"name": "Origin modifier",
 			"operation": "multiply_total_multiplicative",
-			"value": -0.15
+			"amount": -0.15
 		},
 		"condition": {
 			"type": "origins:equipped_item",
@@ -18,10 +17,10 @@
 	"attack_speed": {
 		"type": "origins:attribute",
 		"modifier": {
-			"name": "Attack Speed bonus",
 			"attribute": "minecraft:generic.attack_speed",
-			"value": 0.5,
-			"operation": "addition"
+			"amount": 0.5,
+			"operation": "add_value",
+			"id": "*:*"
 		}
 	}
 }

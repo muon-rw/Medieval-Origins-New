@@ -5,18 +5,21 @@
 		"modifiers": [
 			{
 				"attribute": "minecraft:generic.attack_damage",
-				"operation": "multiply_base",
-				"value": 0.5
+				"operation": "add_multiplied_base",
+				"amount": 0.5,
+				"id": "*:*"
 			},
 			{
 				"attribute": "additionalentityattributes:player.bonus_loot_count_rolls",
-				"operation": "addition",
-				"value": 1.0
+				"operation": "add_value",
+				"amount": 1.0,
+				"id": "*:*"
 			},
 			{
 				"attribute": "additionalentityattributes:player.bonus_rare_loot_rolls",
-				"operation": "addition",
-				"value": 1.0
+				"operation": "add_value",
+				"amount": 1.0,
+				"id": "*:*"
 			}
 		],
 		"condition": {
@@ -43,18 +46,21 @@
 		"modifiers": [
 			{
 				"attribute": "minecraft:generic.attack_damage",
-				"operation": "multiply_base",
-				"value": 0.35
+				"operation": "add_multiplied_base",
+				"amount": 0.35,
+				"id": "*:*"
 			},
 			{
 				"attribute": "additionalentityattributes:player.bonus_loot_count_rolls",
-				"operation": "addition",
-				"value": 1.0
+				"operation": "add_value",
+				"amount": 1.0,
+				"id": "*:*"
 			},
 			{
 				"attribute": "additionalentityattributes:player.bonus_rare_loot_rolls",
-				"operation": "addition",
-				"value": 1.0
+				"operation": "add_value",
+				"amount": 1.0,
+				"id": "*:*"
 			}
 		],
 		"condition": {
@@ -80,7 +86,7 @@
 		"type": "origins:modify_damage_taken",
 		"modifier": {
 			"operation": "multiply_base_multiplicative",
-			"value": -0.2
+			"amount": -0.2
 		},
 		"condition": {
 			"type": "origins:and",
@@ -165,13 +171,15 @@
 		"modifiers": [
 			{
 				"attribute": "reach-entity-attributes:reach",
-				"operation": "addition",
-				"value": 1.0
+				"operation": "add_value",
+				"amount": 1.0,
+				"id": "*:*"
 			},
 			{
 				"attribute": "additionalentityattributes:player.dig_speed",
-				"operation": "addition",
-				"value": 1.0
+				"operation": "add_value",
+				"amount": 1.0,
+				"id": "*:*"
 			}
 		],
 		"condition": {
@@ -233,8 +241,9 @@
 		"modifiers": [
 			{
 				"attribute": "minecraft:generic.max_health",
-				"operation": "addition",
-				"value": 2
+				"operation": "add_value",
+				"amount": 2,
+				"id": "*:*"
 			}
 		],
 		"condition": {
@@ -261,13 +270,15 @@
 		"modifiers": [
 			{
 				"attribute": "minecraft:generic.armor",
-				"operation": "multiply_base",
-				"value": 0.15
+				"operation": "add_multiplied_base",
+				"amount": 0.15,
+				"id": "*:*"
 			},
 			{
 				"attribute": "minecraft:generic.max_health",
-				"operation": "addition",
-				"value": 2
+				"operation": "add_value",
+				"amount": 2,
+				"id": "*:*"
 			}
 		],
 		"condition": {
@@ -294,8 +305,9 @@
 		"modifiers": [
 			{
 				"attribute": "minecraft:generic.max_health",
-				"operation": "addition",
-				"value": 2
+				"operation": "add_value",
+				"amount": 2,
+				"id": "*:*"
 			}
 		],
 		"condition": {
@@ -322,13 +334,15 @@
 		"modifiers": [
 			{
 				"attribute": "minecraft:generic.armor",
-				"operation": "multiply_base",
-				"value": 0.15
+				"operation": "add_multiplied_base",
+				"amount": 0.15,
+				"id": "*:*"
 			},
 			{
 				"attribute": "minecraft:generic.max_health",
-				"operation": "addition",
-				"value": 2
+				"operation": "add_value",
+				"amount": 2,
+				"id": "*:*"
 			}
 		],
 		"condition": {

@@ -4,8 +4,9 @@
 		"type": "origins:conditioned_attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.movement_speed",
-			"operation": "addition",
-			"value": 0.03
+			"operation": "add_value",
+			"amount": 0.03,
+			"id": "*:*"
 		},
 		"condition": {
 			"type": "origins:or",
@@ -35,8 +36,8 @@
 			"name": "fall"
 		},
 		"modifier": {
-			"operation": "multiply_total",
-			"value": -0.5
+			"operation": "multiply_total_additive",
+			"amount": -0.5
 		},
 		"condition": {
 			"type": "origins:or",

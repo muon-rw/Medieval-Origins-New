@@ -5,8 +5,9 @@
 		"tick_rate": 20,
 		"modifier": {
 			"attribute": "generic.attack_damage",
-			"operation": "multiply_total",
-			"value": 0.25
+			"operation": "add_multiplied_total",
+			"amount": 0.25,
+			"id": "*:*"
 		},
 		"condition": {
 			"type": "origins:equipped_item",
@@ -32,8 +33,9 @@
 		"tick_rate": 20,
 		"modifier": {
 			"attribute": "generic.attack_damage",
-			"operation": "multiply_total",
-			"value": 0.25
+			"operation": "add_multiplied_total",
+			"amount": 0.25,
+			"id": "*:*"
 		},
 		"condition": {
 			"type": "origins:equipped_item",

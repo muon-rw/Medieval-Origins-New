@@ -1,6 +1,6 @@
 {
 	"type": "origins:effect_immunity",
-	"effects":[
+	"effects": [
 		"minecraft:slowness"
 	]
 }

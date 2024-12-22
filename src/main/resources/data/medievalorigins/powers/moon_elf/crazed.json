@@ -14,18 +14,19 @@
 		"attribute": "minecraft:generic.movement_speed",
 		"modifier": {
 			"operation": "multiply_base_additive",
-			"value": 0.2
+			"amount": 0.2
 		},
 		"condition": {
 			"type": "origins:daytime",
 			"inverted": true
-		}
+		},
+		"id": "*:*"
 	},
 	"no_phantoms": {
 		"type": "origins:modify_insomnia_ticks",
 		"modifier": {
 			"operation": "set_total",
-			"value": 0
+			"amount": 0
 		}
 	}
 }

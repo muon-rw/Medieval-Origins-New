@@ -1,7 +1,7 @@
 {
-  "replace": false,
-  "values": [
-    "minecraft:golden_pickaxe",
-    "minecraft:golden_shovel"
-  ]
+	"replace": false,
+	"values": [
+		"minecraft:golden_pickaxe",
+		"minecraft:golden_shovel"
+	]
 }

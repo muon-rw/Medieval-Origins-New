@@ -1,7 +1,13 @@
 {
-  "replace": false,
-  "values": [
-    {"id":"#forge:is_cold","required":false},
-    {"id":"#c:icy","required":false}
-  ]
+	"replace": false,
+	"values": [
+		{
+			"id": "#forge:is_cold",
+			"required": false
+		},
+		{
+			"id": "#c:icy",
+			"required": false
+		}
+	]
 }

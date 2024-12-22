@@ -1,6 +1,6 @@
 {
-    "replace": false,
-    "values": [
-        "minecraft:player_attack"
-    ]
+	"replace": false,
+	"values": [
+		"minecraft:player_attack"
+	]
 }

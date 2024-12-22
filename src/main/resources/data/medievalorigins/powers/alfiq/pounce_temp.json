@@ -1,8 +1,9 @@
 {
 	"type": "origins:modify_damage_dealt",
 	"modifier": {
-		"operation": "multiply_total",
-		"value": 0.5
+		"id": "*:*",
+		"operation": "multiply_total_additive",
+		"amount": 0.5
 	},
 	"condition": {
 		"type": "origins:on_block",
@@ -11,6 +12,6 @@
 	"self_action": {
 		"type": "origins:play_sound",
 		"sound": "minecraft:entity.player.attack.sweep",
-		"category": "player"
+		"category": "players"
 	}
 }

@@ -7,6 +7,6 @@
 	"modifier": {
 		"name": "Origin Magic Resistance",
 		"operation": "multiply_total_multiplicative",
-		"value": -0.3
+		"amount": -0.3
 	}
 }

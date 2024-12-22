@@ -2,7 +2,8 @@
 	"type": "origins:action_on_callback",
 	"entity_action_gained": {
 		"type": "origins:and",
-		"actions": [{
+		"actions": [
+			{
 				"type": "origins:add_velocity",
 				"z": 3.5,
 				"space": "local"

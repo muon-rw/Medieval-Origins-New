@@ -1,4 +1,4 @@
 {
-    "condition": "origins:origin",
-    "origin": "medievalorigins:banshee"
+	"condition": "origins:origin",
+	"origin": "medievalorigins:banshee"
 }

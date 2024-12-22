@@ -1,6 +1,6 @@
 {
-    "replace": false,
-    "values": [
-        "#medievalorigins:spell_damage"
-    ]
+	"replace": false,
+	"values": [
+		"#medievalorigins:spell_damage"
+	]
 }

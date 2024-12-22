@@ -1,8 +1,8 @@
 {
 	"type": "origins:modify_damage_taken",
 	"modifier": {
-		"operation": "multiply_base",
-		"value": 1.0
+		"operation": "multiply_base_additive",
+		"amount": 1.0
 	},
 	"damage_condition": {
 		"type": "origins:fire"

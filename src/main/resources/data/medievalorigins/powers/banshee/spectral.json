@@ -119,7 +119,7 @@
 		"type": "origins:modify_damage_taken",
 		"modifier": {
 			"operation": "multiply_total_multiplicative",
-			"value": -1
+			"amount": -1
 		},
 		"condition": {
 			"type": "origins:resource",
@@ -132,7 +132,7 @@
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
 			"operation": "multiply_total_multiplicative",
-			"value": -1
+			"amount": -1
 		},
 		"condition": {
 			"type": "origins:resource",

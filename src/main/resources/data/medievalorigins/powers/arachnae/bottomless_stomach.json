@@ -1,7 +1,8 @@
 {
 	"type": "origins:modify_exhaustion",
 	"modifier": {
-		"value": 0.8,
-		"operation": "multiply_base"
+		"id": "*:*",
+		"amount": 0.8,
+		"operation": "multiply_base_additive"
 	}
 }

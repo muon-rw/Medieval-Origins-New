@@ -6,8 +6,8 @@
 			"type": "origins:attacker"
 		},
 		"modifier": {
-			"operation": "addition",
-			"value": 1.5
+			"operation": "add_base_early",
+			"amount": 1.5
 		}
 	},
 	"magic_resistance": {
@@ -19,7 +19,7 @@
 		"modifier": {
 			"name": "Origin Magic Resistance",
 			"operation": "multiply_total_multiplicative",
-			"value": -0.25
+			"amount": -0.25
 		}
 	},
 	"magical_mob_resistance": {
@@ -32,8 +32,8 @@
 			}
 		},
 		"modifier": {
-			"operation": "addition",
-			"value": -1.5
+			"operation": "add_base_early",
+			"amount": -1.5
 		}
 	}
 }

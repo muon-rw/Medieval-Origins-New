@@ -81,7 +81,6 @@
 										"power": "medievalorigins:revenant/unwitherable",
 										"source": "medievalorigins:revenant/summons"
 									}
-									
 								]
 							}
 						},
@@ -196,7 +195,7 @@
 											"resource": "medievalorigins:revenant/putrid_communion_flesh",
 											"modifier": {
 												"operation": "add_base_early",
-												"value": -10
+												"amount": -10
 											}
 										}
 									}
@@ -264,7 +263,7 @@
 											"resource": "medievalorigins:revenant/putrid_communion_flesh",
 											"modifier": {
 												"operation": "add_base_early",
-												"value": -10
+												"amount": -10
 											}
 										}
 									}
@@ -299,7 +298,7 @@
 											"resource": "medievalorigins:revenant/putrid_communion_flesh",
 											"modifier": {
 												"operation": "add_base_early",
-												"value": -5
+												"amount": -5
 											}
 										}
 									}

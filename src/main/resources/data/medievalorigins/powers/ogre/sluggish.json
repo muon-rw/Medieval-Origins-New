@@ -3,13 +3,15 @@
 	"modifiers": [
 		{
 			"attribute": "minecraft:generic.movement_speed",
-			"operation": "addition",
-			"value": -0.04
+			"operation": "add_value",
+			"amount": -0.04,
+			"id": "*:*"
 		},
 		{
 			"attribute": "minecraft:generic.attack_speed",
-			"operation": "addition",
-			"value": -0.1
+			"operation": "add_value",
+			"amount": -0.1,
+			"id": "*:*"
 		}
 	]
 }

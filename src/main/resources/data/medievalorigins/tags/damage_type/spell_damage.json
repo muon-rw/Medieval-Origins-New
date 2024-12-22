@@ -1,9 +1,9 @@
 {
-    "replace": false,
-    "values": [
-        "medievalorigins:ebonbreath",
-        "medievalorigins:blazenbreath",
-        "medievalorigins:siphon",
-        "medievalorigins:smite"
-    ]
+	"replace": false,
+	"values": [
+		"medievalorigins:ebonbreath",
+		"medievalorigins:blazenbreath",
+		"medievalorigins:siphon",
+		"medievalorigins:smite"
+	]
 }

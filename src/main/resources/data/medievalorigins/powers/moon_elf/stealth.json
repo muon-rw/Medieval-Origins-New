@@ -3,8 +3,8 @@
 	"stealth_stab_bonus_no_dagger": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"operation": "multiply_total",
-			"value": 1.0
+			"operation": "multiply_total_additive",
+			"amount": 1.0
 		},
 		"condition": {
 			"type": "origins:and",
@@ -60,8 +60,8 @@
 	"stealth_stab_bonus_with_dagger": {
 		"type": "origins:modify_damage_dealt",
 		"modifier": {
-			"operation": "multiply_total",
-			"value": 2.0
+			"operation": "multiply_total_additive",
+			"amount": 2.0
 		},
 		"condition": {
 			"type": "origins:and",

@@ -1,9 +1,10 @@
 {
-    "hidden": true,
-    "type": "origins:modify_attribute",
-    "attribute": "minecraft:generic.attack_damage",
-    "modifier": {
-        "operation": "multiply_total_multiplicative",
-        "value": -0.5
-    }
+	"hidden": true,
+	"type": "origins:modify_attribute",
+	"attribute": "minecraft:generic.attack_damage",
+	"modifier": {
+		"operation": "multiply_total_multiplicative",
+		"amount": -0.5
+	},
+	"id": "*:*"
 }

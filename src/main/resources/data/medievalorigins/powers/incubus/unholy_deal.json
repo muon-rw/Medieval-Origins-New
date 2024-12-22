@@ -2,7 +2,8 @@
 	"type": "origins:active_self",
 	"entity_action": {
 		"type": "origins:apply_effect",
-		"effects": [{
+		"effects": [
+			{
 				"effect": "minecraft:strength",
 				"is_ambient": true,
 				"show_particles": false,
@@ -29,8 +30,8 @@
 		"should_render": true
 	},
 	"condition": {
-	"type": "origins:health",
-	"comparison": ">",
-	"compare_to": 12
+		"type": "origins:health",
+		"comparison": ">",
+		"compare_to": 12
 	}
 }

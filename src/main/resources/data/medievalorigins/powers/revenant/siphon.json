@@ -187,7 +187,7 @@
 														"type": "origins:modify_resource",
 														"modifier": {
 															"operation": "add_base_early",
-															"value": -4
+															"amount": -4
 														},
 														"resource": "medievalorigins:revenant/siphon_resource"
 													}
@@ -231,7 +231,7 @@
 														"type": "origins:modify_resource",
 														"modifier": {
 															"operation": "add_base_early",
-															"value": -2
+															"amount": -2
 														},
 														"resource": "medievalorigins:revenant/siphon_resource"
 													}
@@ -275,7 +275,7 @@
 														"type": "origins:modify_resource",
 														"modifier": {
 															"operation": "add_base_early",
-															"value": -1
+															"amount": -1
 														},
 														"resource": "medievalorigins:revenant/siphon_resource"
 													}

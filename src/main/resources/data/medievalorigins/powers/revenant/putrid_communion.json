@@ -74,7 +74,7 @@
 			"type": "origins:modify_resource",
 			"modifier": {
 				"operation": "add_base_early",
-				"value": 1
+				"amount": 1
 			},
 			"resource": "medievalorigins:revenant/putrid_communion_bone"
 		}
@@ -108,7 +108,7 @@
 			"type": "origins:modify_resource",
 			"modifier": {
 				"operation": "add_base_early",
-				"value": 5
+				"amount": 5
 			},
 			"resource": "medievalorigins:revenant/putrid_communion_bone"
 		}
@@ -142,7 +142,7 @@
 			"type": "origins:modify_resource",
 			"modifier": {
 				"operation": "add_base_early",
-				"value": 15
+				"amount": 15
 			},
 			"resource": "medievalorigins:revenant/putrid_communion_bone"
 		}
@@ -153,7 +153,7 @@
 			"type": "origins:modify_resource",
 			"modifier": {
 				"operation": "add_base_early",
-				"value": 1
+				"amount": 1
 			},
 			"resource": "medievalorigins:revenant/putrid_communion_flesh"
 		},
@@ -193,7 +193,7 @@
 			"type": "origins:modify_resource",
 			"modifier": {
 				"operation": "add_base_early",
-				"value": 5
+				"amount": 5
 			},
 			"resource": "medievalorigins:revenant/putrid_communion_flesh"
 		}

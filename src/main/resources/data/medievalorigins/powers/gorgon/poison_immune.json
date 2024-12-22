@@ -1,7 +1,7 @@
 {
-    "type": "origins:effect_immunity",
-    "effects": [
-        "minecraft:poison"
-    ],
-    "hidden": true
+	"type": "origins:effect_immunity",
+	"effects": [
+		"minecraft:poison"
+	],
+	"hidden": true
 }

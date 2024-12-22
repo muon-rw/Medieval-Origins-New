@@ -100,8 +100,8 @@
 	"jump_height": {
 		"type": "origins:modify_jump",
 		"modifier": {
-			"operation": "addition",
-			"value": 0.15
+			"operation": "add_base_early",
+			"amount": 0.15
 		},
 		"condition": {
 			"type": "origins:resource",
@@ -164,7 +164,7 @@
 			"type": "origins:modify_resource",
 			"modifier": {
 				"operation": "add_base_early",
-				"value": -1
+				"amount": -1
 			},
 			"resource": "*:*_flight_resource"
 		}
@@ -197,7 +197,7 @@
 			"type": "origins:modify_resource",
 			"modifier": {
 				"operation": "add_base_early",
-				"value": 1
+				"amount": 1
 			},
 			"resource": "*:*_flight_resource"
 		}
@@ -207,8 +207,9 @@
 		"tick_rate": 10,
 		"modifier": {
 			"attribute": "minecraft:generic.movement_speed",
-			"operation": "multiply_total",
-			"value": -0.4
+			"operation": "add_multiplied_total",
+			"amount": -0.4,
+			"id": "*:*"
 		},
 		"condition": {
 			"type": "origins:and",
@@ -537,7 +538,7 @@
 						"resource": "medievalorigins:pixie/flight_doubletap",
 						"modifier": {
 							"operation": "set_total",
-							"value": 0
+							"amount": 0
 						}
 					},
 					{
@@ -549,16 +550,16 @@
 							"type": "origins:modify_resource",
 							"resource": "*:*_flight_resource",
 							"modifier": {
-								"operation": "addition",
-								"value": -50
+								"operation": "add_base_early",
+								"amount": -50
 							}
 						},
 						"else_action": {
 							"type": "origins:modify_resource",
 							"resource": "*:*_flight_resource",
 							"modifier": {
-								"operation": "addition",
-								"value": -20
+								"operation": "add_base_early",
+								"amount": -20
 							}
 						}
 					},
@@ -678,7 +679,7 @@
 					"resource": "medievalorigins:pixie/flight_doubletap",
 					"modifier": {
 						"operation": "set_total",
-						"value": 0
+						"amount": 0
 					}
 				},
 				{
@@ -690,16 +691,16 @@
 						"type": "origins:modify_resource",
 						"resource": "*:*_flight_resource",
 						"modifier": {
-							"operation": "addition",
-							"value": -50
+							"operation": "add_base_early",
+							"amount": -50
 						}
 					},
 					"else_action": {
 						"type": "origins:modify_resource",
 						"resource": "*:*_flight_resource",
 						"modifier": {
-							"operation": "addition",
-							"value": -25
+							"operation": "add_base_early",
+							"amount": -25
 						}
 					}
 				},
@@ -795,7 +796,7 @@
 						"resource": "medievalorigins:pixie/flight_effects_toggle",
 						"modifier": {
 							"operation": "set_total",
-							"value": 1
+							"amount": 1
 						}
 					},
 					{
@@ -812,7 +813,7 @@
 						"resource": "medievalorigins:pixie/flight_effects_toggle",
 						"modifier": {
 							"operation": "set_total",
-							"value": 0
+							"amount": 0
 						}
 					},
 					{

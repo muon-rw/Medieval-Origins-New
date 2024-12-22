@@ -2,8 +2,9 @@
 	"type": "origins:conditioned_attribute",
 	"modifier": {
 		"attribute": "spell_power:healing",
-		"operation": "addition",
-		"value": 1
+		"operation": "add_value",
+		"amount": 1,
+		"id": "*:*"
 	},
 	"hidden": true
 }

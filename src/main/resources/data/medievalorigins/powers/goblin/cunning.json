@@ -3,8 +3,9 @@
 	"modifiers": [
 		{
 			"attribute": "minecraft:generic.luck",
-			"operation": "addition",
-			"value": 1.0
+			"operation": "add_value",
+			"amount": 1.0,
+			"id": "*:*"
 		}
 	]
 }

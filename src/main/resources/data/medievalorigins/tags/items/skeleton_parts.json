@@ -1,6 +1,6 @@
 {
-  "replace": false,
-  "values": [
-	  "minecraft:bone"
-  ]
+	"replace": false,
+	"values": [
+		"minecraft:bone"
+	]
 }

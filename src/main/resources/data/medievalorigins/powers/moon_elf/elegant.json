@@ -33,8 +33,9 @@
 		"tick_rate": 30,
 		"modifier": {
 			"attribute": "minecraft:generic.movement_speed",
-			"operation": "multiply_base",
-			"value": -0.1
+			"operation": "add_multiplied_base",
+			"amount": -0.1,
+			"id": "*:*"
 		},
 		"condition": {
 			"type": "origins:equipped_item",
@@ -49,8 +50,9 @@
 		"tick_rate": 30,
 		"modifier": {
 			"attribute": "minecraft:generic.movement_speed",
-			"operation": "multiply_base",
-			"value": -0.1
+			"operation": "add_multiplied_base",
+			"amount": -0.1,
+			"id": "*:*"
 		},
 		"condition": {
 			"type": "origins:equipped_item",
@@ -65,8 +67,9 @@
 		"tick_rate": 30,
 		"modifier": {
 			"attribute": "minecraft:generic.movement_speed",
-			"operation": "multiply_base",
-			"value": -0.1
+			"operation": "add_multiplied_base",
+			"amount": -0.1,
+			"id": "*:*"
 		},
 		"condition": {
 			"type": "origins:equipped_item",
@@ -81,8 +84,9 @@
 		"tick_rate": 30,
 		"modifier": {
 			"attribute": "minecraft:generic.movement_speed",
-			"operation": "multiply_base",
-			"value": -0.1
+			"operation": "add_multiplied_base",
+			"amount": -0.1,
+			"id": "*:*"
 		},
 		"condition": {
 			"type": "origins:equipped_item",

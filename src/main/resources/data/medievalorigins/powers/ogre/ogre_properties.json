@@ -4,23 +4,24 @@
 	"break_speed": {
 		"type": "origins:modify_break_speed",
 		"modifier": {
-			"operation": "multiply_base",
-			"value": 0.25
+			"operation": "multiply_base_additive",
+			"amount": 0.25
 		}
 	},
 	"damage": {
 		"type": "origins:attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.attack_damage",
-			"operation": "multiply_base",
-			"value": 0.35
+			"operation": "add_multiplied_base",
+			"amount": 0.35,
+			"id": "*:*"
 		}
 	},
 	"better_food": {
 		"type": "origins:modify_food",
 		"saturation_modifer": {
-			"operation": "multiply_base",
-			"value": 1.0
+			"operation": "multiply_base_additive",
+			"amount": 1.0
 		}
 	}
 }

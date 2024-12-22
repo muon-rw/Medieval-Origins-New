@@ -4,27 +4,27 @@
 		"type": "origins:modify_food",
 		"food_modifier": {
 			"name": "Increased food points",
-			"operation": "multiply_total",
-			"value": -1
+			"operation": "multiply_total_additive",
+			"amount": -1
 		},
 		"saturation_modifier": {
 			"name": "Increased saturation points",
-			"operation": "multiply_total",
-			"value": -1
+			"operation": "multiply_total_additive",
+			"amount": -1
 		}
 	},
 	"no_phantoms": {
 		"type": "origins:modify_insomnia_ticks",
 		"modifier": {
 			"operation": "set_total",
-			"value": 0
+			"amount": 0
 		}
 	},
 	"no_starve": {
 		"type": "origins:modify_damage_taken",
 		"modifier": {
 			"operation": "multiply_total_multiplicative",
-			"value": -1
+			"amount": -1
 		},
 		"damage_condition": {
 			"type": "origins:name",

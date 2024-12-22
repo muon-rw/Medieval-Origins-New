@@ -1,6 +1,6 @@
 {
-    "type": "medievalorigins:icarus_wings",
-    "wings_type": {
-        "id": "icarus:white_feathered_wings"
-    }
+	"type": "medievalorigins:icarus_wings",
+	"wings_type": {
+		"id": "icarus:white_feathered_wings"
+	}
 }

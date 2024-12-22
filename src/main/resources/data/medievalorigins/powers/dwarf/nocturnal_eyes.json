@@ -45,7 +45,6 @@
 					"power": "medievalorigins:dwarf/nocturnal_eyes_toggle"
 				}
 			]
-
 		},
 		"entity_action": {
 			"type": "origins:apply_effect",

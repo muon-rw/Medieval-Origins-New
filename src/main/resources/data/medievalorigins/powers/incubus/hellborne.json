@@ -34,7 +34,7 @@
 		"modifier": {
 			"name": "Fire Damage Immunity",
 			"operation": "multiply_total_multiplicative",
-			"value": -1.0
+			"amount": -1.0
 		}
 	}
 }

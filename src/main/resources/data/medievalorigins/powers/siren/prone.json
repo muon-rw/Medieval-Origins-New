@@ -11,7 +11,7 @@
 	},
 	"modifier": {
 		"name": "weak to magic",
-		"operation": "addition",
-		"value": 1.0
+		"operation": "add_base_early",
+		"amount": 1.0
 	}
 }

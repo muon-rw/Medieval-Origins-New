@@ -3,8 +3,8 @@
 	"underwater": {
 		"type": "origins:modify_break_speed",
 		"modifier": {
-			"operation": "multiply_total",
-			"value": 4
+			"operation": "multiply_total_additive",
+			"amount": 4
 		},
 		"condition": {
 			"type": "origins:and",
@@ -25,8 +25,8 @@
 	"ungrounded": {
 		"type": "origins:modify_break_speed",
 		"modifier": {
-			"operation": "multiply_total",
-			"value": 4
+			"operation": "multiply_total_additive",
+			"amount": 4
 		},
 		"condition": {
 			"type": "origins:and",
@@ -52,15 +52,15 @@
 		},
 		"entity_action": {
 			"type": "origins:gain_air",
-			"value": 40
+			"amount": 40
 		},
 		"interval": 20
 	},
 	"waterspeed": {
 		"type": "origins:modify_swim_speed",
 		"modifier": {
-			"operation":"multiply_base",
-			"value": 0.5
+			"operation": "multiply_base_additive",
+			"amount": 0.5
 		}
 	}
 }
