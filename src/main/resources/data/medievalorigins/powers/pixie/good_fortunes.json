@@ -16,7 +16,7 @@
 		},
 		"condition": {
 			"type": "origins:dimension",
-			"dimension": "minecraft:nether",
+			"dimension": "minecraft:the_nether",
 			"inverted": true
 		},
 		"only_when_harvested": true
@@ -37,7 +37,7 @@
 		},
 		"condition": {
 			"type": "origins:dimension",
-			"dimension": "minecraft:nether"
+			"dimension": "minecraft:the_nether"
 		},
 		"only_when_harvested": true
 	}
