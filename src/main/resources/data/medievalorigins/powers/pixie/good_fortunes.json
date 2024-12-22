@@ -4,7 +4,7 @@
 		"type": "origins:action_on_block_break",
 		"block_action": {
 			"type": "origins:chance",
-			"action": {
+			"success_action": {
 				"type": "origins:execute_command",
 				"command": "loot spawn ~ ~ ~ loot medievalorigins:generic/good_fortunes_loot"
 			},
@@ -25,7 +25,7 @@
 		"type": "origins:action_on_block_break",
 		"block_action": {
 			"type": "origins:chance",
-			"action": {
+			"success_action": {
 				"type": "origins:execute_command",
 				"command": "loot spawn ~ ~ ~ loot medievalorigins:generic/good_fortunes_loot_nether"
 			},

@@ -48,7 +48,8 @@
 	"movement_speed": {
 		"type": "origins:modify_lava_speed",
 		"modifier": {
-			"operation": "add_base_early",
+			"id": "*:*",
+			"operation": "add_value",
 			"amount": 0.2
 		}
 	}

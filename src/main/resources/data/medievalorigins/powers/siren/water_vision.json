@@ -20,12 +20,12 @@
 		"type": "origins:if_else",
 		"condition": {
 			"type": "origins:status_effect",
-			"id": "minecraft:night_vision",
+			"effect": "minecraft:night_vision",
 			"max_duration": 250
 		},
 		"if_action": {
 			"type": "origins:clear_effect",
-			"id": "minecraft:night_vision"
+			"effect": "minecraft:night_vision"
 		}
 	},
 	"interval": 20

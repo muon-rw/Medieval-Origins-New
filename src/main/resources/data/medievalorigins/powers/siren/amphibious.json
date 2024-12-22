@@ -52,14 +52,15 @@
 		},
 		"entity_action": {
 			"type": "origins:gain_air",
-			"amount": 40
+			"value": 40
 		},
 		"interval": 20
 	},
 	"waterspeed": {
 		"type": "origins:modify_swim_speed",
 		"modifier": {
-			"operation": "multiply_base_additive",
+			"id": "*:*",
+			"operation": "add_multiplied_base",
 			"amount": 0.5
 		}
 	}

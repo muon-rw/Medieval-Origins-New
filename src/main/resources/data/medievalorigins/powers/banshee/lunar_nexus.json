@@ -107,7 +107,7 @@
 			"actions": [
 				{
 					"type": "origins:feed",
-					"food": 1,
+					"nutrition": 1,
 					"saturation": 0.25
 				},
 				{

@@ -19,7 +19,7 @@
 					"compare_to": 3
 				},
 				{
-					"type": "origins:is_equippable",
+					"type": "origins:equippable",
 					"equipment_slot": "chest"
 				}
 			]

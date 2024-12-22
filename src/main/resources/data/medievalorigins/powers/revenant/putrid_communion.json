@@ -60,7 +60,7 @@
 			}
 		},
 		"food_component": {
-			"hunger": 0,
+			"nutrition": 0,
 			"saturation": 0,
 			"always_edible": true,
 			"snack": true,
@@ -96,7 +96,7 @@
 			}
 		},
 		"food_component": {
-			"hunger": 0,
+			"nutrition": 0,
 			"saturation": 0,
 			"always_edible": true,
 			"meat": false
@@ -131,7 +131,7 @@
 			}
 		},
 		"food_component": {
-			"hunger": 0,
+			"nutrition": 0,
 			"saturation": 0,
 			"always_edible": true,
 			"meat": false
@@ -183,7 +183,7 @@
 			}
 		},
 		"food_component": {
-			"hunger": 0,
+			"nutrition": 0,
 			"saturation": 0,
 			"meat": false
 		},
