@@ -113,7 +113,7 @@
 									"condition": {
 										"type": "origins:actor_condition",
 										"condition": {
-											"type": "origins:dimension",
+											"type": "medievalorigins:dimension",
 											"dimension": "minecraft:the_nether"
 										},
 										"inverted": true

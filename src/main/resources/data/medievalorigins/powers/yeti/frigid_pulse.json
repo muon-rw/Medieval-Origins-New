@@ -9,7 +9,7 @@
 		"key": "key.origins.primary_active"
 	},
 	"condition": {
-		"type": "origins:dimension",
+		"type": "medievalorigins:dimension",
 		"dimension": "minecraft:the_nether",
 		"inverted": true
 	},

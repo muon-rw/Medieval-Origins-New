@@ -5,7 +5,7 @@
 		"message": "medievalorigins.moon_elf_no_sleep",
 		"set_spawn_point": true,
 		"condition": {
-			"type": "origins:dimension",
+			"type": "medievalorigins:dimension",
 			"dimension": "minecraft:overworld"
 		}
 	},

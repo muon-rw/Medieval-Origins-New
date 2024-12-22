@@ -70,12 +70,12 @@
 					"type": "origins:exposed_to_sky"
 				},
 				{
-					"type": "origins:dimension",
+					"type": "medievalorigins:dimension",
 					"dimension": "aether:the_aether",
 					"inverted": true
 				},
 				{
-					"type": "origins:dimension",
+					"type": "medievalorigins:dimension",
 					"dimension": "paradise_lost:paradise_lost",
 					"inverted": true
 				},
@@ -87,15 +87,15 @@
 							"inverted": true
 						},
 						{
-							"type": "origins:dimension",
+							"type": "medievalorigins:dimension",
 							"dimension": "eternal_starlight:starlight"
 						},
 						{
-							"type": "origins:dimension",
+							"type": "medievalorigins:dimension",
 							"dimension": "blue_skies:everdawn"
 						},
 						{
-							"type": "origins:dimension",
+							"type": "medievalorigins:dimension",
 							"dimension": "twilightforest:twilight_forest"
 						}
 					]

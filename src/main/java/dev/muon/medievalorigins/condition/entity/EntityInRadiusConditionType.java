@@ -13,12 +13,12 @@ import net.minecraft.world.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 
 public class EntityInRadiusConditionType extends EntityConditionType {
-    private final EntityConditionType entityCondition;
+    private final EntityCondition entityCondition;
     private final double radius;
     private final int compareTo;
     private final Comparison comparison;
 
-    public EntityInRadiusConditionType(EntityConditionType entityCondition, double radius, int compareTo, Comparison comparison) {
+    public EntityInRadiusConditionType(EntityCondition entityCondition, double radius, int compareTo, Comparison comparison) {  // Changed parameter type
         this.entityCondition = entityCondition;
         this.radius = radius;
         this.compareTo = compareTo;

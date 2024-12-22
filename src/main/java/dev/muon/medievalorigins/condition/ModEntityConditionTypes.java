@@ -4,6 +4,7 @@ import dev.muon.medievalorigins.MedievalOrigins;
 import dev.muon.medievalorigins.condition.entity.CreativeModeConditionType;
 import dev.muon.medievalorigins.condition.entity.EntityInRadiusConditionType;
 import dev.muon.medievalorigins.condition.entity.IsArrowConditionType;
+import dev.muon.medievalorigins.condition.entity.OptionalDimensionConditionType;
 import io.github.apace100.apoli.condition.ConditionConfiguration;
 import io.github.apace100.apoli.condition.type.EntityConditionType;
 import io.github.apace100.apoli.registry.ApoliRegistries;
@@ -20,6 +21,7 @@ public class ModEntityConditionTypes {
     public static final ConditionConfiguration<IsArrowConditionType> IS_ARROW = register(ConditionConfiguration.of(MedievalOrigins.loc("is_arrow"), IsArrowConditionType.DATA_FACTORY));
     public static final ConditionConfiguration<EntityInRadiusConditionType> ENTITY_IN_RADIUS = register(ConditionConfiguration.of(MedievalOrigins.loc("entity_in_radius"), EntityInRadiusConditionType.DATA_FACTORY));
     public static final ConditionConfiguration<CreativeModeConditionType> CREATIVE_MODE = register(ConditionConfiguration.of(MedievalOrigins.loc("creative_mode"), CreativeModeConditionType.DATA_FACTORY));
+    public static final ConditionConfiguration<OptionalDimensionConditionType> OPTIONAL_DIMENSION = register(ConditionConfiguration.of(MedievalOrigins.loc("dimension"), OptionalDimensionConditionType.DATA_FACTORY));
 
     public static void register() {
     }

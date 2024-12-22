@@ -10,11 +10,11 @@
 			"type": "origins:or",
 			"conditions": [
 				{
-					"type": "origins:dimension",
+					"type": "medievalorigins:dimension",
 					"dimension": "minecraft:the_nether"
 				},
 				{
-					"type": "origins:dimension",
+					"type": "medievalorigins:dimension",
 					"dimension": "deeperdarker:otherside"
 				}
 			]
@@ -33,11 +33,11 @@
 			"type": "origins:or",
 			"conditions": [
 				{
-					"type": "origins:dimension",
+					"type": "medievalorigins:dimension",
 					"dimension": "minecraft:the_nether"
 				},
 				{
-					"type": "origins:dimension",
+					"type": "medievalorigins:dimension",
 					"dimension": "deeperdarker:otherside"
 				}
 			]
@@ -56,15 +56,15 @@
 			"type": "origins:or",
 			"conditions": [
 				{
-					"type": "origins:dimension",
+					"type": "medievalorigins:dimension",
 					"dimension": "minecraft:overworld"
 				},
 				{
-					"type": "origins:dimension",
+					"type": "medievalorigins:dimension",
 					"dimension": "paradise_lost:paradise_lost"
 				},
 				{
-					"type": "origins:dimension",
+					"type": "medievalorigins:dimension",
 					"dimension": "aether:the_aether"
 				}
 			]

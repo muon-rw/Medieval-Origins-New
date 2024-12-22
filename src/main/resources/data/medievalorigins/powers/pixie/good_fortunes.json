@@ -15,7 +15,7 @@
 			"tag": "origins:natural_stone"
 		},
 		"condition": {
-			"type": "origins:dimension",
+			"type": "medievalorigins:dimension",
 			"dimension": "minecraft:the_nether",
 			"inverted": true
 		},
@@ -36,7 +36,7 @@
 			"tag": "origins:natural_stone"
 		},
 		"condition": {
-			"type": "origins:dimension",
+			"type": "medievalorigins:dimension",
 			"dimension": "minecraft:the_nether"
 		},
 		"only_when_harvested": true
