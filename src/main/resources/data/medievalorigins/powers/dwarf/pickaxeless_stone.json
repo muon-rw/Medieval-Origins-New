@@ -27,15 +27,7 @@
 					},
 					{
 						"type": "origins:in_tag",
-						"tag": "forge:needs_netherite_tool"
-					},
-					{
-						"type": "origins:in_tag",
-						"tag": "fabric:needs_tool_level_4"
-					},
-					{
-						"type": "origins:in_tag",
-						"tag": "fabric:needs_tool_level_5"
+						"tag": "medievalorigins:above_diamond"
 					}
 				]
 			}

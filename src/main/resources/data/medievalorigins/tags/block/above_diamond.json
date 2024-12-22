@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    {"id": "#fabric:needs_tool_level_4", "required": false},
+    {"id": "#fabric:needs_tool_level_5", "required": false},
+    {"id": "#forge:needs_netherite_tool","required": false}
+  ]
+}
