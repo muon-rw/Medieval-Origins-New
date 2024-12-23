@@ -404,12 +404,6 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:resource",
-					"resource": "medievalorigins:pixie/flight_creative_toggle",
-					"comparison": "==",
-					"compare_to": 1
-				},
-				{
 					"type": "origins:and",
 					"conditions": [
 						{
