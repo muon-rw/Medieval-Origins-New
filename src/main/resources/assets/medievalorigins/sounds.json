@@ -49,7 +49,7 @@
         ]
     },
     "boost": {
-        "subtitles": "sounds.medievalorigins.dash",
+        "subtitles": "sounds.medievalorigins.boost",
         "sounds": [
             "medievalorigins:boost",
             "medievalorigins:boost_2",

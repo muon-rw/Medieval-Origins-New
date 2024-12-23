@@ -25,7 +25,7 @@ public abstract class AbstractClientPlayerMixin extends Player {
         super(pLevel, pPos, pYRot, pGameProfile);
     }
 
-    @Inject(method = "tick()V", at = @At("TAIL"))
+    @Inject(method = "tick", at = @At("TAIL"))
     private void onTick(CallbackInfo ci) {
         AbstractClientPlayer player = (AbstractClientPlayer) (Player) this;
         if (player.tickCount % TICK_INTERVAL == 0 && PowerHolderComponent.hasPowerType(player, PixieWingsPowerType.class)) {

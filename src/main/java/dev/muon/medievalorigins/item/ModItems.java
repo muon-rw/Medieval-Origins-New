@@ -4,7 +4,6 @@ import dev.muon.medievalorigins.MedievalOrigins;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
-import org.spongepowered.asm.mixin.Unique;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +13,7 @@ public class ModItems {
     private static final List<String> ORIGINS = List.of(
             "alfiq", "arachnae", "banshee", "incubus", "dwarf",
             "wood_elf", "high_elf", "fae", "goblin", "gorgon",
-            "moon_elf", "revenant", "ogre", "paladin", "pixie",
+            "moon_elf", "revenant", "ogre", "pixie",
             "plague_victim", "siren", "valkyrie", "yeti"
     );
 

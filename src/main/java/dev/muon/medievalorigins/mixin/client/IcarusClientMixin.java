@@ -32,13 +32,13 @@ public abstract class IcarusClientMixin {
     private static float modifyArmorModifier(float modifier, Player player) {
         var cfg = IcarusHelper.getConfigValues(player);
         int armorValueSum = 0;
-        Iterable<ItemStack> armorItems = player.getArmorSlots();
-        for (ItemStack armorItem : armorItems) {
-            if (armorItem.isEmpty() || ItemDataUtil.getEnchantmentLevel(armorItem, ModEnchantments.FEATHERWEIGHT, player.level()) > 0) {
+        Iterable<ItemStack> armorSlots = player.getArmorSlots();
+        for (ItemStack slottedStack : armorSlots ) {
+            if (slottedStack.isEmpty() || ItemDataUtil.getEnchantmentLevel(slottedStack, ModEnchantments.FEATHERWEIGHT, player.level()) > 0) {
                 continue;
             }
-            if (armorItem.getItem() instanceof ArmorItem armor) {
-                armorValueSum += armor.getDefense();
+            if (slottedStack.getItem() instanceof ArmorItem armorItem) {
+                armorValueSum += armorItem.getDefense();
             }
         }
         return cfg.armorSlows() ? Math.max(1.0F, armorValueSum / 20.0F * cfg.maxSlowedMultiplier()) : 1.0F;
