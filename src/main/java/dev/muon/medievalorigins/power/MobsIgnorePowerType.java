@@ -21,18 +21,8 @@ public class MobsIgnorePowerType extends PowerType {
     }
 
     public boolean shouldIgnore(Entity mob, Entity holder) {
-        MedievalOrigins.LOGGER.info("Checking if {} should ignore {} with conditions: mob={}, bientity={}",
-                mob.getName().getString(),
-                holder.getName().getString(),
-                mobCondition != null ? "present" : "null",
-                biEntityCondition != null ? "present" : "null"
-        );
-
         boolean mobTest = mobCondition == null || mobCondition.test(mob);
         boolean biEntityTest = biEntityCondition == null || biEntityCondition.test(holder, mob);
-
-        MedievalOrigins.LOGGER.info("Test results: mobCondition={}, biEntityCondition={}",
-                mobTest, biEntityTest);
 
         return mobTest && biEntityTest;
     }
