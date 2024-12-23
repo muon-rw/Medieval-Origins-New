@@ -1,7 +1,9 @@
 package dev.muon.medievalorigins.mixin;
 
+import dev.muon.medievalorigins.power.ActionOnTargetDeathPowerType;
 import dev.muon.medievalorigins.power.MobsIgnorePowerType;
 import io.github.apace100.apoli.component.PowerHolderComponent;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
@@ -33,6 +35,21 @@ public class LivingEntityMixin {
     private void preventAttackValidationWithConditions(LivingEntity target, TargetingConditions condition, CallbackInfoReturnable<Boolean> cir) {
         if (target instanceof Player player && shouldIgnoreTarget(player)) {
             cir.setReturnValue(false);
+        }
+    }
+
+    @Inject(
+            method = "hurt",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/LivingEntity;die(Lnet/minecraft/world/damagesource/DamageSource;)V"
+            )
+    )
+    private void invokeTargetDeathAction(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        if (source.getEntity() instanceof LivingEntity attacker) {
+            PowerHolderComponent.withPowerTypes(attacker, ActionOnTargetDeathPowerType.class,
+                    power -> power.doesApply((LivingEntity)(Object)this, source, amount),
+                    power -> power.executeActions((LivingEntity)(Object)this, source, amount));
         }
     }
 }
