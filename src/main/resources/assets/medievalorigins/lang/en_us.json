@@ -433,7 +433,7 @@
   "power.medievalorigins.revenant.unwitherable.description": "Revenants are immune to wither, and, like undead, they take extra damage from smite, receive inverted effects from harming and healing effects, and are immune to poison and regeneration effects.",
 
   "power.medievalorigins.revenant.skeleton_summons.name": "Revenance",
-  "power.medievalorigins.revenant.skeleton_summons.description": "Revenants can reconstruct creatures of the night modified to do their own bidding. These act as pets, will follow and teleport, and skeletons can be equipped with any weapon. Strength of non-mounts scales with Soul.Blood Spell Power. Summon by activating while holding: \n§lSkeleton:§r \n- Mainhand: 4 bones\n§lSkeleton Horse:§r\n- Mainhand: 12 bones\n- Offhand: 1 saddle \n§lWither Skeleton:§r \n- Mainhand: 12 bones\n- Offhand: 1 wither skull\n§lZombie:§r \n- Mainhand: 4 flesh\n§lZombie Horse:§r \n- Mainhand: 12 flesh\n- Offhand: 1 saddle",
+  "power.medievalorigins.revenant.skeleton_summons.description": "Revenants can reconstruct creatures of the night modified to do their own bidding. These act as pets, will follow and teleport, and skeletons can be equipped with any weapon. Strength of non-mounts scales with Soul Spell Power. Summon by activating while holding: \n§lSkeleton:§r \n- Mainhand: 4 bones\n§lSkeleton Horse:§r\n- Mainhand: 12 bones\n- Offhand: 1 saddle \n§lWither Skeleton:§r \n- Mainhand: 12 bones\n- Offhand: 1 wither skull\n§lZombie:§r \n- Mainhand: 4 flesh\n§lZombie Horse:§r \n- Mainhand: 12 flesh\n- Offhand: 1 saddle",
 
   "power.medievalorigins.revenant.poor_reputation.name": "Chaotic Ally",
   "power.medievalorigins.revenant.poor_reputation.description": "Villagers will refuse to trade with revenants and iron golems will attack them on sight. However, they are accepted amongst the ranks of the Pillagers.",
@@ -451,10 +451,10 @@
   "power.medievalorigins.valkyrie.wings.description": "Valkyrie have massive white feathered wings, and can fly freely.",
 
   "power.medievalorigins.valkyrie.intervention.name": "Intervention",
-  "power.medievalorigins.valkyrie.intervention.description": "Leap upward into the air or dash forward if already flying, gaining fall immunity until you land. \n\nUpon landing, strike the ground with holy energy, cleansing negative effects from nearby allies and healing them. Heal scales with healing.holy spell power.",
+  "power.medievalorigins.valkyrie.intervention.description": "Leap upward into the air or dash forward if already flying, gaining fall immunity until you land. \n\nUpon landing, strike the ground with holy energy, cleansing negative effects from nearby allies and healing them. Heal scales with healing spell power.",
 
   "power.medievalorigins.valkyrie.divine_smite.name": "Divine Smite",
-  "power.medievalorigins.valkyrie.divine_smite.description": "Every third attack, smite nearby foes. Damage scales with healing.holy spell power.",
+  "power.medievalorigins.valkyrie.divine_smite.description": "Every third attack, smite nearby foes. Damage scales with healing spell power.",
 
   "power.medievalorigins.valkyrie.corruption.name": "Corruption",
   "power.medievalorigins.valkyrie.corruption.description": "Nearby undead mobs weaken and slow you, and their attacks deal more damage to you.",
@@ -463,7 +463,7 @@
   "power.medievalorigins.valkyrie.vanquisher.description": "Upon slaying an undead mob, trigger §nDivine Smite§r§r§r and slightly reduce the effects of §nCorruption§r for each slain. Lose half stacks on death.",
 
   "power.medievalorigins.valkyrie.heavenly_implements.name": "Heavenly Implements",
-  "power.medievalorigins.valkyrie.heavenly_implements.description": "Valkyrie have innately more healing.holy spell power and are more potent with lance or spear-like weapons.",
+  "power.medievalorigins.valkyrie.heavenly_implements.description": "Valkyrie have innately more healing spell power and are more potent with lance or spear-like weapons.",
 
   "enchantment.medievalorigins.featherweight": "Featherweight",
   "enchantment.medievalorigins.featherweight.desc": "This enchantment can be applied to heavy armor to prevent slowing down Arachnae, Elves, Alfiq, or those with wings.",
@@ -498,9 +498,9 @@
   "badges.medievalorigins.high_elf.instant_cure": "§eInstant Cure:§r Right click a villager with a golden apple to directly channel its healing energy without needing to weaken them",
   "badges.medievalorigins.high_elf.void_warp": "§5Void Warp:§r Press %s while holding an ender pearl to rip through the fabric of reality and teleport yourself directly where you're looking, up to 50 blocks away",
   "badges.medievalorigins.high_elf.blazenbreath": "§cBlazenbreath:§r Press %s while holding coal in either hand to shoot forth a weak cone of flame. Hold blaze powder instead to shoot forth a moderate cone of flame. Scales with Fire Spell Power.",
-  "badges.medievalorigins.high_elf.ebonbreath": "§dEbonbreath:§r Press %s while holding bottled dragon's breath in either hand to shoot forth a cone of strong magical flame. Scales with Fire and Arcane.Ender Spell Power.",
+  "badges.medievalorigins.high_elf.ebonbreath": "§dEbonbreath:§r Press %s while holding bottled dragon's breath in either hand to shoot forth a cone of strong magical flame. Scales with Fire and Arcane Spell Power.",
 
-  "badges.medievalorigins.revenant.siphon": "Hit a living creature to drain its life force. Damage scales with accumulated resource and Soul.Blood Spell Power.",
+  "badges.medievalorigins.revenant.siphon": "Hit a living creature to drain its life force. Damage scales with accumulated resource and Soul Spell Power.",
   "badges.medievalorigins.revenant.eat": "Besides bones and rotten flesh, eating certain monster heads can charge this resource more quickly.",
 
   "badges.medievalorigins.alfiq.wall_climb": "Press %s to toggle wall climbing.",
@@ -545,5 +545,7 @@
   "power.medievalorigins.high_elf.cryomancer.gear_spawn.description": "- Frost Wand \n- 16 Frost Runes",
   
   "death.attack.siphon.player": "% had their soul ripped apart by %s",
-  "death.attack.smite.player": "% was smeeted by %s"
+  "death.attack.siphon": "% had their soul ripped apart",
+  "death.attack.smite.player": "% faced the divine judgment of %s",
+  "death.attack.smite": "% faced divine judgment"
 }
