@@ -4,7 +4,7 @@
 		{
 			"attribute": "minecraft:generic.movement_speed",
 			"operation": "add_value",
-			"amount": -0.04,
+			"amount": -0.02,
 			"id": "*:*"
 		},
 		{
