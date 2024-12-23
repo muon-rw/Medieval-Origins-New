@@ -32,8 +32,7 @@
 								{
 									"type": "origins:spawn_particles",
 									"particle": {
-										"type": "minecraft:poof",
-										"params": "0.922 0.314 0.314 2"
+										"type": "minecraft:poof"
 									},
 									"count": 4,
 									"speed": 0.0,
@@ -85,8 +84,7 @@
 								{
 									"type": "origins:spawn_particles",
 									"particle": {
-										"type": "minecraft:poof",
-										"params": "0.922 0.314 0.314 2"
+										"type": "minecraft:poof"
 									},
 									"count": 4,
 									"speed": 0.0,
