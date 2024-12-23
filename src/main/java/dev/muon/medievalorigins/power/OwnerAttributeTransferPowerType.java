@@ -11,6 +11,7 @@ import io.github.apace100.apoli.util.AttributedEntityAttributeModifier;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -21,7 +22,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class OwnerAttributeTransferPowerType extends PowerType implements AttributeModifying {
-    private final Holder<Attribute> ownerAttribute;
+    private final Attribute attribute;
+    private final Holder<Attribute> cachedHolder;
     private final List<AttributedEntityAttributeModifier> baseModifiers;
     private List<AttributedEntityAttributeModifier> scaledModifiers;
     private final boolean updateHealth;
@@ -31,9 +33,11 @@ public class OwnerAttributeTransferPowerType extends PowerType implements Attrib
     private Integer endTicks = null;
     private boolean wasActive = false;
 
-    public OwnerAttributeTransferPowerType(Holder<Attribute> ownerAttribute, List<AttributedEntityAttributeModifier> attributedModifiers, boolean updateHealth, int tickRate, Optional<EntityCondition> condition) {
+
+    public OwnerAttributeTransferPowerType(Attribute ownerAttribute, List<AttributedEntityAttributeModifier> attributedModifiers, boolean updateHealth, int tickRate, Optional<EntityCondition> condition) {
         super(condition);
-        this.ownerAttribute = ownerAttribute;
+        this.attribute = ownerAttribute;
+        this.cachedHolder = BuiltInRegistries.ATTRIBUTE.wrapAsHolder(ownerAttribute);
         this.baseModifiers = attributedModifiers;
         this.scaledModifiers = new ArrayList<>(attributedModifiers);
         this.updateHealth = updateHealth;
@@ -85,6 +89,8 @@ public class OwnerAttributeTransferPowerType extends PowerType implements Attrib
         removeTempModifiers(getHolder());
     }
 
+
+
     @Override
     public void serverTick() {
         if (!(getHolder() instanceof SummonedMob summon)) return;
@@ -98,7 +104,7 @@ public class OwnerAttributeTransferPowerType extends PowerType implements Attrib
                 endTicks = null;
             }
             else if (!wasActive && getHolder().tickCount % tickRate == startTicks) {
-                var ownerAttr = owner.getAttribute(ownerAttribute);
+                var ownerAttr = owner.getAttribute(cachedHolder);
                 if (ownerAttr != null) {
                     updateScaledModifiers(ownerAttr.getValue());
                     applyTempModifiers(getHolder());
@@ -133,7 +139,7 @@ public class OwnerAttributeTransferPowerType extends PowerType implements Attrib
                     condition
             ),
             (type, data) -> data.instance()
-                    .set("owner_attribute", type.ownerAttribute.value())
+                    .set("owner_attribute", type.attribute)
                     .set("modifiers", type.baseModifiers)
                     .set("update_health", type.updateHealth)
                     .set("tick_rate", type.tickRate)
