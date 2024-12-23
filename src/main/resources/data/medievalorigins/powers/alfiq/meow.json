@@ -46,8 +46,9 @@
 		}
 	},
 	"my_final_words": {
-		"type": "apugli:custom_death_sound",
+		"type": "medievalorigins:custom_death_sound",
 		"sound": "minecraft:entity.cat.death",
+		"volume": 1.0,
 		"pitch": 0.8
 	}
 }

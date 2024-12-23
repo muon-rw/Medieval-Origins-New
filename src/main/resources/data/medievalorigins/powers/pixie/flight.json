@@ -311,12 +311,6 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:resource",
-					"resource": "medievalorigins:pixie/flight_creative_toggle",
-					"comparison": "==",
-					"compare_to": 1
-				},
-				{
 					"type": "origins:and",
 					"conditions": [
 						{
@@ -348,12 +342,6 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:resource",
-					"resource": "medievalorigins:pixie/flight_creative_toggle",
-					"comparison": "==",
-					"compare_to": 1
-				},
-				{
 					"type": "origins:and",
 					"conditions": [
 						{
@@ -384,12 +372,6 @@
 		"condition": {
 			"type": "origins:and",
 			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "medievalorigins:pixie/flight_creative_toggle",
-					"comparison": "==",
-					"compare_to": 1
-				},
 				{
 					"type": "origins:and",
 					"conditions": [
@@ -744,7 +726,7 @@
 		}
 	},
 	"jump_effects": {
-		"type": "apugli:action_on_jump",
+		"type": "medievalorigins:action_on_jump",
 		"condition": {
 			"type": "origins:resource",
 			"resource": "medievalorigins:pixie/flight_effects_toggle",

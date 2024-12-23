@@ -39,7 +39,7 @@
 		"type": "origins:action_over_time",
 		"entity_action": {
 			"type": "origins:execute_command",
-			"command": "function medievalorigins:mdvlorigins/water_walk"
+			"command": "particle minecraft:enchant ~ ~0.3 ~ 0.3 0 0.3 0.2 10 force @a"
 		},
 		"interval": 10,
 		"condition": {
