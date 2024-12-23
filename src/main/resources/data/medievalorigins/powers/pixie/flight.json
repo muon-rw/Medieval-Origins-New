@@ -74,9 +74,6 @@
 			}
 		}
 	],
-	"prevent_server_kick": {
-		"type": "apugli:prevent_movement_checks"
-	},
 	"clear_old_bug": {
 		"type": "origins:action_on_callback",
 		"entity_action_added": {
