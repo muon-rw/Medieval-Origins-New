@@ -7,10 +7,6 @@
 			"actions": [
 				{
 					"type": "origins:execute_command",
-					"command": "scale set pehkui:visibility 0 @s"
-				},
-				{
-					"type": "origins:execute_command",
 					"command": "playsound medievalorigins:sirens_song player @a ~ ~ ~ 0.6 1"
 				},
 				{
@@ -50,14 +46,6 @@
 								}
 							]
 						}
-					}
-				},
-				{
-					"type": "origins:delay",
-					"ticks": 20,
-					"action": {
-						"type": "origins:execute_command",
-						"command": "scale reset pehkui:visibility @s"
 					}
 				}
 			]
@@ -116,7 +104,7 @@
 		}
 	},
 	"apply": {
-		"type": "apugli:mobs_ignore",
+		"type": "medievalorigins:mobs_ignore",
 		"mob_condition": {
 			"type": "origins:power",
 			"power": "medievalorigins:siren/captivated",

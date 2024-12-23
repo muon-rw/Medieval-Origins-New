@@ -9,6 +9,7 @@ public class ModPowerTypes {
     public static final PowerConfiguration<PixieWingsPowerType> PIXIE_WINGS = register(PixieWingsPowerType.FACTORY);
     public static final PowerConfiguration<IcarusWingsPowerType> ICARUS_WINGS = register(IcarusWingsPowerType.FACTORY);
     public static final PowerConfiguration<OwnerAttributeTransferPowerType> OWNER_ATTRIBUTE_TRANSFER = register(OwnerAttributeTransferPowerType.FACTORY);
+    public static final PowerConfiguration<MobsIgnorePowerType> MOBS_IGNORE = register(MobsIgnorePowerType.FACTORY);
 
     public static void register() {
     }
