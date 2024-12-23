@@ -49,15 +49,9 @@
 	"falling_action": {
 		"type": "origins:clear_effect",
 		"effects": [
-			{
-				"id": "minecraft:slowness"
-			},
-			{
-				"id": "minecraft:mining_fatigue"
-			},
-			{
-				"id": "minecraft:weakness"
-			}
+			"minecraft:slowness",
+			"minecraft:mining_fatigue",
+			"minecraft:weakness"
 		]
 	},
 	"interval": 20
