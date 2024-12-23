@@ -1,1 +1,0 @@
-particle minecraft:enchant ~ ~0.3 ~ 0.3 0 0.3 0.2 10 force @a
