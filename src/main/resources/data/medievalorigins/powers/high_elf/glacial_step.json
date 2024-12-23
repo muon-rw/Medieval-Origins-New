@@ -2,88 +2,35 @@
 	"hidden": true,
 	"type": "origins:multiple",
 	"walk": {
-		"type": "origins:walk_on_fluid",
-		"fluid": "minecraft:water",
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:fluid_height",
-					"fluid": "minecraft:water",
-					"comparison": "<=",
-					"compare_to": 0.4
-				},
-				{
-					"type": "origins:or",
-					"conditions": [
-						{
-							"type": "origins:equipped_item",
-							"equipment_slot": "mainhand",
-							"item_condition": {
-								"type": "origins:ingredient",
-								"ingredient": {
-									"tag": "medievalorigins:ice"
-								}
-							}
-						},
-						{
-							"type": "origins:equipped_item",
-							"equipment_slot": "offhand",
-							"item_condition": {
-								"type": "origins:ingredient",
-								"ingredient": {
-									"tag": "medievalorigins:ice"
-								}
-							}
-						}
-					]
-				}
-			]
-		}
-	},
-	"speed": {
-		"type": "origins:conditioned_attribute",
+		"type": "origins:modify_enchantment_level",
+		"enchantment": "minecraft:frost_walker",
 		"modifier": {
-			"attribute": "minecraft:generic.movement_speed",
-			"operation": "add_value",
-			"amount": 0.02,
-			"name": "Water walking speed",
-			"id": "*:*"
+			"id": "*:*",
+			"amount": 1,
+			"operation": "add_base_early"
 		},
-		"tick_rate": 5,
 		"condition": {
-			"type": "origins:and",
+			"type": "origins:or",
 			"conditions": [
 				{
-					"type": "origins:fluid_height",
-					"fluid": "minecraft:water",
-					"comparison": ">",
-					"compare_to": 0.0
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "medievalorigins:ice"
+						}
+					}
 				},
 				{
-					"type": "origins:or",
-					"conditions": [
-						{
-							"type": "origins:equipped_item",
-							"equipment_slot": "mainhand",
-							"item_condition": {
-								"type": "origins:ingredient",
-								"ingredient": {
-									"tag": "medievalorigins:ice"
-								}
-							}
-						},
-						{
-							"type": "origins:equipped_item",
-							"equipment_slot": "offhand",
-							"item_condition": {
-								"type": "origins:ingredient",
-								"ingredient": {
-									"tag": "medievalorigins:ice"
-								}
-							}
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "medievalorigins:ice"
 						}
-					]
+					}
 				}
 			]
 		}
@@ -99,10 +46,11 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:fluid_height",
-					"fluid": "minecraft:water",
-					"comparison": ">",
-					"compare_to": 0.0
+					"type": "origins:on_block",
+					"block_condition": {
+						"type": "origins:block",
+						"block": "minecraft:ice"
+					}
 				},
 				{
 					"type": "origins:or",

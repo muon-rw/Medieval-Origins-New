@@ -1,91 +1,41 @@
 {
-	"type": "origins:multiple",
-	"soft_cap": {
-		"type": "apugli:modify_durability_change",
-		"comparisons": [
-			{
-				"comparison": ">=",
-				"compare_to": 5
-			}
-		],
-		"modifier": {
-			"operation": "multiply_base_multiplicative",
-			"amount": -0.8
-		},
-		"item_condition": {
-			"type": "origins:or",
-			"conditions": [
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"tag": "medievalorigins:golden_armor"
-					}
-				},
-				{
-					"type": "medievalorigins:is_golden_armor"
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"tag": "medievalorigins:golden_weapon"
-					}
-				},
-				{
-					"type": "medievalorigins:is_golden_weapon"
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"tag": "medievalorigins:golden_tool"
-					}
-				},
-				{
-					"type": "medievalorigins:is_golden_tool"
-				}
-			]
-		}
+	"type": "origins:modify_enchantment_level",
+	"enchantment": "minecraft:unbreaking",
+	"modifier": {
+		"id": "*:*",
+		"amount": 3,
+		"operation": "add_base_early"
 	},
-	"chance_clear": {
-		"type": "apugli:modify_durability_change",
-		"condition": {
-			"type": "origins:predicate",
-			"predicate": "medievalorigins:unbreak_chance"
-		},
-		"modifier": {
-			"operation": "set_total",
-			"amount": 0
-		},
-		"item_condition": {
-			"type": "origins:or",
-			"conditions": [
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"tag": "medievalorigins:golden_armor"
-					}
-				},
-				{
-					"type": "medievalorigins:is_golden_armor"
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"tag": "medievalorigins:golden_weapon"
-					}
-				},
-				{
-					"type": "medievalorigins:is_golden_weapon"
-				},
-				{
-					"type": "origins:ingredient",
-					"ingredient": {
-						"tag": "medievalorigins:golden_tool"
-					}
-				},
-				{
-					"type": "medievalorigins:is_golden_tool"
+	"item_condition": {
+		"type": "origins:or",
+		"conditions": [
+			{
+				"type": "origins:ingredient",
+				"ingredient": {
+					"tag": "medievalorigins:golden_armor"
 				}
-			]
-		}
+			},
+			{
+				"type": "medievalorigins:is_golden_armor"
+			},
+			{
+				"type": "origins:ingredient",
+				"ingredient": {
+					"tag": "medievalorigins:golden_weapons"
+				}
+			},
+			{
+				"type": "medievalorigins:is_golden_weapon"
+			},
+			{
+				"type": "origins:ingredient",
+				"ingredient": {
+					"tag": "medievalorigins:golden_tools"
+				}
+			},
+			{
+				"type": "medievalorigins:is_golden_tool"
+			}
+		]
 	}
 }
