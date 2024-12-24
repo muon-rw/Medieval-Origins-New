@@ -58,6 +58,7 @@ repositories {
 }
 
 loom {
+	mixin.defaultRefmapName = "medievalorigins.refmap.json"
 	mods {
 		"medievalorigins" {
 			sourceSet sourceSets.main

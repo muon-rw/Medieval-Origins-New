@@ -30,14 +30,18 @@ public class LivingEntityMixin {
         );
     }
 
-    @Inject(method = "Lnet/minecraft/world/entity/LivingEntity;canAttack(Lnet/minecraft/world/entity/LivingEntity;)Z", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "canAttack(Lnet/minecraft/world/entity/LivingEntity;)Z",
+            at = @At("HEAD"),
+            cancellable = true)
     private void preventAttackValidation(LivingEntity target, CallbackInfoReturnable<Boolean> cir) {
         if (target instanceof Player player && shouldIgnoreTarget(player)) {
             cir.setReturnValue(false);
         }
     }
 
-    @Inject(method = "Lnet/minecraft/world/entity/LivingEntity;canAttack(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/ai/targeting/TargetingConditions;)Z", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "canAttack(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/ai/targeting/TargetingConditions;)Z",
+            at = @At("HEAD"),
+            cancellable = true)
     private void preventAttackValidationWithConditions(LivingEntity target, TargetingConditions condition, CallbackInfoReturnable<Boolean> cir) {
         if (target instanceof Player player && shouldIgnoreTarget(player)) {
             cir.setReturnValue(false);
