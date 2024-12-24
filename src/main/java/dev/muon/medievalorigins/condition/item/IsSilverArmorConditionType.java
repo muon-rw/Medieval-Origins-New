@@ -13,8 +13,18 @@ public class IsSilverArmorConditionType extends ItemConditionType {
     @Override
     public boolean test(Level world, ItemStack stack) {
         String itemName = BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
-        return stack.getItem() instanceof ArmorItem &&
+        boolean isGoldArmor = stack.getItem() instanceof ArmorItem &&
                 (itemName.contains("silver") || itemName.contains("iron"));
+
+        boolean hasSilverTrim = false;
+        // TODO: All the Trims compat
+        /*
+        ArmorTrim trim = stack.getComponents().get(DataComponents.TRIM);
+        if (trim != null) {
+            hasSilverTrim = trim.material().is(TrimMaterials.SILVER);
+        }
+        */
+        return isGoldArmor || hasSilverTrim;
     }
 
     @Override

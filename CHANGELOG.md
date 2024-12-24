@@ -10,6 +10,7 @@
 - Valkyries now get extra Vanquisher points for slaying undead bosses
 - High Elf's Glacial Step now increases level of Frost Walker
 - Added a keybind "Tertiary Active" for pixie effects and the new revenant command power.
+- "Golden Armor" now also includes gold-trimmed armor
 - Revenants can now command their summons to "sit", or teleport all owned summons to them
 - Revenants can now eat bones/heads even at full hunger
 - Revenants are now limited to 5 summons of any type at a time
