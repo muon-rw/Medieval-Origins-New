@@ -8,6 +8,7 @@
     "IcarusHelperMixin",
     "LivingEntityMixin",
     "MobMixin",
+    "NearestAttackableTargetGoalMixin",
     "SpellCooldownMixin",
     "SpellHelperMixin",
     "TargetingConditionsMixin"
@@ -15,7 +16,9 @@
   "client": [
     "client.AbstractClientPlayerMixin",
     "client.ElytraModelMixin",
-    "client.IcarusClientMixin"
+    "client.IcarusClientMixin",
+    ,
+    "client.LivingEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

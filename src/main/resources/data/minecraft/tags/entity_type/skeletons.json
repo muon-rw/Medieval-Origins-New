@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    {"id": "#medievalorigins:summon_skeletons", "required": false}
+  ]
+}

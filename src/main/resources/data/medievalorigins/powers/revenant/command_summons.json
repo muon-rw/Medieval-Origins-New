@@ -1,0 +1,112 @@
+{
+    "type": "origins:multiple",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "medievalorigins:textures/gui/revenant_badge.png",
+            "text": {
+                "translate": "badges.medievalorigins.revenant.command",
+                "with": [
+                    {
+                        "keybind": "key.medievalorigins.tertiary_active"
+                    }
+                ]
+            }
+        }
+    ],
+    "state": {
+        "type": "origins:resource",
+        "start_value": 0,
+        "min": 0,
+        "max": 2
+    },
+    "command": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.medievalorigins.tertiary_active"
+        },
+        "condition": {
+            "type": "origins:sneaking"
+        },
+        "entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_state",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:modify_resource",
+                                "resource": "*:*_state",
+                                "modifier": {
+                                    "operation": "set_total",
+                                    "amount": 1
+                                }
+                            },
+                            {
+                                "type": "medievalorigins:command_summons",
+                                "command": "sit"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_state",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:modify_resource",
+                                "resource": "*:*_state",
+                                "modifier": {
+                                    "operation": "set_total",
+                                    "amount": 2
+                                }
+                            },
+                            {
+                                "type": "medievalorigins:command_summons",
+                                "command": "follow"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_state",
+                        "comparison": "==",
+                        "compare_to": 2
+                    },
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:modify_resource",
+                                "resource": "*:*_state",
+                                "modifier": {
+                                    "operation": "set_total",
+                                    "amount": 0
+                                }
+                            },
+                            {
+                                "type": "medievalorigins:command_summons",
+                                "command": "come"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

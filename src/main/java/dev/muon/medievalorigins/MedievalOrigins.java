@@ -6,6 +6,7 @@ import dev.muon.medievalorigins.condition.ModBientityConditionTypes;
 import dev.muon.medievalorigins.condition.ModEntityConditionTypes;
 import dev.muon.medievalorigins.condition.ModItemConditionTypes;
 import dev.muon.medievalorigins.entity.ModEntities;
+import dev.muon.medievalorigins.entity.SummonTracker;
 import dev.muon.medievalorigins.item.ModItems;
 import dev.muon.medievalorigins.power.ModPowerTypes;
 import dev.muon.medievalorigins.sounds.ModSounds;
@@ -35,6 +36,8 @@ public class MedievalOrigins implements ModInitializer {
 		ModEntityConditionTypes.register();
 		ModBientityConditionTypes.register();
 		ModPowerTypes.register();
+
+		SummonTracker.init();
 	}
 
 }

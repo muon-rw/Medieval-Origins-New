@@ -28,7 +28,7 @@ public class ModItemConditionTypes {
     public static final ConditionConfiguration<IsSilverArmorConditionType> IS_SILVER_ARMOR = register(ConditionConfiguration.simple(MedievalOrigins.loc("is_silver_armor"), IsSilverArmorConditionType::new));
     public static final ConditionConfiguration<IsSilverToolConditionType> IS_SILVER_TOOL = register(ConditionConfiguration.simple(MedievalOrigins.loc("is_silver_tool"), IsSilverToolConditionType::new));
     public static final ConditionConfiguration<IsSilverWeaponConditionType> IS_SILVER_WEAPON = register(ConditionConfiguration.simple(MedievalOrigins.loc("is_silver_weapon"), IsSilverWeaponConditionType::new));
-    public static final ConditionConfiguration<IsSummonWeaponConditionType> IS_SUMMON_WEAPON = register(ConditionConfiguration.simple(MedievalOrigins.loc("is_summon_weapon"), IsSummonWeaponConditionType::new));
+    public static final ConditionConfiguration<IsSummonEquipmentConditionType> IS_SUMMON_EQUIPMENT = register(ConditionConfiguration.simple(MedievalOrigins.loc("is_summon_equipment"), IsSummonEquipmentConditionType::new));
     public static final ConditionConfiguration<IsToolConditionType> IS_TOOL = register(ConditionConfiguration.simple(MedievalOrigins.loc("is_tool"), IsToolConditionType::new));
     public static final ConditionConfiguration<IsValkyrieWeaponConditionType> IS_VALKYRIE_WEAPON = register(ConditionConfiguration.simple(MedievalOrigins.loc("is_valkyrie_weapon"), IsValkyrieWeaponConditionType::new));
 

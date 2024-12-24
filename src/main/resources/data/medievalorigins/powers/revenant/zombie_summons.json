@@ -184,8 +184,9 @@
 									{
 										"type": "origins:target_action",
 										"action": {
-											"type": "origins:execute_command",
-											"command": "function medievalorigins:mdvlorigins/empowered_skeleton_horse"
+											"type": "origins:grant_power",
+											"power": "medievalorigins:revenant/empowered_horse",
+											"source": "medievalorigins:revenant/summons"
 										}
 									},
 									{
@@ -235,85 +236,87 @@
 					}
 				},
 				"bientity_action": {
-					"type": "origins:and",
-					"actions": [
-						{
-							"type": "origins:target_action",
-							"action": {
-								"type": "origins:execute_command",
-								"command": "data merge entity @s {Tags:[\"siphon_immune\"]}"
-							}
-						},
-						{
-							"type": "origins:if_else",
-							"if_action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:target_action",
-										"action": {
-											"type": "origins:execute_command",
-											"command": "function medievalorigins:mdvlorigins/empowered_zombie_2"
-										}
-									},
-									{
-										"type": "origins:actor_action",
-										"action": {
-											"type": "origins:modify_resource",
-											"resource": "medievalorigins:revenant/putrid_communion_flesh",
-											"modifier": {
-												"operation": "add_base_early",
-												"amount": -10
-											}
-										}
-									}
-								]
-							},
-							"condition": {
-								"type": "origins:actor_condition",
-								"condition": {
-									"type": "origins:resource",
-									"resource": "medievalorigins:revenant/putrid_communion_flesh",
-									"compare_to": 10,
-									"comparison": ">="
-								}
-							}
-						},
-						{
-							"type": "origins:if_else",
-							"if_action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:target_action",
-										"action": {
-											"type": "origins:execute_command",
-											"command": "function medievalorigins:mdvlorigins/empowered_zombie_1"
-										}
-									},
-									{
-										"type": "origins:actor_action",
-										"action": {
-											"type": "origins:modify_resource",
-											"resource": "medievalorigins:revenant/putrid_communion_flesh",
-											"modifier": {
-												"operation": "add_base_early",
-												"amount": -5
-											}
-										}
-									}
-								]
-							},
-							"condition": {
-								"type": "origins:actor_condition",
-								"condition": {
-									"type": "origins:resource",
-									"resource": "medievalorigins:revenant/putrid_communion_flesh",
-									"compare_to": 5,
-									"comparison": ">="
-								}
-							}
-						}
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "data merge entity @s {Tags:[\"siphon_immune\"]}"
+                            }
+                        },
+                        {
+                            "type": "origins:if_else",
+                            "if_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:target_action",
+                                        "action": {
+                                            "type": "medievalorigins:modify_duration",
+                                            "make_permanent": true
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:actor_action",
+                                        "action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "medievalorigins:revenant/putrid_communion_flesh",
+                                            "modifier": {
+                                                "operation": "add_base_early",
+                                                "amount": -10
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "condition": {
+                                "type": "origins:actor_condition",
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "medievalorigins:revenant/putrid_communion_flesh",
+                                    "compare_to": 10,
+                                    "comparison": ">="
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:if_else",
+                            "if_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:target_action",
+                                        "action": {
+                                            "type": "medievalorigins:modify_duration",
+                                            "multiplier": 2.0
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:actor_action",
+                                        "action": {
+                                            "type": "origins:modify_resource",
+                                            "resource": "medievalorigins:revenant/putrid_communion_flesh",
+                                            "modifier": {
+                                                "operation": "add_base_early",
+                                                "amount": -5
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "condition": {
+                                "type": "origins:actor_condition",
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "medievalorigins:revenant/putrid_communion_flesh",
+                                    "compare_to": 5,
+                                    "comparison": ">="
+                                }
+                            }
+                        }
+                    
+            
 					]
 				}
 			}

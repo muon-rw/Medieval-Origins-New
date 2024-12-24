@@ -2,7 +2,7 @@
 	"badges": [
 		{
 			"type": "origins:tooltip",
-			"sprite": "medievalorigins:textures/gui/pixie_badge.png",
+			"sprite": "medievalorigins:textures/gui/revenant_badge.png",
 			"text": [
 				{
 					"translate": "badges.medievalorigins.revenant.eat"
@@ -106,7 +106,7 @@
 			"type": "origins:consume",
 			"amount": 0
 		},
-		"sound": "medievalorigins:cronch",
+		"consume_sound": "medievalorigins:cronch",
 		"entity_action": {
 			"type": "origins:modify_resource",
 			"modifier": {
@@ -141,7 +141,7 @@
 			"type": "origins:consume",
 			"amount": 0
 		},
-		"sound": "medievalorigins:cronch",
+		"consume_sound": "medievalorigins:cronch",
 		"entity_action": {
 			"type": "origins:modify_resource",
 			"modifier": {
@@ -185,6 +185,7 @@
 		"food_component": {
 			"nutrition": 0,
 			"saturation": 0,
+			"always_edible": true,
 			"meat": false
 		},
 		"consume_animation": "eat",
@@ -192,7 +193,7 @@
 			"type": "origins:consume",
 			"amount": 0
 		},
-		"sound": "medievalorigins:cronch",
+		"consume_sound": "medievalorigins:cronch",
 		"entity_action": {
 			"type": "origins:modify_resource",
 			"modifier": {

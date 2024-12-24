@@ -144,6 +144,10 @@
 							{
 								"type": "medievalorigins:summon_entity",
 								"entity_type": "medievalorigins:summon_wither_skeleton",
+								"weapon": {
+									"id": "stone_sword"
+								},
+								"duration": 36000,
 								"tag": "{Tags: [\"necro_summon_temp\"]}",
 								"entity_action": {
 									"type": "origins:and",
@@ -189,6 +193,10 @@
 							{
 								"type": "medievalorigins:summon_entity",
 								"entity_type": "medievalorigins:summon_skeleton",
+								"weapon": {
+									"id": "bow"
+								},
+								"duration": 12000,
 								"tag": "{Tags: [\"necro_summon_temp\"]}",
 								"entity_action": {
 									"type": "origins:and",
@@ -266,8 +274,9 @@
 									{
 										"type": "origins:target_action",
 										"action": {
-											"type": "origins:execute_command",
-											"command": "function medievalorigins:mdvlorigins/empowered_skeleton_horse"
+											"type": "origins:grant_power",
+											"power": "medievalorigins:revenant/empowered_horse",
+											"source": "medievalorigins:revenant/summons"
 										}
 									},
 									{
@@ -334,8 +343,8 @@
 									{
 										"type": "origins:target_action",
 										"action": {
-											"type": "origins:execute_command",
-											"command": "function medievalorigins:mdvlorigins/empowered_skeleton_5"
+											"type": "medievalorigins:modify_duration",
+											"make_permanent": true
 										}
 									},
 									{
@@ -369,8 +378,8 @@
 									{
 										"type": "origins:target_action",
 										"action": {
-											"type": "origins:execute_command",
-											"command": "function medievalorigins:mdvlorigins/empowered_skeleton_4"
+											"type": "medievalorigins:modify_duration",
+											"multiplier": 3.0
 										}
 									},
 									{
@@ -404,43 +413,8 @@
 									{
 										"type": "origins:target_action",
 										"action": {
-											"type": "origins:execute_command",
-											"command": "function medievalorigins:mdvlorigins/empowered_skeleton_3"
-										}
-									},
-									{
-										"type": "origins:actor_action",
-										"action": {
-											"type": "origins:modify_resource",
-											"resource": "medievalorigins:revenant/putrid_communion_bone",
-											"modifier": {
-												"operation": "add_base_early",
-												"amount": -15
-											}
-										}
-									}
-								]
-							},
-							"condition": {
-								"type": "origins:actor_condition",
-								"condition": {
-									"type": "origins:resource",
-									"resource": "medievalorigins:revenant/putrid_communion_bone",
-									"compare_to": 15,
-									"comparison": ">="
-								}
-							}
-						},
-						{
-							"type": "origins:if_else",
-							"if_action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:target_action",
-										"action": {
-											"type": "origins:execute_command",
-											"command": "function medievalorigins:mdvlorigins/empowered_skeleton_2"
+											"type": "medievalorigins:modify_duration",
+											"multiplier": 2.0
 										}
 									},
 									{
@@ -462,41 +436,6 @@
 									"type": "origins:resource",
 									"resource": "medievalorigins:revenant/putrid_communion_bone",
 									"compare_to": 10,
-									"comparison": ">="
-								}
-							}
-						},
-						{
-							"type": "origins:if_else",
-							"if_action": {
-								"type": "origins:and",
-								"actions": [
-									{
-										"type": "origins:target_action",
-										"action": {
-											"type": "origins:execute_command",
-											"command": "function medievalorigins:mdvlorigins/empowered_skeleton_1"
-										}
-									},
-									{
-										"type": "origins:actor_action",
-										"action": {
-											"type": "origins:modify_resource",
-											"resource": "medievalorigins:revenant/putrid_communion_bone",
-											"modifier": {
-												"operation": "add_base_early",
-												"amount": -5
-											}
-										}
-									}
-								]
-							},
-							"condition": {
-								"type": "origins:actor_condition",
-								"condition": {
-									"type": "origins:resource",
-									"resource": "medievalorigins:revenant/putrid_communion_bone",
-									"compare_to": 5,
 									"comparison": ">="
 								}
 							}

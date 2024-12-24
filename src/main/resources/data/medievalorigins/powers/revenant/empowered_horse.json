@@ -1,0 +1,35 @@
+{
+    "type": "origins:attribute",
+    "modifiers": [
+        {
+            "id": "*:*",
+            "attribute": "minecraft:generic.max_health",
+            "operation": "add_value",
+            "amount": 10.0
+        },
+        {
+            "id": "*:*",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "add_multiplied_base",
+            "amount": 0.5
+        },
+        {
+            "id": "*:*",
+            "attribute": "minecraft:generic.scale",
+            "amount": 0.5,
+            "operation": "add_multiplied_base"
+        },
+        {
+            "id": "*:*",
+            "attribute": "minecraft:generic.jump_strength",
+            "amount": 1.0,
+            "operation": "add_multiplied_base"
+        },
+        {
+            "id": "*:*",
+            "attribute": "minecraft:generic.step_height",
+            "amount": 1.0,
+            "operation": "add_value"
+        }
+    ]
+}

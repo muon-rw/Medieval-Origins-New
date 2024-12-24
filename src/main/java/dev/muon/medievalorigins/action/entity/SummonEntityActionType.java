@@ -1,6 +1,7 @@
 package dev.muon.medievalorigins.action.entity;
 
 import dev.muon.medievalorigins.action.ModEntityActionTypes;
+import dev.muon.medievalorigins.entity.SummonTracker;
 import dev.muon.medievalorigins.entity.SummonedMob;
 import io.github.apace100.apoli.action.ActionConfiguration;
 import io.github.apace100.apoli.action.BiEntityAction;
@@ -11,15 +12,24 @@ import io.github.apace100.apoli.util.MiscUtil;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class SummonEntityActionType extends EntityActionType {
+
+    private static final int MAX_SUMMONS = 5;
+
     public static final TypedDataObjectFactory<SummonEntityActionType> DATA_FACTORY = TypedDataObjectFactory.simple(
             new SerializableData()
                     .add("entity_type", SerializableDataTypes.ENTITY_TYPE)
@@ -102,15 +112,84 @@ public class SummonEntityActionType extends EntityActionType {
             summon.setOwner(livingCaster);
             summon.setOwnerID(entity.getUUID());
 
-            if (weapon != null) {
+            if (weapon != null && !weapon.isEmpty()) {
                 summon.setWeapon(weapon);
             }
         }
 
         serverWorld.tryAddFreshEntityWithPassengers(actualEntityToSpawn);
 
+        manageSummonLimit(entity);
+
         entityAction.ifPresent(action -> action.execute(actualEntityToSpawn));
         biEntityAction.ifPresent(action -> action.execute(entity, actualEntityToSpawn));
+    }
+
+    private void manageSummonLimit(Entity owner) {
+        Collection<SummonedMob> existingSummons = SummonTracker.getSummonsForOwner(owner.getUUID());
+        if (existingSummons.size() >= MAX_SUMMONS) {
+            List<SummonedMob> summonsList = existingSummons.stream()
+                    .sorted(createSummonComparator())
+                    .collect(Collectors.toList());
+
+            SummonedMob toRemove = summonsList.get(0);
+            Mob mobToRemove = toRemove.getSelfAsMob();
+
+            if (owner instanceof Player player) {
+                int x = (int) Math.round(mobToRemove.getX());
+                int y = (int) Math.round(mobToRemove.getY());
+                int z = (int) Math.round(mobToRemove.getZ());
+
+                String dimension = mobToRemove.level().dimension().location().getPath();
+
+                Component message = Component.translatable("message.medievalorigins.summon_limit_reached")
+                        .append(" ")
+                        .append(mobToRemove.getDisplayName())
+                        .append(" ")
+                        .append(Component.translatable("message.medievalorigins.summon_location",
+                                dimension, x, y, z));
+
+                player.displayClientMessage(message, true);
+            }
+
+            toRemove.getSelfAsMob().remove(Entity.RemovalReason.DISCARDED);
+            SummonTracker.untrackSummon(toRemove);
+        }
+    }
+
+    private Comparator<SummonedMob> createSummonComparator() {
+        return (a, b) -> {
+            // First, compare by limited life status
+            if (a.isLimitedLife() != b.isLimitedLife()) {
+                return a.isLimitedLife() ? -1 : 1; // Limited life mobs are removed first
+            }
+
+            // If both are limited life, compare remaining ticks
+            if (a.isLimitedLife() && b.isLimitedLife()) {
+                return Integer.compare(a.getLifeTicks(), b.getLifeTicks());
+            }
+
+            // If we get here, either both are infinite or have same life ticks
+            // Compare by type priority
+            return compareMobTypes(a.getSelfAsMob(), b.getSelfAsMob());
+        };
+    }
+
+    private int compareMobTypes(Mob a, Mob b) {
+        int priorityA = getMobPriority(a);
+        int priorityB = getMobPriority(b);
+        return Integer.compare(priorityA, priorityB);
+    }
+
+    private int getMobPriority(Mob mob) {
+        String entityId = mob.getType().toString();
+        // Higher number = higher priority (kept longer)
+        return switch (entityId) {
+            case "entity.medievalorigins.summon_wither_skeleton" -> 3;
+            case "entity.medievalorigins.summon_skeleton" -> 2;
+            case "entity.medievalorigins.summon_zombie" -> 1;
+            default -> 0;
+        };
     }
 
     @Override

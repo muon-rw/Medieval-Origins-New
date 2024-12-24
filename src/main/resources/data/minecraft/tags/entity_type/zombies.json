@@ -1,0 +1,6 @@
+{
+  "replace": false,
+  "values": [
+    {"id": "medievalorigins:summoned_zombie", "required": false}
+  ]
+}

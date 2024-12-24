@@ -2,3 +2,15 @@
 - Initial port to 1.21.1
 - No longer bundles Apugli or requires Pehkui - performance should be significantly better!
 - Now Fabric only - when Origins Fabric is out of alpha and Sinytra Connector updates, I'll contribute to improving their compatibility wherever possible
+- Valkyries now get extra Vanquisher points for slaying undead bosses
+- High Elf's Glacial Step now increases level of Frost Walker
+- Revenants can now command their summons to "sit", or teleport all owned summons to them
+- Revenants can now eat bones/heads even at full hunger
+- Revenants are now limited to 5 summons of any type at a time
+- Revenant summon kills now grant EXP and kill credit
+- Revenant summons will now always drop any items you give them
+- Revenant skeletons will now no longer be targeted by tamed wolves
+- Revenant's combat summons now expire (5 minutes for zombies, 10 for skeletons, 30 for wither skeletons), added a duration bar 
+- Putrid Communion now increases the *duration* of combat summons
+- *Strength* of combat summons is now only determined by Soul Spell Power
+- Fixed some death messages being untranslated

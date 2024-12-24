@@ -32,17 +32,19 @@ public class FollowSummonerGoal extends Goal {
     @Override
     public boolean canUse() {
         LivingEntity owner = summon.getOwner();
-        if (owner == null || owner.isSpectator()) {
+        if (owner == null || owner.isSpectator() || summon.isOrderedToSit()) {
             return false;
         }
 
         this.owner = owner;
-        return summon.getSelfAsMob().distanceToSqr(owner) >= (startDistance * startDistance);
+        return !summon.isOrderedToSit() &&
+                summon.getSelfAsMob().distanceToSqr(owner) >= (startDistance * startDistance);
     }
 
     @Override
     public boolean canContinueToUse() {
         return !navigation.isDone() &&
+                !summon.isOrderedToSit() &&
                 owner != null &&
                 summon.getSelfAsMob().distanceToSqr(owner) > (stopDistance * stopDistance);
     }

@@ -1,19 +1,18 @@
 package dev.muon.medievalorigins.entity;
 
 import dev.muon.medievalorigins.entity.goal.FollowSummonerGoal;
+import dev.muon.medievalorigins.entity.goal.SummonedMobGoal;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.entity.player.Player;
@@ -23,7 +22,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.scores.PlayerTeam;
-import net.minecraft.world.scores.Team;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -31,33 +29,58 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class SummonedWitherSkeleton extends WitherSkeleton implements SummonedMob {
-    private static final EntityDataAccessor<Optional<UUID>> OWNER_UUID =
-            SynchedEntityData.defineId(SummonedWitherSkeleton.class, EntityDataSerializers.OPTIONAL_UUID);
-
-    private final RangedBowAttackGoal<SummonedWitherSkeleton> bowGoal = new RangedBowAttackGoal<>(this, 1.0D, 20, 15.0F);
-    private final MeleeAttackGoal meleeGoal = new MeleeAttackGoal(this, 1.2D, true) {
-        public void stop() {
-            super.stop();
-            SummonedWitherSkeleton.this.setAggressive(false);
-        }
-
-        public void start() {
-            super.start();
-            SummonedWitherSkeleton.this.setAggressive(true);
-        }
-    };
-
-    private boolean isLimitedLifespan;
-    private int limitedLifeTicks;
-
     public SummonedWitherSkeleton(EntityType<? extends WitherSkeleton> entityType, Level level) {
         super(entityType, level);
     }
 
+    private static final EntityDataAccessor<Boolean> IS_LIMITED_LIFE =
+            SynchedEntityData.defineId(SummonedWitherSkeleton.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> LIFE_TICKS =
+            SynchedEntityData.defineId(SummonedWitherSkeleton.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> MAX_LIFE_TICKS =
+            SynchedEntityData.defineId(SummonedWitherSkeleton.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Optional<UUID>> OWNER_UUID =
+            SynchedEntityData.defineId(SummonedWitherSkeleton.class, EntityDataSerializers.OPTIONAL_UUID);
+    private static final EntityDataAccessor<Boolean> SITTING =
+            SynchedEntityData.defineId(SummonedWitherSkeleton.class, EntityDataSerializers.BOOLEAN);
+
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
+        builder.define(IS_LIMITED_LIFE, false);
+        builder.define(LIFE_TICKS, 0);
+        builder.define(MAX_LIFE_TICKS, 0);
         builder.define(OWNER_UUID, Optional.empty());
+        builder.define(SITTING, false);
+    }
+
+
+    @Override
+    public void setLifeTicks(int ticks) {
+        this.entityData.set(LIFE_TICKS, ticks);
+        if (this.entityData.get(MAX_LIFE_TICKS) <= this.entityData.get(LIFE_TICKS)) {
+            this.entityData.set(MAX_LIFE_TICKS, ticks);
+        }
+    }
+
+    @Override
+    public int getLifeTicks() {
+        return this.entityData.get(LIFE_TICKS);
+    }
+
+    @Override
+    public boolean isLimitedLife() {
+        return this.entityData.get(IS_LIMITED_LIFE);
+    }
+
+    @Override
+    public int getMaxLifeTicks() {
+        return this.entityData.get(IS_LIMITED_LIFE) ? this.entityData.get(MAX_LIFE_TICKS): 0;
+    }
+
+    @Override
+    public void setIsLimitedLife(boolean limited) {
+        this.entityData.set(IS_LIMITED_LIFE, limited);
     }
 
     @Override
@@ -66,31 +89,79 @@ public class SummonedWitherSkeleton extends WitherSkeleton implements SummonedMo
     }
 
     @Override
+    protected void dropEquipment() {
+        for (EquipmentSlot slot : EquipmentSlot.values()) {
+            ItemStack stack = this.getItemBySlot(slot);
+            if (!stack.isEmpty()) {
+                this.spawnAtLocation(stack);
+            }
+        }
+    }
+    @Override
+    public boolean isOrderedToSit() {
+        return this.entityData.get(SITTING);
+    }
+
+    @Override
+    public void setOrderedToSit(boolean sitting) {
+        this.entityData.set(SITTING, sitting);
+    }
+
+    @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(2, new FollowSummonerGoal(this, 1.0, 9.0f, 3.0f));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 3.0F, 1.0F));
+        // Combat goals handled by reassessWeaponGoal()
+
+        // Movement/behavior goals
+        this.goalSelector.addGoal(1, new FollowSummonerGoal(this, 1.0, 9.0f, 3.0f));
+        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1.0D) {
+            @Override
+            public boolean canUse() {
+                return !((SummonedMob)mob).isOrderedToSit() && super.canUse();
+            }
+        });
+
+        // Looking goals
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 3.0F));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Mob.class, 8.0F));
 
-        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        // Targeting goals
+        this.targetSelector.addGoal(1, new SummonedMobGoal(this));
+
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Mob.class, 10, false, true,
                 (entity) -> {
-                    if (entity == null || entity.getKillCredit() == null) return false;
+                    if (entity == null || entity.getKillCredit() == null || ((SummonedMob)this).isOrderedToSit())
+                        return false;
                     LivingEntity owner = getOwner();
                     return owner != null && entity.getKillCredit().equals(owner);
                 }
         ));
 
-        reassessWeaponGoal();
+
     }
 
     @Override
     public void tick() {
         super.tick();
-        if (this.isLimitedLifespan && --this.limitedLifeTicks <= 0) {
-            this.limitedLifeTicks = 20;
-            this.hurt(getWorld().damageSources().starve(), 20.0F);
+        if (this.isLimitedLife() && !this.level().isClientSide()) {
+            int currentTicks = this.getLifeTicks();
+            if (currentTicks <= 0) {
+                this.hurt(this.damageSources().starve(), 20.0F);
+            } else {
+                this.setLifeTicks(currentTicks - 1);
+            }
         }
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        setKillCredit(target);
+        return super.doHurtTarget(target);
+    }
+
+    @Override
+    public void performRangedAttack(LivingEntity target, float velocity) {
+        setKillCredit(target);
+        super.performRangedAttack(target, velocity);
     }
 
     @Override
@@ -116,10 +187,9 @@ public class SummonedWitherSkeleton extends WitherSkeleton implements SummonedMo
     @Override
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
-        compound.putBoolean("isLimited", this.isLimitedLifespan);
-        if (this.isLimitedLifespan) {
-            compound.putInt("LifeTicks", this.limitedLifeTicks);
-        }
+        compound.putBoolean("isLimited", this.isLimitedLife());
+        compound.putInt("LifeTicks", this.getLifeTicks());
+        compound.putInt("MaxLifeTicks", this.getMaxLifeTicks());
         UUID ownerUuid = this.getOwnerUUID();
         if (ownerUuid != null) {
             compound.putUUID("OwnerUUID", ownerUuid);
@@ -129,30 +199,14 @@ public class SummonedWitherSkeleton extends WitherSkeleton implements SummonedMo
     @Override
     public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
-        if (compound.contains("isLimited")) {
-            this.isLimitedLifespan = compound.getBoolean("isLimited");
-        }
-        if (compound.contains("LifeTicks")) {
-            this.setLifeTicks(compound.getInt("LifeTicks"));
+        this.setIsLimitedLife(compound.getBoolean("isLimited"));
+        this.setLifeTicks(compound.getInt("LifeTicks"));
+        if (compound.contains("MaxLifeTicks")) {
+            this.entityData.set(MAX_LIFE_TICKS, compound.getInt("MaxLifeTicks"));
         }
         if (compound.hasUUID("OwnerUUID")) {
             this.setOwnerID(compound.getUUID("OwnerUUID"));
         }
-    }
-
-    @Override
-    public void setLifeTicks(int lifeTicks) {
-        this.limitedLifeTicks = lifeTicks;
-    }
-
-    @Override
-    public int getTicksLeft() {
-        return limitedLifeTicks;
-    }
-
-    @Override
-    public void setIsLimitedLife(boolean bool) {
-        this.isLimitedLifespan = bool;
     }
 
     @Override
@@ -163,17 +217,37 @@ public class SummonedWitherSkeleton extends WitherSkeleton implements SummonedMo
 
     @Override
     public void reassessWeaponGoal() {
-        if (!this.level().isClientSide()) {
-            this.goalSelector.removeGoal(this.meleeGoal);
-            this.goalSelector.removeGoal(this.bowGoal);
-            ItemStack itemstack = this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, Items.BOW));
-            if (itemstack.is(Items.BOW)) {
-                this.bowGoal.setMinAttackInterval(20);
-                this.goalSelector.addGoal(0, this.bowGoal);
+        if (this.level() != null && !this.level().isClientSide) {
+
+            this.goalSelector.getAvailableGoals().removeIf(wrappedGoal ->
+                    wrappedGoal.getGoal() instanceof RangedBowAttackGoal ||
+                            wrappedGoal.getGoal() instanceof MeleeAttackGoal
+            );
+
+            ItemStack itemStack = this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, Items.BOW));
+            if (itemStack.is(Items.BOW)) {
+                this.goalSelector.addGoal(0, new RangedBowAttackGoal<>(this, 1.0D, 20, 15.0F));
             } else {
-                this.goalSelector.addGoal(0, this.meleeGoal);
+                this.goalSelector.addGoal(0, new MeleeAttackGoal(this, 1.2D, false) {
+                    @Override
+                    public void stop() {
+                        super.stop();
+                        SummonedWitherSkeleton.this.setAggressive(false);
+                    }
+
+                    @Override
+                    public void start() {
+                        super.start();
+                        SummonedWitherSkeleton.this.setAggressive(true);
+                    }
+                });
             }
         }
+    }
+
+    @Override
+    protected boolean isSunBurnTick() {
+        return false;
     }
 
     @Override
@@ -194,7 +268,20 @@ public class SummonedWitherSkeleton extends WitherSkeleton implements SummonedMo
 
     @Override
     public void setOwnerID(UUID uuid) {
+        UUID oldOwner = getOwnerUUID();
+        if (oldOwner != null) {
+            SummonTracker.untrackSummon(this);
+        }
         this.entityData.set(OWNER_UUID, Optional.ofNullable(uuid));
+        if (uuid != null) {
+            SummonTracker.trackSummon(this);
+        }
+    }
+
+    @Override
+    public void remove(Entity.RemovalReason reason) {
+        SummonTracker.untrackSummon(this);
+        super.remove(reason);
     }
 
     @Override
