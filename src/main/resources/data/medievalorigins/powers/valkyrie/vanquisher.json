@@ -26,6 +26,31 @@
 		},
 		"cooldown": 0
 	},
+	"boss_bonus": {
+		"type": "origins:self_action_on_kill",
+		"target_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:in_tag",
+					"tag": "undead"
+				},
+				{
+					"type": "origins:in_tag",
+					"tag": "medievalorigins:bosses"
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:modify_resource",
+			"resource": "*:*_vanquished",
+			"modifier": {
+				"operation": "add_base_early",
+				"amount": 49
+			}
+		},
+		"cooldown": 0
+	},
 	"lose": {
 		"type": "origins:action_on_callback",
 		"entity_action_respawned": {
