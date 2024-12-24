@@ -17,7 +17,6 @@
     "client.AbstractClientPlayerMixin",
     "client.ElytraModelMixin",
     "client.IcarusClientMixin",
-    ,
     "client.LivingEntityRendererMixin"
   ],
   "injectors": {
