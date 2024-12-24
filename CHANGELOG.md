@@ -1,5 +1,10 @@
 ## 7.0.0-alpha-1
-- Initial port to 1.21.1
+*Initial alpha port to 1.21.1*
+
+
+**There will be bugs.**
+**Back up your worlds before installing, and frequently while playing!**
+
 - No longer bundles Apugli or requires Pehkui - performance should be significantly better!
 - Now Fabric only - when Origins Fabric is out of alpha and Sinytra Connector updates, I'll contribute to improving their compatibility wherever possible
 - Valkyries now get extra Vanquisher points for slaying undead bosses
