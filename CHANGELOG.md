@@ -4,6 +4,7 @@
 - Now Fabric only - when Origins Fabric is out of alpha and Sinytra Connector updates, I'll contribute to improving their compatibility wherever possible
 - Valkyries now get extra Vanquisher points for slaying undead bosses
 - High Elf's Glacial Step now increases level of Frost Walker
+- Added a keybind "Tertiary Active" for pixie effects and the new revenant command power.
 - Revenants can now command their summons to "sit", or teleport all owned summons to them
 - Revenants can now eat bones/heads even at full hunger
 - Revenants are now limited to 5 summons of any type at a time
