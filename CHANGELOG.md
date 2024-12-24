@@ -13,7 +13,7 @@
 - Revenant skeletons will now no longer be targeted by tamed wolves
 - Revenant's combat summons now expire (5 minutes for zombies, 10 for skeletons, 30 for wither skeletons), added a duration bar 
 - Putrid Communion now increases the *duration* of combat summons
-- *Strength* of combat summons is now only determined by Soul Spell Power
+- *Attributes* of combat summons are now only determined by Soul Spell Power
 - Fixed some death messages being untranslated
 - Fixed a crash when a Valkyrie cleared multiple negative effects from another player at once
 - Fixed spell damage powers crashing on dedicated servers if both Amethyst Imbuement and Mythic Upgrades were installed 
