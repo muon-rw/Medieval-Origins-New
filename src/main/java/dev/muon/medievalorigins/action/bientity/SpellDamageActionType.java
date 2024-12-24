@@ -69,7 +69,7 @@ public class SpellDamageActionType extends BiEntityActionType {
 
     @Override
     protected void execute(Entity actor, Entity target) {
-        if (actor == null || target == null) {
+        if (actor == null || target == null || actor.level().isClientSide() || target.level().isClientSide()) {
             return;
         }
 
