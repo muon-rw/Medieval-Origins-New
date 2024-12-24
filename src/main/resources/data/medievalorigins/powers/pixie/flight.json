@@ -748,7 +748,7 @@
 			"should_render": false
 		},
 		"key": {
-			"key": "key.loadToolbarActivator"
+			"key": "key.medievalorigins.tertiary_active"
 		},
 		"condition": {
 			"type": "origins:sneaking"
