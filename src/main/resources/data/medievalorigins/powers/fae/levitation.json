@@ -11,12 +11,30 @@
 				"compare_to": 1
 			},
 			"if_action": {
-				"type": "origins:execute_command",
-				"command": "function medievalorigins:mdvlorigins/fae_levitate"
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:execute_command",
+						"command": "effect give @s minecraft:levitation 1000 1 true"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "resource set @s medievalorigins:fae/levitation_levitate_resource 0"
+					}
+				]
 			},
 			"else_action": {
-				"type": "origins:execute_command",
-				"command": "function medievalorigins:mdvlorigins/fae_levitate_clear"
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:execute_command",
+						"command": "effect clear @s minecraft:levitation"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "resource set @s medievalorigins:fae/levitation_levitate_resource 1"
+					}
+				]
 			}
 		},
 		"key": {
