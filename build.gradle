@@ -1,6 +1,9 @@
 plugins {
 	id 'fabric-loom' version '1.9-SNAPSHOT'
 	id 'maven-publish'
+	id 'idea'
+	id "net.darkhax.curseforgegradle" version "1.0.7"
+	id "com.modrinth.minotaur" version "2.+"
 }
 
 version = project.mod_version
@@ -145,4 +148,35 @@ publishing {
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
 	}
+}
+
+modrinth {
+	token = System.getenv("MODRINTH_TOKEN")
+	projectId = "medieval-origins-revival"
+	versionNumber = "${version}"
+	versionType = "alpha"
+	versionName = "Fabric-${rootProject.version}+${minecraft_version}"
+	uploadFile = remapJar
+	gameVersions = ["1.21.1"]
+	loaders = ["fabric"]
+	changelog = new File("$project.rootDir/CHANGELOG.md").getText('UTF-8')
+	//debugMode = true
+	dependencies {
+		required.project("origins")
+		required.project("spell-engine")
+	}
+}
+
+task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+	apiToken = System.getenv("CF_TOKEN")
+	group = "publishing"
+	def mainFile = upload(897171, remapJar)
+	mainFile.changelog = new File("$project.rootDir/CHANGELOG.md").getText('UTF-8')
+	mainFile.changelogType = "markdown"
+	mainFile.releaseType = "alpha"
+	mainFile.addGameVersion("1.21.1")
+	mainFile.addModLoader("fabric")
+	mainFile.displayName = "Fabric-${rootProject.version}+${minecraft_version}"
+	mainFile.addRequirement("origins")
+	mainFile.addRequirement("spell-engine")
 }

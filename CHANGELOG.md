@@ -22,4 +22,4 @@
 - *Attributes* of combat summons are now only determined by Soul Spell Power
 - Fixed some death messages being untranslated
 - Fixed a crash when a Valkyrie cleared multiple negative effects from another player at once
-- Fixed spell damage powers crashing on dedicated servers if both Amethyst Imbuement and Mythic Upgrades were installed 
+- Fixed spell damage powers crashing on dedicated servers in rare mod compatibility cases 
