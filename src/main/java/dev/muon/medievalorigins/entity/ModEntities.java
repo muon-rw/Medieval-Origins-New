@@ -1,14 +1,13 @@
 package dev.muon.medievalorigins.entity;
 
 import dev.muon.medievalorigins.MedievalOrigins;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.Registry;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 
 public class ModEntities {
     public static EntityType<SummonedSkeleton> SUMMON_SKELETON = Registry.register(
@@ -36,6 +35,16 @@ public class ModEntities {
                     .sized(1.0F, 2.1F)
                     .clientTrackingRange(10)
                     .build(MedievalOrigins.loc("summon_wither_skeleton").toString())
+    );
+
+    public static final EntityType<SummonedArrow> SUMMONED_ARROW = Registry.register(
+            BuiltInRegistries.ENTITY_TYPE,
+            MedievalOrigins.loc("summoned_arrow"),  
+            EntityType.Builder.<SummonedArrow>of(SummonedArrow::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)
+                    .clientTrackingRange(4)
+                    .updateInterval(20)
+                    .build(MedievalOrigins.loc("summoned_arrow").toString())
     );
 
     public static void register() {

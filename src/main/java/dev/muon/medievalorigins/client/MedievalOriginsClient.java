@@ -1,5 +1,6 @@
 package dev.muon.medievalorigins.client;
 
+import dev.muon.medievalorigins.client.render.SummonedArrowRenderer;
 import dev.muon.medievalorigins.client.render.SummonedSkeletonRenderer;
 import dev.muon.medievalorigins.client.render.SummonedWitherSkeletonRenderer;
 import dev.muon.medievalorigins.client.render.SummonedZombieRenderer;
@@ -31,5 +32,6 @@ public class MedievalOriginsClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.SUMMON_SKELETON, SummonedSkeletonRenderer::new);
         EntityRendererRegistry.register(ModEntities.SUMMON_ZOMBIE, SummonedZombieRenderer::new);
         EntityRendererRegistry.register(ModEntities.SUMMON_WITHER_SKELETON, SummonedWitherSkeletonRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SUMMONED_ARROW, SummonedArrowRenderer::new);
     }
 }

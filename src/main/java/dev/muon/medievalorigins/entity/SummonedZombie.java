@@ -157,6 +157,9 @@ public class SummonedZombie extends Zombie implements SummonedMob {
 
     @Override
     public boolean doHurtTarget(Entity target) {
+        if (isAlliedTo(target)) {
+            return false;
+        }
         setKillCredit(target);
         return super.doHurtTarget(target);
     }
@@ -170,15 +173,20 @@ public class SummonedZombie extends Zombie implements SummonedMob {
     @Override
     public boolean isAlliedTo(Entity entity) {
         LivingEntity owner = this.getOwner();
-        if (owner != null) {
-            if (entity instanceof SummonedMob summon &&
-                    summon.getOwnerUUID() != null &&
-                    summon.getOwnerUUID().equals(this.getOwnerUUID())) {
-                return true;
-            }
-            return entity == owner || owner.isAlliedTo(entity);
+        if (owner == null) {
+            return super.isAlliedTo(entity);
         }
-        return super.isAlliedTo(entity);
+
+        if (entity == owner) {
+            return true;
+        }
+
+        if (entity instanceof OwnableEntity ownable) {
+            UUID otherOwnerId = ownable.getOwnerUUID();
+            return isAlliedOwner(otherOwnerId);
+        }
+
+        return owner.isAlliedTo(entity);
     }
 
     @Override

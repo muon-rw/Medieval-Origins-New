@@ -40,6 +40,21 @@ public interface SummonedMob extends OwnableEntity {
             livingTarget.setLastHurtByPlayer(player);
         }
     }
+    default boolean isAlliedOwner(UUID otherOwnerId) {
+        UUID myOwnerId = getOwnerUUID();
+        if (myOwnerId == null || otherOwnerId == null) {
+            return false;
+        }
+
+        if (myOwnerId.equals(otherOwnerId)) {
+            return true;
+        }
+
+        LivingEntity myOwner = getOwner();
+        LivingEntity otherOwner = getWorld().getPlayerByUUID(otherOwnerId);
+        return myOwner != null && otherOwner != null && myOwner.isAlliedTo(otherOwner);
+    }
+
 
     default LivingEntity getOwnerFromID() {
         try {

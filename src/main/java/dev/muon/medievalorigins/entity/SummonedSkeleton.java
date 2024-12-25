@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
@@ -16,6 +17,7 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -154,14 +156,39 @@ public class SummonedSkeleton extends Skeleton implements SummonedMob {
 
     @Override
     public boolean doHurtTarget(Entity target) {
+        if (isAlliedTo(target)) {
+            return false;
+        }
         setKillCredit(target);
         return super.doHurtTarget(target);
     }
 
     @Override
     public void performRangedAttack(LivingEntity target, float velocity) {
-        setKillCredit(target);
-        super.performRangedAttack(target, velocity);
+        if (isAlliedTo(target)) {
+            return;
+        }
+
+        ItemStack bowStack = this.getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, Items.BOW));
+        ItemStack arrowStack = this.getProjectile(bowStack);
+
+        SummonedArrow arrow = new SummonedArrow(this.level(), this);
+
+        double d = target.getX() - this.getX();
+        double e = target.getY(0.3333333333333333) - arrow.getY();
+        double f = target.getZ() - this.getZ();
+        double g = Math.sqrt(d * d + f * f);
+
+        arrow.shoot(d, e + g * 0.20000000298023224, f, 1.6F, (float)(14 - this.level().getDifficulty().getId() * 4));
+
+        this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
+
+        this.level().addFreshEntity(arrow);
+    }
+
+    @Override
+    protected AbstractArrow getArrow(ItemStack arrow, float velocity, @Nullable ItemStack weapon) {
+        return new SummonedArrow(this.level(), this);
     }
 
     @Override
@@ -173,15 +200,20 @@ public class SummonedSkeleton extends Skeleton implements SummonedMob {
     @Override
     public boolean isAlliedTo(Entity entity) {
         LivingEntity owner = this.getOwner();
-        if (owner != null) {
-            if (entity instanceof SummonedMob summon &&
-                    summon.getOwnerUUID() != null &&
-                    summon.getOwnerUUID().equals(this.getOwnerUUID())) {
-                return true;
-            }
-            return entity == owner || owner.isAlliedTo(entity);
+        if (owner == null) {
+            return super.isAlliedTo(entity);
         }
-        return super.isAlliedTo(entity);
+
+        if (entity == owner) {
+            return true;
+        }
+
+        if (entity instanceof OwnableEntity ownable) {
+            UUID otherOwnerId = ownable.getOwnerUUID();
+            return isAlliedOwner(otherOwnerId);
+        }
+
+        return owner.isAlliedTo(entity);
     }
 
     @Override
