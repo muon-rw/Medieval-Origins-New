@@ -565,9 +565,9 @@
   "death.attack.smite.player": "%1$s faced the divine judgment of %2$s",
   "death.attack.smite.item": "%1$s faced the divine judgment of %2$s's %3$s",
 
-  "message.medievalorigins.summon.sit": "Your summons are now sitting",
-  "message.medievalorigins.summon.follow": "Your summons are now following",
-  "message.medievalorigins.summon.come": "Your summons have been called to you",
+  "message.medievalorigins.summon.sit": "§oHalt§r. Your summons are ordered to sit.",
+  "message.medievalorigins.summon.follow": "§oHeed§r. Your summons are following you.",
+  "message.medievalorigins.summon.come": "§oHeel§r. Your summons are called to you.",
 
   "message.medievalorigins.summon_limit_reached": "Oldest summon dismissed:",
   "message.medievalorigins.summon_location": "(%s: %d, %d, %d)",
