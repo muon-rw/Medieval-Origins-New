@@ -17,15 +17,55 @@
 			]
 		}
 	},
+	"limit": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 11,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"tick_limit": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:modify_resource",
+			"resource": "*:*_limit",
+			"modifier": {
+				"amount": 1,
+				"operation": "add_base_early"
+			}
+		},
+		"interval": 20
+	},
 	"land": {
 		"type": "origins:action_over_time",
 		"interval": 1,
 		"condition": {
-			"type": "origins:on_block"
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:on_block"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_limit",
+					"compare_to": 11,
+					"comparison": ">="
+				}
+			]
 		},
 		"rising_action": {
 			"type": "origins:and",
 			"actions": [
+				{
+					"type": "origins:modify_resource",
+					"resource": "*:*_limit",
+					"modifier": {
+						"amount": 0,
+						"operation": "set_total"
+					}
+				},
 				{
 					"type": "origins:execute_command",
 					"command": "playsound medievalorigins:valkyrie_land player @a ~ ~ ~ 1 1"
@@ -40,7 +80,42 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "summon area_effect_cloud ~ ~ ~ {Particle:\"dust 1 0.91 0.47 1\",Radius:5,Duration:60}"
+					"command": "summon area_effect_cloud ~ ~ ~ {Particle:{type:happy_villager},Radius:5,Duration:20}"
+				},
+				{
+					"type": "origins:area_of_effect",
+					"radius": 5,
+					"bientity_action": {
+						"type": "origins:add_velocity",
+						"z": 2.5,
+						"y": 0.6
+					},
+					"bientity_condition": {
+						"type": "origins:and",
+						"inverted": true,
+						"conditions": [
+							{
+								"type": "origins:target_condition",
+								"condition": {
+									"type": "origins:living"
+								}
+							},
+							{
+								"type": "origins:or",
+								"conditions": [
+									{
+										"type": "medievalorigins:allied"
+									},
+									{
+										"type": "origins:owner"
+									},
+									{
+										"type": "origins:riding"
+									}
+								]
+							}
+						]
+					}
 				},
 				{
 					"type": "origins:area_of_effect",

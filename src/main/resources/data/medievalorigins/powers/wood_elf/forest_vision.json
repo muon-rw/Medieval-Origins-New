@@ -7,13 +7,11 @@
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:in_block_anywhere",
+					"type": "medievalorigins:covered_by_block",
 					"block_condition": {
 						"type": "origins:in_tag",
 						"tag": "medievalorigins:cover"
-					},
-					"comparison": ">=",
-					"compare_to": 2
+					}
 				},
 				{
 					"type": "origins:sneaking"
@@ -21,19 +19,38 @@
 			]
 		}
 	},
-	"vision_stealth": {
+	"mob_stealth": {
+		"type": "medievalorigins:mobs_ignore",
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "medievalorigins:covered_by_block",
+						"block_condition": {
+							"type": "origins:in_tag",
+							"tag": "medievalorigins:cover"
+						}
+					},
+					{
+						"type": "origins:sneaking"
+					}
+				]
+			}
+		}
+	},
+	"vision": {
 		"type": "origins:action_over_time",
 		"condition": {
 			"type": "origins:and",
 			"conditions": [
 				{
-					"type": "origins:in_block_anywhere",
+					"type": "medievalorigins:covered_by_block",
 					"block_condition": {
 						"type": "origins:in_tag",
 						"tag": "medievalorigins:cover"
-					},
-					"comparison": ">=",
-					"compare_to": 2
+					}
 				},
 				{
 					"type": "origins:sneaking"
@@ -56,10 +73,6 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "scale set pehkui:visibility 0 @s"
-				},
-				{
-					"type": "origins:execute_command",
 					"command": "playsound minecraft:block.vine.step player @s ~ ~ ~ 0.15 0.5"
 				}
 			]
@@ -76,17 +89,16 @@
 			}
 		},
 		"falling_action": {
-			"type": "origins:and",
-			"actions": [
-				{
-					"type": "origins:clear_effect",
-					"id": "minecraft:night_vision"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "scale reset pehkui:visibility @s"
-				}
-			]
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:status_effect",
+				"effect": "minecraft:night_vision",
+				"max_duration": 250
+			},
+			"if_action": {
+				"type": "origins:clear_effect",
+				"effect": "minecraft:night_vision"
+			}
 		},
 		"interval": 2
 	}

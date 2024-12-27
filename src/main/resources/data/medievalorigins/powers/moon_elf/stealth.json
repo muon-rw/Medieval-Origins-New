@@ -219,6 +219,37 @@
 			]
 		}
 	},
+	"mob_stealth": {
+		"type": "medievalorigins:mobs_ignore",
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "medievalorigins:moon_elf/stealth_meter",
+						"comparison": ">=",
+						"compare_to": 1
+					},
+					{
+						"type": "origins:resource",
+						"resource": "medievalorigins:moon_elf/stealth_cooldown",
+						"comparison": "<",
+						"compare_to": 1
+					},
+					{
+						"type": "origins:brightness",
+						"comparison": "<=",
+						"compare_to": 0.5
+					},
+					{
+						"type": "origins:sneaking"
+					}
+				]
+			}
+		}
+	},
 	"invisiblity": {
 		"type": "origins:action_over_time",
 		"entity_action": {
@@ -235,10 +266,6 @@
 		"rising_action": {
 			"type": "origins:and",
 			"actions": [
-				{
-					"type": "origins:execute_command",
-					"command": "scale set pehkui:visibility 0 @s"
-				},
 				{
 					"type": "origins:execute_command",
 					"command": "playsound minecraft:entity.player.breath player @s ~ ~ ~ 0.25 1.1"
@@ -268,10 +295,6 @@
 				{
 					"type": "origins:clear_effect",
 					"id": "minecraft:invisibility"
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "scale reset pehkui:visibility @s"
 				}
 			]
 		},

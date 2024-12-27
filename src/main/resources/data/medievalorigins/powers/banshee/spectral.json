@@ -146,22 +146,19 @@
 		"alpha": 0.7
 	},
 	"untargeted": {
-		"type": "origins:action_over_time",
+		"type": "origins:conditioned_attribute",
 		"condition": {
 			"type": "origins:resource",
 			"resource": "medievalorigins:banshee/spectral_duration",
 			"compare_to": 0,
 			"comparison": ">"
 		},
-		"rising_action": {
-			"type": "origins:execute_command",
-			"command": "scale set pehkui:visibility 0 @s"
-		},
-		"falling_action": {
-			"type": "origins:execute_command",
-			"command": "scale reset pehkui:visibility"
-		},
-		"interval": 10
+		"modifier": {
+			"id": "*:*",
+			"attribute": "additionalentityattributes:generic.mob_detection_range",
+			"amount": -1.0,
+			"operation": "add_multiplied_total"
+		}
 	},
 	"phase": {
 		"type": "origins:phasing",

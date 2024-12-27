@@ -124,14 +124,6 @@
 			"resource": "*:*_meter",
 			"change": 2
 		},
-		"rising_action": {
-			"type": "origins:execute_command",
-			"command": "scale set pehkui:visibility 0.5 @s"
-		},
-		"falling_action": {
-			"type": "origins:execute_command",
-			"command": "scale reset pehkui:visibility @s"
-		},
 		"interval": 1,
 		"condition": {
 			"type": "origins:and",

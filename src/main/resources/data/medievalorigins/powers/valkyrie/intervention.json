@@ -6,6 +6,9 @@
 		"bar_index": 9
 	},
 	"type": "origins:active_self",
+	"key": {
+		"key": "key.origins.primary_active"
+	},
 	"entity_action": {
 		"type": "origins:if_else",
 		"condition": {

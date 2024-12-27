@@ -1,3 +1,12 @@
+## 7.0.0-alpha-2
+- Fix Moon/Wood Elf stealths not affecting mobs
+- Fix Wood Elf stealth being triggerable by crouching in between short crops 
+- Fix Faes not having increased mob allure
+- Fix Banshees being targeted by mobs during Spectral
+- Fix Pixie particles not rendering
+- Fix Valkyrie's Intervention ability not being usable
+- Intervention will now always end after 10 seconds if not used.
+
 ## 7.0.0-alpha-1
 *Initial alpha port to 1.21.1*
 
