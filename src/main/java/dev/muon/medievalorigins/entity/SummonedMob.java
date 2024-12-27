@@ -54,14 +54,4 @@ public interface SummonedMob extends OwnableEntity {
         LivingEntity otherOwner = getWorld().getPlayerByUUID(otherOwnerId);
         return myOwner != null && otherOwner != null && myOwner.isAlliedTo(otherOwner);
     }
-
-
-    default LivingEntity getOwnerFromID() {
-        try {
-            UUID uuid = getOwnerUUID();
-            return uuid == null ? null : getWorld().getPlayerByUUID(uuid);
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
-    }
 }

@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 public class IsCursedConditionType extends ItemConditionType {
     @Override
     public boolean test(Level world, ItemStack stack) {
-        var enchantments = ItemDataUtil.getEnchantments(stack);
+        ItemEnchantments enchantments = stack.getEnchantments();
         if (enchantments == ItemEnchantments.EMPTY) {
             return false;
         }
