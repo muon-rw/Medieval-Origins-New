@@ -1,5 +1,7 @@
 ## 7.0.0-alpha-3
 - Fix untranslated usability hints in tooltips
+- Fix Valkyrie Intervention heal not scaling based off of healing spell power
+- Intervention now pushes back non-allies when applying
 
 ## 7.0.0-alpha-2
 - Fix Moon/Wood Elf stealths not affecting mobs

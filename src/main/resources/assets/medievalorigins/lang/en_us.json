@@ -448,7 +448,7 @@
   "power.medievalorigins.valkyrie.wings.description": "Valkyrie have massive white feathered wings, and can fly freely.",
 
   "power.medievalorigins.valkyrie.intervention.name": "Intervention",
-  "power.medievalorigins.valkyrie.intervention.description": "Leap upward into the air or dash forward if already flying, gaining fall immunity until you land. \n\nUpon landing or after 10 seconds, strike the area with holy energy, cleansing negative effects from nearby allies and healing them. Heal scales with healing spell power.",
+  "power.medievalorigins.valkyrie.intervention.description": "Leap upward into the air or dash forward if already flying, gaining fall immunity until you land. \n\nUpon landing or after 10 seconds, strike the area with holy energy, cleansing negative effects from nearby allies and healing them, and pushing back non-allies. Heal scales with healing spell power.",
 
   "power.medievalorigins.valkyrie.divine_smite.name": "Divine Smite",
   "power.medievalorigins.valkyrie.divine_smite.description": "Every third attack, smite nearby foes. Damage scales with healing spell power.",
