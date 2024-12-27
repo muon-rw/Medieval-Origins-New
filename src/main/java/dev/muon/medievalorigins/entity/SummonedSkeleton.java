@@ -1,7 +1,9 @@
 package dev.muon.medievalorigins.entity;
 
+import dev.muon.medievalorigins.attribute.ModAttributes;
 import dev.muon.medievalorigins.entity.goal.FollowSummonerGoal;
 import dev.muon.medievalorigins.entity.goal.SummonedMobGoal;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -10,6 +12,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
@@ -137,9 +140,7 @@ public class SummonedSkeleton extends Skeleton implements SummonedMob {
                     return owner != null && entity.getKillCredit().equals(owner);
                 }
         ));
-
     }
-
 
     @Override
     public void tick() {
@@ -173,6 +174,12 @@ public class SummonedSkeleton extends Skeleton implements SummonedMob {
         ItemStack arrowStack = this.getProjectile(bowStack);
 
         SummonedArrow arrow = new SummonedArrow(this.level(), this);
+
+        var rangedDamageAttr = this.getAttribute(ModAttributes.RANGED_DAMAGE);
+        if (rangedDamageAttr != null) {
+            arrow.setBaseDamage(arrow.getBaseDamage() + rangedDamageAttr.getValue());
+        }
+
 
         double d = target.getX() - this.getX();
         double e = target.getY(0.3333333333333333) - arrow.getY();

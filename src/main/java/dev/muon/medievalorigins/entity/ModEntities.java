@@ -1,6 +1,7 @@
 package dev.muon.medievalorigins.entity;
 
 import dev.muon.medievalorigins.MedievalOrigins;
+import dev.muon.medievalorigins.attribute.ModAttributes;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -50,11 +51,13 @@ public class ModEntities {
     public static void register() {
         FabricDefaultAttributeRegistry.register(ModEntities.SUMMON_SKELETON,
                 Monster.createMonsterAttributes()
-                        .add(Attributes.MOVEMENT_SPEED, 0.25D));
+                        .add(Attributes.MOVEMENT_SPEED, 0.25D)
+                        .add(ModAttributes.RANGED_DAMAGE));
 
         FabricDefaultAttributeRegistry.register(ModEntities.SUMMON_WITHER_SKELETON,
                 Monster.createMonsterAttributes()
-                        .add(Attributes.MOVEMENT_SPEED, 0.25D));
+                        .add(Attributes.MOVEMENT_SPEED, 0.25D)
+                        .add(ModAttributes.RANGED_DAMAGE));
 
         FabricDefaultAttributeRegistry.register(ModEntities.SUMMON_ZOMBIE,
                 Monster.createMonsterAttributes()

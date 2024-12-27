@@ -2,6 +2,7 @@ package dev.muon.medievalorigins;
 
 import dev.muon.medievalorigins.action.ModEntityActionTypes;
 import dev.muon.medievalorigins.action.ModBientityActionTypes;
+import dev.muon.medievalorigins.attribute.ModAttributes;
 import dev.muon.medievalorigins.condition.ModBientityConditionTypes;
 import dev.muon.medievalorigins.condition.ModEntityConditionTypes;
 import dev.muon.medievalorigins.condition.ModItemConditionTypes;
@@ -26,6 +27,7 @@ public class MedievalOrigins implements ModInitializer {
 	public void onInitialize() {
 		LOGGER.info("Loading Medieval Origins");
 
+		ModAttributes.register();
 		ModEntities.register();
 		ModSounds.register();
 		ModItems.register();

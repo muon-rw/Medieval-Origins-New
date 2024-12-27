@@ -1,5 +1,6 @@
 package dev.muon.medievalorigins.entity;
 
+import dev.muon.medievalorigins.attribute.ModAttributes;
 import dev.muon.medievalorigins.entity.goal.FollowSummonerGoal;
 import dev.muon.medievalorigins.entity.goal.SummonedMobGoal;
 import net.minecraft.nbt.CompoundTag;
@@ -173,6 +174,11 @@ public class SummonedWitherSkeleton extends WitherSkeleton implements SummonedMo
         ItemStack arrowStack = this.getProjectile(bowStack);
 
         SummonedArrow arrow = new SummonedArrow(this.level(), this);
+        var rangedDamageAttr = this.getAttribute(ModAttributes.RANGED_DAMAGE);
+        if (rangedDamageAttr != null) {
+            arrow.setBaseDamage(arrow.getBaseDamage() + rangedDamageAttr.getValue());
+        }
+
 
         double d = target.getX() - this.getX();
         double e = target.getY(0.3333333333333333) - arrow.getY();
