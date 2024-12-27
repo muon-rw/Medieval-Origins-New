@@ -1,3 +1,6 @@
+## 7.0.0-alpha-3
+- Fix untranslated usability hints in tooltips
+
 ## 7.0.0-alpha-2
 - Fix Moon/Wood Elf stealths not affecting mobs
 - Fix Wood Elf stealth being triggerable by crouching in between short crops 

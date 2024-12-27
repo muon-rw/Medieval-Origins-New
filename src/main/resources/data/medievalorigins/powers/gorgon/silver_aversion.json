@@ -111,7 +111,7 @@
 				"color": "gray"
 			},
 			{
-				"translate": "power.medievalorigins.gorgon/silver_aversion.name",
+				"translate": "power.medievalorigins.gorgon.silver_aversion.name",
 				"color": "red"
 			},
 			{
@@ -146,7 +146,7 @@
 				"color": "gray"
 			},
 			{
-				"translate": "power.medievalorigins.gorgon/silver_aversion.name",
+				"translate": "power.medievalorigins.gorgon.silver_aversion.name",
 				"color": "red"
 			},
 			{
