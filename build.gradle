@@ -44,6 +44,17 @@ repositories {
 			includeGroup "curse.maven"
 		}
 	}
+	exclusiveContent {
+		forRepository {
+			maven {
+				url = "https://maven.saps.dev/releases"
+			}
+		}
+		filter {
+			includeGroup"dev.latvian.mods"
+			includeGroup"dev.ftb.mods"
+		}
+	}
 	maven { url = "https://maven.nucleoid.xyz/" }
 	maven { url = 'https://maven.blamejared.com' }
 	maven { url = "https://maven.willbl.dev/releases" }
@@ -102,6 +113,10 @@ dependencies {
 	modImplementation ("dev.emi:trinkets:${project.trinkets_version}")
 	modLocalRuntime("com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-1.21:${project.resourceful_version}")
 	modLocalRuntime ("mysticdrew:common-networking-fabric:${project.cmnw_version}")
+
+	// FTB
+	modImplementation("dev.ftb.mods:ftb-library-fabric:${project.ftb_library_version}")
+	modImplementation("dev.ftb.mods:ftb-teams-fabric:${project.ftb_teams_version}")
 }
 
 processResources {
