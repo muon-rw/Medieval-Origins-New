@@ -68,7 +68,7 @@
 				"translate": "badges.medievalorigins.pixie.disable_effects",
 				"with": [
 					{
-						"keybind": "key.loadToolbarActivator"
+						"keybind": "key.medievalorigins.tertiary_active"
 					}
 				]
 			}
