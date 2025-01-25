@@ -3,6 +3,7 @@ package dev.muon.medievalorigins.condition.item;
 import dev.muon.medievalorigins.condition.ModItemConditionTypes;
 import dev.muon.medievalorigins.util.ItemDataUtil;
 import io.github.apace100.apoli.condition.ConditionConfiguration;
+import io.github.apace100.apoli.condition.context.ItemConditionContext;
 import io.github.apace100.apoli.condition.type.ItemConditionType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ItemStack;
@@ -14,7 +15,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class IsValkyrieWeaponConditionType extends ItemConditionType {
     @Override
-    public boolean test(Level world, ItemStack stack) {
+    public boolean test(ItemConditionContext context) {
+        ItemStack stack = context.stack();
+        Level world = context.world();
         String itemName = BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
         return (stack.getItem() instanceof SwordItem ||
                 stack.getItem() instanceof TridentItem ||

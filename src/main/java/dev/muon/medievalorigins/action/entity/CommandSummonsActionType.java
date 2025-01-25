@@ -4,6 +4,7 @@ import dev.muon.medievalorigins.action.ModEntityActionTypes;
 import dev.muon.medievalorigins.entity.SummonTracker;
 import dev.muon.medievalorigins.entity.SummonedMob;
 import io.github.apace100.apoli.action.ActionConfiguration;
+import io.github.apace100.apoli.action.context.EntityActionContext;
 import io.github.apace100.apoli.action.type.EntityActionType;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
 import io.github.apace100.calio.data.SerializableData;
@@ -33,7 +34,8 @@ public class CommandSummonsActionType extends EntityActionType {
     }
 
     @Override
-    protected void execute(Entity entity) {
+    public void accept(EntityActionContext context) {
+        Entity entity = context.entity();
         if (!(entity instanceof LivingEntity living)) return;
 
         Collection<SummonedMob> summons = SummonTracker.getSummonsForOwner(living.getUUID());

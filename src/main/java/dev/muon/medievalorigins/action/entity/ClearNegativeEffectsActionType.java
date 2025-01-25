@@ -2,6 +2,7 @@ package dev.muon.medievalorigins.action.entity;
 
 import dev.muon.medievalorigins.action.ModEntityActionTypes;
 import io.github.apace100.apoli.action.ActionConfiguration;
+import io.github.apace100.apoli.action.context.EntityActionContext;
 import io.github.apace100.apoli.action.type.EntityActionType;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
 import io.github.apace100.calio.data.SerializableData;
@@ -22,7 +23,8 @@ public class ClearNegativeEffectsActionType extends EntityActionType {
     }
 
     @Override
-    protected void execute(Entity entity) {
+    public void accept(EntityActionContext context) {
+        Entity entity = context.entity();
         if (entity instanceof LivingEntity livingEntity) {
 
             List<Holder<MobEffect>> effectsToRemove = livingEntity.getActiveEffects().stream()

@@ -2,6 +2,7 @@ package dev.muon.medievalorigins.action.bientity;
 
 import dev.muon.medievalorigins.action.ModBientityActionTypes;
 import io.github.apace100.apoli.action.ActionConfiguration;
+import io.github.apace100.apoli.action.context.BiEntityActionContext;
 import io.github.apace100.apoli.action.type.BiEntityActionType;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
 import io.github.apace100.apoli.util.MiscUtil;
@@ -61,8 +62,10 @@ public class SpellHealActionType extends BiEntityActionType {
     }
 
     @Override
-    protected void execute(Entity actor, Entity target) {
-        if (actor == null || target == null || !(target instanceof LivingEntity livingTarget)
+    public void accept(BiEntityActionContext context) {
+        Entity actor = context.actor();
+        Entity target = context.target();
+        if (actor == null || !(target instanceof LivingEntity livingTarget)
                 || actor.level().isClientSide() || target.level().isClientSide()) {
             return;
         }

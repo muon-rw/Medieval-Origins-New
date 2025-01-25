@@ -3,6 +3,7 @@ package dev.muon.medievalorigins.condition.entity;
 import dev.muon.medievalorigins.condition.ModEntityConditionTypes;
 import io.github.apace100.apoli.condition.ConditionConfiguration;
 import io.github.apace100.apoli.condition.EntityCondition;
+import io.github.apace100.apoli.condition.context.EntityConditionContext;
 import io.github.apace100.apoli.condition.type.EntityConditionType;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
@@ -45,7 +46,8 @@ public class EntityInRadiusConditionType extends EntityConditionType {
     );
 
     @Override
-    public boolean test(Entity entity) {
+    public boolean test(EntityConditionContext context) {
+        Entity entity = context.entity();
         int stopAt = -1;
         switch (comparison) {
             case EQUAL, LESS_THAN_OR_EQUAL, GREATER_THAN -> stopAt = compareTo + 1;

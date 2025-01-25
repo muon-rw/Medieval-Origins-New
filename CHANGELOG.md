@@ -1,3 +1,7 @@
+## 7.0.0-alpha-4
+- Compatible with Origins alpha.12
+- Wood Elf covered-stealth is now a bit more "stealthy" (since it's now harder to apply)
+
 ## 7.0.0-alpha-3
 - Fix untranslated usability hints in tooltips
 - Fix Valkyrie Intervention heal not scaling based off of healing spell power

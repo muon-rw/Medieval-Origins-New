@@ -2,6 +2,7 @@ package dev.muon.medievalorigins.condition.entity;
 
 import dev.muon.medievalorigins.condition.ModEntityConditionTypes;
 import io.github.apace100.apoli.condition.ConditionConfiguration;
+import io.github.apace100.apoli.condition.context.EntityConditionContext;
 import io.github.apace100.apoli.condition.type.EntityConditionType;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
 import io.github.apace100.calio.data.SerializableData;
@@ -17,7 +18,8 @@ public class CreativeModeConditionType extends EntityConditionType {
     );
 
     @Override
-    public boolean test(Entity entity) {
+    public boolean test(EntityConditionContext context) {
+        Entity entity = context.entity();
         return entity instanceof Player player && player.getAbilities().instabuild;
     }
 

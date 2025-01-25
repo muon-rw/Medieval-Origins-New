@@ -87,7 +87,7 @@ public class OwnerAttributeTransferPowerType extends PowerType implements Attrib
                 var ownerAttr = owner.getAttribute(cachedHolder);
                 if (ownerAttr != null) {
                     updateScaledModifiersIfNeeded(ownerAttr.getValue());
-                    applyTempModifiers(getHolder());
+                    addTemporaryModifiers(getHolder());
                     this.wasActive = true;
                 }
             }
@@ -98,7 +98,7 @@ public class OwnerAttributeTransferPowerType extends PowerType implements Attrib
                 endTicks = getHolder().tickCount % tickRate;
             }
             else if (getHolder().tickCount % tickRate == endTicks) {
-                removeTempModifiers(getHolder());
+                removeModifiers(getHolder());
                 this.wasActive = false;
             }
         }
@@ -115,7 +115,7 @@ public class OwnerAttributeTransferPowerType extends PowerType implements Attrib
             var ownerAttr = summon.getOwner().getAttribute(cachedHolder);
             if (ownerAttr != null) {
                 updateScaledModifiersIfNeeded(ownerAttr.getValue());
-                applyTempModifiers(getHolder());
+                addTemporaryModifiers(getHolder());
                 this.wasActive = true;
             }
         }
@@ -123,12 +123,12 @@ public class OwnerAttributeTransferPowerType extends PowerType implements Attrib
 
     @Override
     public void onRemoved() {
-        removeTempModifiers(getHolder());
+        removeModifiers(getHolder());
     }
 
     @Override
     public void onLost() {
-        removeTempModifiers(getHolder());
+        removeModifiers(getHolder());
     }
 
 

@@ -6,6 +6,7 @@ import dev.muon.medievalorigins.entity.SummonedMob;
 import io.github.apace100.apoli.action.ActionConfiguration;
 import io.github.apace100.apoli.action.BiEntityAction;
 import io.github.apace100.apoli.action.EntityAction;
+import io.github.apace100.apoli.action.context.EntityActionContext;
 import io.github.apace100.apoli.action.type.EntityActionType;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
 import io.github.apace100.apoli.util.MiscUtil;
@@ -74,7 +75,8 @@ public class SummonEntityActionType extends EntityActionType {
     }
 
     @Override
-    protected void execute(Entity entity) {
+    public void accept(EntityActionContext context) {
+        Entity entity = context.entity();
         if (!(entity.level() instanceof ServerLevel serverWorld) || !(entity instanceof LivingEntity livingCaster)) {
             return;
         }

@@ -3,6 +3,7 @@ package dev.muon.medievalorigins.action.bientity;
 import dev.muon.medievalorigins.action.ModBientityActionTypes;
 import dev.muon.medievalorigins.entity.SummonedMob;
 import io.github.apace100.apoli.action.ActionConfiguration;
+import io.github.apace100.apoli.action.context.BiEntityActionContext;
 import io.github.apace100.apoli.action.type.BiEntityActionType;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
 import io.github.apace100.calio.data.SerializableData;
@@ -22,7 +23,9 @@ public class TransferItemActionType extends BiEntityActionType {
     );
 
     @Override
-    protected void execute(Entity actor, Entity target) {
+    public void accept(BiEntityActionContext context) {
+        Entity actor = context.actor();
+        Entity target = context.target();
         if (actor instanceof LivingEntity livingActor && target instanceof LivingEntity livingTarget) {
             ItemStack actorItem = livingActor.getMainHandItem().copy();
 

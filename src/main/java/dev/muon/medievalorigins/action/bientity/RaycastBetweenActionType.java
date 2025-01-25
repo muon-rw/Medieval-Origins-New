@@ -2,6 +2,7 @@ package dev.muon.medievalorigins.action.bientity;
 
 import dev.muon.medievalorigins.action.ModBientityActionTypes;
 import io.github.apace100.apoli.action.ActionConfiguration;
+import io.github.apace100.apoli.action.context.BiEntityActionContext;
 import io.github.apace100.apoli.action.type.BiEntityActionType;
 import io.github.apace100.apoli.data.TypedDataObjectFactory;
 import io.github.apace100.calio.data.SerializableData;
@@ -12,6 +13,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -42,13 +44,13 @@ public class RaycastBetweenActionType extends BiEntityActionType {
     }
 
     @Override
-    protected void execute(Entity actor, Entity target) {
+    public void accept(BiEntityActionContext context) {
+        Entity actor = context.actor();
+        Entity target = context.target();
+
         if (actor == null || target == null) {
             return;
         }
-
-        double distance = actor.distanceTo(target);
-        Vec3 direction = createDirectionVector(actor.position(), target.position());
 
         createParticlesAtHitPos(actor, new EntityHitResult(target));
     }

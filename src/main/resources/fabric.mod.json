@@ -34,7 +34,7 @@
 		"minecraft": "~1.21.1",
 		"java": ">=21",
 		"fabric-api": "*",
-		"origins": "*"
+		"origins": "1.13.0-alpha.12"
 	},
 	"suggests": {
 		"another-mod": "*"
