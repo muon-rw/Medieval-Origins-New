@@ -2,7 +2,7 @@
 	"type": "origins:multiple",
 	"camouflage": {
 		"type": "origins:model_color",
-		"alpha": 0.5,
+		"alpha": 0.3,
 		"condition": {
 			"type": "origins:and",
 			"conditions": [
