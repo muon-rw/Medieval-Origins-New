@@ -135,10 +135,6 @@
 					"compare_to": 0
 				},
 				{
-					"type": "origins:moving",
-					"inverted": true
-				},
-				{
 					"type": "origins:sneaking"
 				}
 			]

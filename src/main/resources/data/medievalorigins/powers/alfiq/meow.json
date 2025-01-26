@@ -9,15 +9,6 @@
 				{
 					"element": {
 						"type": "origins:play_sound",
-						"sound": "minecraft:entity.cat.purreow",
-						"pitch": 0.7,
-						"category": "players"
-					},
-					"weight": 2
-				},
-				{
-					"element": {
-						"type": "origins:play_sound",
 						"sound": "minecraft:entity.cat.stray_ambient",
 						"pitch": 0.7,
 						"category": "players"
@@ -32,15 +23,6 @@
 						"category": "players"
 					},
 					"weight": 3
-				},
-				{
-					"element": {
-						"type": "origins:play_sound",
-						"sound": "minecraft:entity.cat.beg_for_food",
-						"pitch": 0.7,
-						"category": "players"
-					},
-					"weight": 1
 				}
 			]
 		}
