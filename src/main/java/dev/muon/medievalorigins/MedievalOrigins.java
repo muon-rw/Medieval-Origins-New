@@ -4,6 +4,7 @@ import dev.muon.medievalorigins.action.ModEntityActionTypes;
 import dev.muon.medievalorigins.action.ModBientityActionTypes;
 import dev.muon.medievalorigins.attribute.ModAttributes;
 import dev.muon.medievalorigins.condition.ModBientityConditionTypes;
+import dev.muon.medievalorigins.condition.ModBlockConditionTypes;
 import dev.muon.medievalorigins.condition.ModEntityConditionTypes;
 import dev.muon.medievalorigins.condition.ModItemConditionTypes;
 import dev.muon.medievalorigins.entity.ModEntities;
@@ -34,9 +35,12 @@ public class MedievalOrigins implements ModInitializer {
 
 		ModEntityActionTypes.register();
 		ModBientityActionTypes.register();
+
 		ModItemConditionTypes.register();
+		ModBlockConditionTypes.register();
 		ModEntityConditionTypes.register();
 		ModBientityConditionTypes.register();
+
 		ModPowerTypes.register();
 
 		SummonTracker.init();
