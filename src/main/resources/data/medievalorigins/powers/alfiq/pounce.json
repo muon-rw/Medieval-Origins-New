@@ -159,10 +159,6 @@
 				},
 				{
 					"type": "origins:sneaking"
-				},
-				{
-					"type": "origins:moving",
-					"inverted": true
 				}
 			],
 			"inverted": true
