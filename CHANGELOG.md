@@ -1,3 +1,14 @@
+## 7.0.0-alpha-5
+- Add FTB Teams support to Valkyrie intervention/divine smite targeting logic
+- Add FTB Teams support to Revenant summons targeting
+- Fixed the badge tip for Pixie's flight effects toggle showing the wrong key
+- Alfiq can now charge Pounce while moving
+- Alfiq meows are now louder and more spammable :)
+- Alfiq player pickpocketing now has a cooldown
+- Made Goblins significantly less green, and Moon Elves a little less blue
+- Revenant Black Thumb should now work on most modded crop blocks automatically
+- Fixed the pickpocket cooldown bar always showing
+
 ## 7.0.0-alpha-4
 - Compatible with Origins alpha.12
 - Wood Elf covered-stealth is now a bit more "stealthy" (since it's now harder to apply)
