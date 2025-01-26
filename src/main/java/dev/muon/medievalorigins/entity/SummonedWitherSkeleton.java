@@ -205,21 +205,7 @@ public class SummonedWitherSkeleton extends WitherSkeleton implements SummonedMo
 
     @Override
     public boolean isAlliedTo(Entity entity) {
-        LivingEntity owner = this.getOwner();
-        if (owner == null) {
-            return super.isAlliedTo(entity);
-        }
-
-        if (entity == owner) {
-            return true;
-        }
-
-        if (entity instanceof OwnableEntity ownable) {
-            UUID otherOwnerId = ownable.getOwnerUUID();
-            return isAlliedOwner(otherOwnerId);
-        }
-
-        return owner.isAlliedTo(entity);
+        return isAllied(entity);
     }
 
     @Override

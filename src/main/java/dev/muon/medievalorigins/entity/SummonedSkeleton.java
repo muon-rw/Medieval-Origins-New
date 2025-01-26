@@ -3,7 +3,6 @@ package dev.muon.medievalorigins.entity;
 import dev.muon.medievalorigins.attribute.ModAttributes;
 import dev.muon.medievalorigins.entity.goal.FollowSummonerGoal;
 import dev.muon.medievalorigins.entity.goal.SummonedMobGoal;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -12,7 +11,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
@@ -206,21 +204,7 @@ public class SummonedSkeleton extends Skeleton implements SummonedMob {
 
     @Override
     public boolean isAlliedTo(Entity entity) {
-        LivingEntity owner = this.getOwner();
-        if (owner == null) {
-            return super.isAlliedTo(entity);
-        }
-
-        if (entity == owner) {
-            return true;
-        }
-
-        if (entity instanceof OwnableEntity ownable) {
-            UUID otherOwnerId = ownable.getOwnerUUID();
-            return isAlliedOwner(otherOwnerId);
-        }
-
-        return owner.isAlliedTo(entity);
+        return isAllied(entity);
     }
 
     @Override
