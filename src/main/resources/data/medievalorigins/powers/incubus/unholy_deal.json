@@ -12,7 +12,7 @@
 				"duration": 400
 			},
 			{
-				"id": "minecraft:instant_damage",
+				"id": "minecraft:instant_health",
 				"is_ambient": true,
 				"show_particles": false,
 				"show_icon": false,
