@@ -3,6 +3,7 @@
 - Revenants now restore a small amount of hunger when eating bones or heads
 - Fixed bones and heads not being edible if at full hunger
 - Removed reference to nonexistent Instant Cure power
+- Clarify spell engine dependency in fabric.mod.json, restrict from upcoming version
 
 ## 7.0.0-alpha-6
 - Fix Incubus' Unholy Deal not dealing any damage to the player
