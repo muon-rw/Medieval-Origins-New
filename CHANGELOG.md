@@ -1,3 +1,6 @@
+## 7.0.0-alpha-8
+- Made Incubi a bit less red
+
 ## 7.0.0-alpha-7
 - Cleaned up the description of Revenant's Revenance power, split into badges
 - Revenants now restore a small amount of hunger when eating bones or heads
