@@ -1,3 +1,7 @@
+## 7.0.0-alpha-9
+- Changed Alfiq's On Your Feet - now applies if the player is looking straight down when landing, instead of based on fall distance. 
+- Added dust particles to the leap section of Alfiq's Pounce
+
 ## 7.0.0-alpha-8
 - Made Incubi a bit less red
 

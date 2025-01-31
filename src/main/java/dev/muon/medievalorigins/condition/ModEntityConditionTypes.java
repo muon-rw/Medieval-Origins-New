@@ -20,6 +20,7 @@ public class ModEntityConditionTypes {
     public static final ConditionConfiguration<CreativeModeConditionType> CREATIVE_MODE = register(ConditionConfiguration.of(MedievalOrigins.loc("creative_mode"), CreativeModeConditionType.DATA_FACTORY));
     public static final ConditionConfiguration<OptionalDimensionConditionType> OPTIONAL_DIMENSION = register(ConditionConfiguration.of(MedievalOrigins.loc("dimension"), OptionalDimensionConditionType.DATA_FACTORY));
     public static final ConditionConfiguration<CoveredByBlockConditionType> COVERED_BY_BLOCK = register(ConditionConfiguration.of(MedievalOrigins.loc("covered_by_block"), CoveredByBlockConditionType.DATA_FACTORY));
+    public static final ConditionConfiguration<LookingDownConditionType> LOOKING_DOWN = register(ConditionConfiguration.of(MedievalOrigins.loc("looking_down"), LookingDownConditionType.DATA_FACTORY));
 
     public static void register() {
     }

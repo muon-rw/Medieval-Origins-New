@@ -63,7 +63,7 @@
   "power.medievalorigins.alfiq.crepuscular.description": "Near sunset and sunrise, Alfiq will move and attack much more quickly. At other times, they are lethargic and slightly slower.",
 
   "power.medievalorigins.alfiq.on_your_feet.name": "On Your Feet",
-  "power.medievalorigins.alfiq.on_your_feet.description": "If you ever fall from a height where you would take 5 hearts or more of damage, they instead take no damage at all.",
+  "power.medievalorigins.alfiq.on_your_feet.description": "If, while landing, you are looking straight down, take no damage from the fall.",
 
   "power.medievalorigins.alfiq.pickpocket.name": "Pickpocket",
   "power.medievalorigins.alfiq.pickpocket.description": "Right click the back of a villager while crouching with empty paws for a chance to steal some emeralds. Or get caught. Rumor has it you may be able to steal from other players.",
