@@ -1,5 +1,5 @@
 ## 7.0.0-alpha-6
-- Fix Incubus Unholy Deal not dealing damage
+- Fix Incubus' Unholy Deal not dealing any damage to the player
 
 ## 7.0.0-alpha-5
 - Add FTB Teams support to Valkyrie intervention/divine smite targeting logic
