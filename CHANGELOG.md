@@ -1,7 +1,5 @@
 ## 7.0.0-alpha-7
 - Cleaned up the description of Revenant's Revenance power, split into badges
-- Remove summary overviews (misleading/confusing/clutter)
-- Improved a few other descriptions
 - Revenants now restore a small amount of hunger when eating bones or heads
 - Fixed bones and heads not being edible if at full hunger
 - Removed reference to nonexistent Instant Cure power
