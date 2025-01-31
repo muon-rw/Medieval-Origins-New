@@ -1,5 +1,5 @@
 {
-  "origin.origins.human.description": "-§l Notable Changes§r: \n§oNone§r\n\n A human's fate is more open than most - venture forth with no benefits or drawbacks.",
+  "origin.origins.human.description": "A human's fate is more open than most - venture forth with no benefits or drawbacks.",
 
   "origin.medievalorigins.alfiq.name": "Alfiq",
   "origin.medievalorigins.alfiq.description": "-§l Notable Changes§r: \n§o§2+ Unarmed Bonus§r\n§o§2+ Unique Movement§r\n§o§6• Carnivore§r\n§o§c- Defense§r\n§lAlfiq§r are a cunning species of anthropomorphic felines with sharp claws and excellent agility. Their roads often lead to warm sands.",
@@ -51,6 +51,9 @@
 
   "origin.medievalorigins.yeti.name": "Yeti",
   "origin.medievalorigins.yeti.description": "-§l Notable Changes§r: \n§o§2+ Frost-Based, Tanky§r\n§o§6• Large: 203cm.6'8\"§r\n§o§c- Heat Sensitive§r\nThick-furred beasts from frosty woods, a Yeti's dominion over ice allows them to freeze foes, but they are especially vulnerable to fiery attacks.",
+
+  "origin.medievalorigins.valkyrie.name": "Valkyrie",
+  "origin.medievalorigins.valkyrie.description": "-§l Notable Changes§r: \n§o§2+ Healing§r \n§o§6• Feathered wings§r \n§o§c- Weak to Undead§r\n§lValkyrie§r are fearless winged warriors who decide the fate of those in battle; they were said to have carried the dead to Odin's Valhalla",
 
   
   "power.medievalorigins.alfiq.clawed.name": "Clawed",
@@ -427,10 +430,10 @@
   "power.medievalorigins.revenant.unwitherable.description": "Revenants are immune to wither, and, like undead, they take extra damage from smite, receive inverted effects from harming and healing effects, and are immune to poison and regeneration effects.",
 
   "power.medievalorigins.revenant.putrid_communion.name": "Putrid Communion",
-  "power.medievalorigins.revenant.putrid_communion.description": "Through the unsettling act of consuming the flesh or bones of the undead, a revenant can empower their next summon of the same type. \n\nFor combat creatures, extend their duration, making them permanent at max power. For undead steeds, enhance their attributes at max power.",
+  "power.medievalorigins.revenant.putrid_communion.description": "Through the unsettling act of consuming the flesh or bones of the undead, a revenant can empower their next summon of the same type. \nFor combat creatures, extend their duration, making them permanent at max power. For undead steeds, enhance their attributes at max power.",
 
   "power.medievalorigins.revenant.skeleton_summons.name": "Revenance",
-  "power.medievalorigins.revenant.skeleton_summons.description": "Revenants can reconstruct creatures of the night modified to do their own bidding. \nThese act as pets, will follow and teleport, and §nskeletons§r can be equipped with any weapon. \nYou can only sustain up to 5 combat summons at a time. Summon by activating while holding: \n§f§nSkeleton§r: \n- Mainhand: 4 bones\n§oDuration: 10 minutes§r\n§f§nSkeleton Horse§r:\n- Mainhand: 12 bones\n- Offhand: 1 saddle\n§oPermanent duration§r\n§7§nWither Skeleton§r: \n- Mainhand: 12 bones\n- Offhand: 1 wither skull\n§oDuration: 30 minutes§r\n§2§nZombie§r: \n- Mainhand: 4 flesh\n§oDuration: 5 minutes§r\n§2§nZombie Horse§r: \n- Mainhand: 12 flesh\n- Offhand: 1 saddle\n§oPermanent duration§r",
+  "power.medievalorigins.revenant.skeleton_summons.description": "Revenants can reconstruct creatures of the night modified to do their own bidding. These act as pets, will follow and teleport, and §nskeletons§r can be equipped with any weapon. Hover the badges for details.",
 
   "power.medievalorigins.revenant.poor_reputation.name": "Chaotic Ally",
   "power.medievalorigins.revenant.poor_reputation.description": "Villagers will refuse to trade with revenants and iron golems will attack them on sight. However, they are tolerated (tenuously) by Pillagers.",
@@ -440,9 +443,6 @@
 
   "power.medievalorigins.revenant.unguarded.name": "Unguarded",
   "power.medievalorigins.revenant.unguarded.description": "Obsessing over the spirit realm leaves revenants more open to attack in the physical realm. Most mobs deal more damage to them.",
-
-  "origin.medievalorigins.valkyrie.name": "Valkyrie",
-  "origin.medievalorigins.valkyrie.description": "-§l Notable Changes§r: \n§o§2+ Healing§r \n§o§6• Feathered wings§r \n§o§c- Weak to Undead§r\n§lValkyrie§r are fearless winged warriors who decide the fate of those in battle; they were said to have carried the dead to Odin's Valhalla",
 
   "power.medievalorigins.valkyrie.wings.name": "Feathered",
   "power.medievalorigins.valkyrie.wings.description": "Valkyrie have massive white feathered wings, and can fly freely.",
@@ -492,6 +492,13 @@
 
   "badges.medievalorigins.revenant.command": "Press %s while sneaking to cycle between commanding your summons to sit, follow, or teleport to you.",
 
+  "badges.medievalorigins.revenant.summons_limit": "You can only sustain up to 5 combat summons at a time.",
+  "badges.medievalorigins.revenant.summon_skeleton": "§f§nSkeleton§r:\n- Mainhand: 4 bones\n§oDuration: 10 minutes§r",
+  "badges.medievalorigins.revenant.summon_skeleton_horse": "§f§nSkeleton Horse§r:\n- Mainhand: 12 bones\n- Offhand: 1 saddle\n§oPermanent duration§r",
+  "badges.medievalorigins.revenant.summon_wither": "§7§nWither Skeleton§r:\n- Mainhand: 12 bones\n- Offhand: 1 wither skull\n§oDuration: 30 minutes§r",
+  "badges.medievalorigins.revenant.summon_zombie": "§2§nZombie§r:\n- Mainhand: 4 flesh\n§oDuration: 5 minutes§r",
+  "badges.medievalorigins.revenant.summon_zombie_horse": "§2§nZombie Horse§r:\n- Mainhand: 12 flesh\n- Offhand: 1 saddle\n§oPermanent duration§r",
+  
   "badges.medievalorigins.high_elf.glacial_step": "§bGlacial Step:§r Hold an ice block to manipulate the entropy of water molecules, allowing you to walk as if you had Frost Walker",
   "badges.medievalorigins.high_elf.extrusive_movement": "§4Extrusive Movement:§r Hold obsidian to channel the flow of heat and walk freely on smoldering lava",
   "badges.medievalorigins.high_elf.instant_cure": "§eInstant Cure:§r Right click a villager with a golden apple to directly channel its healing energy without needing to weaken them",

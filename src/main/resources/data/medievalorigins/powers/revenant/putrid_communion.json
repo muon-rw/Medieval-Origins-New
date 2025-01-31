@@ -60,11 +60,10 @@
 			}
 		},
 		"food_component": {
-			"nutrition": 0,
+			"nutrition": 1,
 			"saturation": 0,
-			"always_edible": true,
-			"snack": true,
-			"meat": false
+			"can_always_eat": true,
+			"eat_seconds": 2
 		},
 		"consume_animation": "eat",
 		"item_action": {
@@ -96,10 +95,10 @@
 			}
 		},
 		"food_component": {
-			"nutrition": 0,
+			"nutrition": 1,
 			"saturation": 0,
-			"always_edible": true,
-			"meat": false
+			"can_always_eat": true,
+			"eat_seconds": 2
 		},
 		"consume_animation": "eat",
 		"item_action": {
@@ -131,10 +130,10 @@
 			}
 		},
 		"food_component": {
-			"nutrition": 0,
+			"nutrition": 1,
 			"saturation": 0,
-			"always_edible": true,
-			"meat": false
+			"can_always_eat": true,
+			"eat_seconds": 2
 		},
 		"consume_animation": "eat",
 		"item_action": {
@@ -183,10 +182,10 @@
 			}
 		},
 		"food_component": {
-			"nutrition": 0,
+			"nutrition": 1,
 			"saturation": 0,
-			"always_edible": true,
-			"meat": false
+			"can_always_eat": true,
+			"eat_seconds": 2
 		},
 		"consume_animation": "eat",
 		"item_action": {
