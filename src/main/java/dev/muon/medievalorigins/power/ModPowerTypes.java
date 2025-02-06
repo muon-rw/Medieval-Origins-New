@@ -13,6 +13,7 @@ public class ModPowerTypes {
     public static final PowerConfiguration<ActionOnTargetDeathPowerType> ACTION_ON_TARGET_DEATH = register(ActionOnTargetDeathPowerType.FACTORY);
     public static final PowerConfiguration<CustomDeathSoundPowerType> CUSTOM_DEATH_SOUND = register(CustomDeathSoundPowerType.FACTORY);
     public static final PowerConfiguration<ActionOnJumpPowerType> ACTION_ON_JUMP = register(ActionOnJumpPowerType.FACTORY);
+    public static final PowerConfiguration<AttributePowerType> ATTRIBUTE = register(AttributePowerType.FACTORY);
 
     public static void register() {
     }

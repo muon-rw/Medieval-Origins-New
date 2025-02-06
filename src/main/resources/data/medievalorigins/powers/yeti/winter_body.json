@@ -1,7 +1,7 @@
 {
 	"type": "origins:multiple",
 	"sizes": {
-		"type": "origins:attribute",
+		"type": "medievalorigins:attribute",
 		"modifiers": [
 			{
 				"id": "*:*",

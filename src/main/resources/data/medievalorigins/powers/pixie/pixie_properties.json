@@ -9,7 +9,7 @@
 		"id": "*:*"
 	},
 	"attributes": {
-		"type": "origins:attribute",
+		"type": "medievalorigins:attribute",
 		"modifiers": [
 			{
 				"id": "*:*",

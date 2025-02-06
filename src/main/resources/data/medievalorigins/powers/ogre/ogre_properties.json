@@ -9,7 +9,7 @@
 		}
 	},
 	"damage": {
-		"type": "origins:attribute",
+		"type": "medievalorigins:attribute",
 		"modifier": {
 			"attribute": "minecraft:generic.attack_damage",
 			"operation": "add_multiplied_base",

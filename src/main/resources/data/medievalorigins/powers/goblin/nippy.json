@@ -1,5 +1,5 @@
 {
-	"type": "origins:attribute",
+	"type": "medievalorigins:attribute",
 	"modifier": {
 		"attribute": "minecraft:generic.movement_speed",
 		"operation": "add_value",

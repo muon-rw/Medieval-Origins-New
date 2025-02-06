@@ -21,7 +21,7 @@
 		}
 	},
 	"extra_roll": {
-		"type": "origins:attribute",
+		"type": "medievalorigins:attribute",
 		"modifier": {
 			"attribute": "combatroll:count",
 			"amount": 1,
