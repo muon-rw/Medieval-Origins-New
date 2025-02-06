@@ -49,9 +49,6 @@
   "origin.medievalorigins.siren.name": "Сирена",
   "origin.medievalorigins.siren.description": "-§l Изменения§r: \n§o§2+ Живут в воде, утилиты §r\n§o§6• Слабы на суше§r\n§o§c- Восприимчив к огню\n§lСирены§r - говорят, что это разновидность Мерфолков. Они обладают пленительной аурой, а их непреодолимая красота, как говорят, может погубить многих глупых моряков.",
 
-  "origin.medievalorigins.troll.name": "Троль",
-  "origin.medievalorigins.troll.description": "-§l Изменения§r: \n§o§cЕЩЁ НЕ РЕАЛИЗОВАНЫ§r\nКрупные, неуклюжие великаны, родом из гор, тролли агрессивны и самодостаточны — они предпочитают жить и сражаться в одиночку.",
-
   "origin.medievalorigins.yeti.name": "Йети",
   "origin.medievalorigins.yeti.description": "-§l Изменения§r: \n§o§2+ Любят холод, Танк§r\n§o§6• Большие: 203см\"§r\n§o§c- Восприимчив к жаре\nЗвери с густой шерстью из морозных лесов, власть йети над льдом позволяет им замораживать врагов, но они особенно уязвимы для огненных атак.",
 
@@ -152,9 +149,6 @@
 
   "power.medievalorigins.dwarf.miniature.name": "Низкорослый",
   "power.medievalorigins.dwarf.miniature.description": "Дворфы достаточно малы, чтобы поместиться в туннель высотой 1 метр (и шириной почти такой же).",
-
-  "power.medievalorigins.dwarf.mythril_resonance.name": "Мифриловый резонанс",
-  "power.medievalorigins.dwarf.mythril_resonance.description": "Мощные металлы, несущие в себе дух вашего народа, наполняют вас мощью.",
 
   "power.medievalorigins.dwarf.nocturnal_eyes.name": "Ночные глаза",
   "power.medievalorigins.dwarf.nocturnal_eyes.description": "Жизнь под землей привела к тому, что у дварфов очень чувствительные глаза: они могут сосредоточиться и ясно видеть даже в темных пещерах.",
@@ -333,9 +327,6 @@
   "power.medievalorigins.pixie.good_fortunes.name": "Отличная удача",
   "power.medievalorigins.pixie.good_fortunes.description": "Хотя пикси могут доставлять хлопоты, они также связаны с удачей. При добыче из простого камня иногда можно получить что-то ценное.",
 
-  "power.medievalorigins.pixie.mischief_maketh_man.name": "Озорство делает человека",
-  "power.medievalorigins.pixie.mischief_maketh_man.description": "Пикси способны совершать многочисленные озорные поступки, которые если и не всегда опасны, то, безусловно, громки.",
-
   "power.medievalorigins.pixie.pixie_properties.name": "Очень маленький размер",
   "power.medievalorigins.pixie.pixie_properties.description": "Пикси — одни из самых маленьких существ, бродящих по земле, редко достигающие даже колен среднего человека.",
 
@@ -381,44 +372,11 @@
   "power.medievalorigins.siren.out_of_your_depth.name": "Из глубины",
   "power.medievalorigins.siren.out_of_your_depth.description": "Хотя сирены могут прекрасно выжить на суше, это не их естественная среда обитания. Таким образом, их регенеративные способности не применяются, и любой полученный урон можно вылечить только с помощью зелий.",
 
-  "power.medievalorigins.siren.prone.name": "Склонный",
-  "power.medievalorigins.siren.prone.description": "Хотя сирены могут регенерировать свои тела, они восприимчивы к тупой силе. Атаки ближнего боя наносят им больший урон.",
-
   "power.medievalorigins.siren.siren_song.name": "Песнь сирены",
   "power.medievalorigins.siren.siren_song.description": "Сирены известны своими заманчивыми криками. Нажмите основную клавишу, чтобы сделать всех мобов вокруг вас нейтральными, пока их не ударят. Не действует на боссов и игроков.",
 
   "power.medievalorigins.siren.seduce.name": "Захватывающий",
   "power.medievalorigins.siren.seduce.description": "Сирены, кажется, могут иногда получать гораздо более выгодные сделки от жителей деревни.",
-  
-  "power.medievalorigins.siren.water_vision.name": "Водное видение",
-  "power.medievalorigins.siren.water_vision.description": "Сирены обладают превосходным подводным зрением по сравнению с другими существами.",
-
-  "power.medievalorigins.troll.apex_predator.name": "Хищник вершины",
-  "power.medievalorigins.troll.apex_predator.description": "Тролли не могут есть обычную пищу и могут утолить голод, только убивая других существ.",
-
-  "power.medievalorigins.troll.ham_fisted.name": "Большой кулак",
-  "power.medievalorigins.troll.ham_fisted.description": "Хотя огромные кулаки тролля наносят мощный удар, они слишком громоздки, чтобы удержать щит.",
-
-  "power.medievalorigins.troll.ironhide.name": "Железная шкура",
-  "power.medievalorigins.troll.ironhide.description": "У троллей невероятно толстая кожа, что дает им естественную броню и значительно увеличенное здоровье.",
-
-  "power.medievalorigins.troll.lumbering.name": "Громоздкий",
-  "power.medievalorigins.troll.lumbering.description": "Когда ты размером с тролля, тебе приходится нести большой вес. Движение заметно медленнее, чем можно было бы ожидать для их размера.",
-
-  "power.medievalorigins.troll.mountainous.name": "Горный",
-  "power.medievalorigins.troll.mountainous.description": "Тролли живут в горах. Они очень высокие, в два раза больше среднего человека.",
-
-  "power.medievalorigins.troll.old_blood.name": "Старая кровь",
-  "power.medievalorigins.troll.old_blood.description": "Старая кровь, текущая в жилах троллей, связана с горами. Они не могут исцелиться за пределами своей холмистой родины.",
-
-  "power.medievalorigins.troll.out_of_stock.name": "Распродано",
-  "power.medievalorigins.troll.out_of_stock.description": "Как бы они ни старались, тролли, похоже, никогда не смогут найти доспехи своего размера. Таким образом, они обречены ходить в том покрове, который дала им природа, и не более того.",
-
-  "power.medievalorigins.troll.rock_throw.name": "Бросок камня",
-  "power.medievalorigins.troll.rock_throw.description": "Тролль может по своему желанию швырнуть в воздух большой камень, пробивая все, что может встретиться на его пути. Однако за это придется заплатить 64 драгоценных блока булыжника.",
-
-  "power.medievalorigins.troll.thunderous_stride.name": "Громовой шаг",
-  "power.medievalorigins.troll.thunderous_stride.description": "Тролли ходят целеустремленно. Если они будут упорствовать достаточно долго, они смогут пройти сквозь любое препятствие, которое может встретиться на их пути.",
 
   "power.medievalorigins.yeti.flammable.name": "Легковоспламеняющийся",
   "power.medievalorigins.yeti.flammable.description": "Йети подвержены повреждениям от огня из-за своей зимней природы.",

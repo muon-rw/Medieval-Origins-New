@@ -41,9 +41,6 @@
   "origin.medievalorigins.siren.name": "海妖",
   "origin.medievalorigins.siren.description": "海妖有一种诱人的光环；据说，她们无法抗拒的美丽使许多愚蠢的水手堕落，可怜那些将美貌与善良混为一谈的人...",
 
-  "origin.medievalorigins.troll.name": "巨魔",
-  "origin.medievalorigins.troll.description": "巨魔是来自山区的大型笨重野兽，是这片土地上最凶猛的野兽，但巨大的体型也可能成为它们的致命弱点。",
-
   "origin.medievalorigins.yeti.name": "雪人",
   "origin.medievalorigins.yeti.description": "雪人是冰雪山峰上的巨人，冰冷的特性让它们几乎可以阻挡任何敌人，但也会让雪人容易受到来自火焰的攻击。",
 
@@ -65,23 +62,14 @@
   "power.medievalorigins.arachnae.venomous_bite.name": "剧毒撕咬",
   "power.medievalorigins.arachnae.venomous_bite.description": "蛛魔的獠牙拥有毒液，每次攻击都有概率使目标进入中毒状态。",
 
-  "power.medievalorigins.arachnae.web_slinger.name": "蛛魔之力",
-  "power.medievalorigins.arachnae.web_slinger.description": "蛛魔拥有织网的能力，可以使目标在短时间内无法移动。",
-
   "power.medievalorigins.banshee.spectral.name": "光谱",
   "power.medievalorigins.banshee.spectral.description": "女妖拥有随时变幻的能力，这意味着女妖可以免疫一些伤害，但这项能力有一定的冷却时间，可通过按快捷键激活。",
-
-  "power.medievalorigins.banshee.flesheater.name": "肉食者",
-  "power.medievalorigins.banshee.flesheater.description": "女妖以活人的器官为食，女妖那幽灵般的身体无法使用普通的水果和蔬菜。",
 
   "power.medievalorigins.banshee.hexed.name": "女妖之咒",
   "power.medievalorigins.banshee.hexed.description": "女妖以擅长诅咒而闻名，每当女妖被攻击时，攻击者都有一定的概率陷入缓慢且痛苦的死亡诅咒中。",
 
   "power.medievalorigins.banshee.immaterial.name": "无关紧要",
   "power.medievalorigins.banshee.immaterial.description": "不死之身并非没有后果，女妖的生命值只有正常人的一半。",
-
-  "power.medievalorigins.banshee.iron_aversion.name": "厌铁症",
-  "power.medievalorigins.banshee.iron_aversion.description": "铁对于女妖来说是致命的，因此，女妖无法穿戴铁制盔甲。",
 
   "power.medievalorigins.banshee.sonic_shriek.name": "声波尖叫",
   "power.medievalorigins.banshee.sonic_shriek.description": "女妖可对指定的一个目标发出恐怖而尖锐的尖叫声，对该目标造成魔法伤害并使其进入恶心状态。",
@@ -119,14 +107,8 @@
   "power.medievalorigins.dwarf.miniature.name": "矮胖",
   "power.medievalorigins.dwarf.miniature.description": "矮人比正常人更矮，但是宽度似乎和正常人一样。",
 
-  "power.medievalorigins.dwarf.mythril_resonance.name": "神话共鸣",
-  "power.medievalorigins.dwarf.mythril_resonance.description": "承载着贵国人民精神的强大金属会让你充满力量。",
-
   "power.medievalorigins.dwarf.nocturnal_eyes.name": "夜之眼",
   "power.medievalorigins.dwarf.nocturnal_eyes.description": "生活在地下的矮人拥有一双高度灵敏的眼睛，即使在地下洞穴也可以拥有不错的视野。",
-
-  "power.medievalorigins.dwarf.photoallergic.name": "光过敏",
-  "power.medievalorigins.dwarf.photoallergic.description": "矮人的皮肤无法适应山洞之外的环境，除非佩戴头盔否则阳光会灼烧矮人。",
 
   "power.medievalorigins.dwarf.potent_brew.name": "烈性啤酒",
   "power.medievalorigins.dwarf.potent_brew.description": "矮人的酒量是出了名大，能把比矮人体型大一倍的人喝趴下，通过快捷键激活后可一次性喝完并恢复矮人的全部生命值。",
@@ -239,14 +221,8 @@
   "power.medievalorigins.revenant.hellraiser.name": "地狱魔王",
   "power.medievalorigins.revenant.hellraiser.description": "亡灵巫师可以随意召唤一圈的骷髅来作为盾牌，这些被召唤的骷髅可以阻止投掷物攻击巫师，但骷髅的存在时间并不会很长。",
 
-  "power.medievalorigins.revenant.impervious.name": "不透水",
-  "power.medievalorigins.revenant.impervious.description": "亡灵巫师对于死亡的研究使巫师对中毒、凋零和瞬间伤害效果免疫，不幸的是，这也就意味着巫师也无法对再生和瞬间治疗效果生效。",
-
   "power.medievalorigins.revenant.poor_reputation.name": "声誉不佳",
   "power.medievalorigins.revenant.poor_reputation.description": "不幸的是，黑暗的艺术致使村民感到恐惧。村民非常不愿意和亡灵巫师进行交易，铁傀儡也会攻击亡灵巫师。只不过虽然如此，但是和女巫的关系还不错。",
-
-  "power.medievalorigins.revenant.resilient.name": "弹性",
-  "power.medievalorigins.revenant.resilient.description": "对于死亡的研究致使亡灵巫师拥有更多的生命值。",
 
   "power.medievalorigins.revenant.siphon.name": "虹吸",
   "power.medievalorigins.revenant.siphon.description": "撕裂出你的部分灵魂，并将其辐射到你周围的领域中，强化任何对你没有攻击欲望的敌对生物，但是也会付出一定的代价。",
@@ -272,9 +248,6 @@
   "power.medievalorigins.ogre.sluggish.name": "缓慢",
   "power.medievalorigins.ogre.sluggish.description": "食人魔的移动速度会很慢，几乎没有赢过比赛。",
 
-  "power.medievalorigins.ogre.orcish_pride.name": "兽人骄傲",
-  "power.medievalorigins.ogre.orcish_pride.description": "食人魔喜欢绿色的金属，食人魔不知道那是什么，也许是家的味道？",
-
   "power.medievalorigins.ogre.stocky.name": "矮胖",
   "power.medievalorigins.ogre.stocky.description": "强壮的食人魔，难以杀死的食人魔。",
 
@@ -289,9 +262,6 @@
 
   "power.medievalorigins.pixie.good_fortunes.name": "好运气",
   "power.medievalorigins.pixie.good_fortunes.description": "虽然精灵很麻烦，但它们也与好运有关。当你在采矿时，会偶尔会从普通石头中得到一些有价值的东西。",
-
-  "power.medievalorigins.pixie.mischief_maketh_man.name": "恶作剧造就人类",
-  "power.medievalorigins.pixie.mischief_maketh_man.description": "精灵们能做出许多恶作剧行为，这些行为即使不危险，也肯定很吵闹。",
 
   "power.medievalorigins.pixie.pixie_properties.name": "小体型",
   "power.medievalorigins.pixie.pixie_properties.description": "精灵是世界上体型最小的生物之一，它们的身高很少能达到普通人的膝盖。",
@@ -335,44 +305,11 @@
   "power.medievalorigins.siren.out_of_your_depth.name": "超出深度",
   "power.medievalorigins.siren.out_of_your_depth.description": "虽然海妖可以在陆地上正常的生存，但是由于陆地并非是海妖的自然环境，所以海妖天生的再生能力在陆地上并不会生效，在陆地上受伤之后需要通过药水才能恢复生命值。",
 
-  "power.medievalorigins.siren.prone.name": "俯卧",
-  "power.medievalorigins.siren.prone.description": "虽然海妖的身体拥有再生的能力，但是海妖由于鳞片比较脆弱，所以对钝器的抵抗力比较弱，当受到近战伤害时会掉更多的生命值。",
-
   "power.medievalorigins.siren.siren_song.name": "海妖之歌",
   "power.medievalorigins.siren.siren_song.description": "海妖以其诱人的叫声而闻名，按下快捷键后可使周围所有小怪变成中立，直到再次受到攻击，该效果对BOSS和玩家无效。",
 
   "power.medievalorigins.siren.seduce.name": "迷人",
   "power.medievalorigins.siren.seduce.description": "海妖可以用自己的美貌征服村民，说服村民来进行更有利的交易。要执行此操作，请面对一个村民并按下快捷键。",
-  
-  "power.medievalorigins.siren.water_vision.name": "水下视野",
-  "power.medievalorigins.siren.water_vision.description": "海妖在水下的视野比其他生物更清晰。",
-
-  "power.medievalorigins.troll.apex_predator.name": "顶级掠食者",
-  "power.medievalorigins.troll.apex_predator.description": "巨魔无法吃普通的食物，只能通过击杀其他的巨魔来恢复生命值。",
-
-  "power.medievalorigins.troll.ham_fisted.name": "火腿肠",
-  "power.medievalorigins.troll.ham_fisted.description": "巨魔的巨拳虽然威力无穷，但太笨重了，根本无法拿起盾牌。",
-
-  "power.medievalorigins.troll.ironhide.name": "铁皮",
-  "power.medievalorigins.troll.ironhide.description": "巨魔的皮肤非常厚，这使得巨魔拥有天然的护甲值和更多的生命值。",
-
-  "power.medievalorigins.troll.lumbering.name": "伐木",
-  "power.medievalorigins.troll.lumbering.description": "当你像巨魔一样大的时候，你就有很多东西要扛。与它们的体型相比，移动速度明显要慢。",
-
-  "power.medievalorigins.troll.mountainous.name": "多山",
-  "power.medievalorigins.troll.mountainous.description": "巨怪的外形与它们来自的山脉相似。巨魔的身材高大，是普通人的两倍。",
-
-  "power.medievalorigins.troll.old_blood.name": "旧血",
-  "power.medievalorigins.troll.old_blood.description": "巨魔血管中流淌的古老血液与山脉紧密相连，巨魔无法在自己的丘陵家园之外治愈自己。",
-
-  "power.medievalorigins.troll.out_of_stock.name": "缺货",
-  "power.medievalorigins.troll.out_of_stock.description": "巨魔们想尽办法，似乎也找不到符合他们体型的盔甲。因此，他们注定只能靠大自然赋予他们的外衣行走，仅此而已。",
-
-  "power.medievalorigins.troll.rock_throw.name": "投石机",
-  "power.medievalorigins.troll.rock_throw.description": "巨魔可以随心所欲地将一块大石头抛向空中，碾过任何可能碰到的东西。不过，这样做的代价是需要64块珍贵的圆石。",
-
-  "power.medievalorigins.troll.thunderous_stride.name": "雷鸣步伐",
-  "power.medievalorigins.troll.thunderous_stride.description": "巨魔行走时目标明确，只要坚持行走足够长的时间，它们就能径直穿过任何可能会遇到的障碍。",
 
   "power.medievalorigins.yeti.flammable.name": "易燃",
   "power.medievalorigins.yeti.flammable.description": "雪人因其寒冷的天性很容易受到火灾的伤害。",
@@ -412,14 +349,6 @@
   "medievalorigins.poor_reputation_villager": "村民不敢和你交易！",
 
   "medievalorigins.troublemaker": "村民不和你们这种人做交易！",
-
-  "medievalorigins.looting_bonus": "有概率增加生物的战利品",
-
-  "medievalorigins.unwearable": "无法穿戴",
-
-  "medievalorigins.damage_dealt": "造成伤害",
-
-  "medievalorigins.self_wither": "手持凋零",
 
   "medievalorigins.uncastable": "你现在无法使用该能力。"
 }
