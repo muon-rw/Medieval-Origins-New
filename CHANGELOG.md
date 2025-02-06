@@ -1,3 +1,6 @@
+## 7.0.1-alpha-1
+- Add temporary patch for Origins alpha bug - fixes attributes/sizes resetting on respawn
+- 
 ## 7.0.0-alpha-9
 - Changed Alfiq's On Your Feet - now applies if the player is looking straight down when landing, instead of based on fall distance. 
 - Added dust particles to the leap section of Alfiq's Pounce
